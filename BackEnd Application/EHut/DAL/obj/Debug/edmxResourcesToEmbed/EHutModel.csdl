@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EHutModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Credentials" Relationship="Self.FK_dbo_Credentials_dbo_Admins_UserId" FromRole="Admins" ToRole="Credentials" />
+  </EntityType>
+  <EntityType Name="BankInformation">
+    <Key>
+      <PropertyRef Name="BankInformationId" />
+    </Key>
+    <Property Name="BankInformationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AccountHolderName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AccountNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BranchName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoutingNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChequeBookImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Shops" Relationship="Self.FK_dbo_Shops_dbo_BankInformations_BankInformationId" FromRole="BankInformations" ToRole="Shops" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="BrandId" />
+    </Key>
+    <Property Name="BrandId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_dbo_Products_dbo_Brands_BrandId" FromRole="Brands" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_dbo_Products_dbo_Categories_CategoryId" FromRole="Categories" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Credential">
+    <Key>
+      <PropertyRef Name="CredentialId" />
+    </Key>
+    <Property Name="CredentialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin" Relationship="Self.FK_dbo_Credentials_dbo_Admins_UserId" FromRole="Credentials" ToRole="Admins" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_Credentials_dbo_Customers_UserId" FromRole="Credentials" ToRole="Customers" />
+    <NavigationProperty Name="Manager" Relationship="Self.FK_dbo_Credentials_dbo_Managers_UserId" FromRole="Credentials" ToRole="Managers" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumberOfFamilyMemberAdult" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfFamilyMemberChild" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfDeliveryGrocery" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfDeliveryVegitables" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryDay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Credentials" Relationship="Self.FK_dbo_Credentials_dbo_Customers_UserId" FromRole="Customers" ToRole="Credentials" />
+    <NavigationProperty Name="MonthlyExpenditures" Relationship="Self.FK_dbo_MonthlyExpenditures_dbo_Customers_CustomerId" FromRole="Customers" ToRole="MonthlyExpenditures" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_dbo_Orders_dbo_Customers_CustomerId" FromRole="Customers" ToRole="Orders" />
+    <NavigationProperty Name="SalesRecords" Relationship="Self.FK_dbo_SalesRecords_dbo_Customers_CustomerId" FromRole="Customers" ToRole="SalesRecords" />
+    <NavigationProperty Name="ShopReviews" Relationship="Self.FK_dbo_ShopReviews_dbo_Customers_CustomerId" FromRole="Customers" ToRole="ShopReviews" />
+  </EntityType>
+  <EntityType Name="Deliveryman">
+    <Key>
+      <PropertyRef Name="DeliveryManId" />
+    </Key>
+    <Property Name="DeliveryManId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="Rating" Type="Double" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_dbo_Orders_dbo_Deliverymen_DeliverymanId" FromRole="Deliverymen" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Discount">
+    <Key>
+      <PropertyRef Name="DiscountId" />
+    </Key>
+    <Property Name="DiscountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProviderId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Percentage" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Manager" Relationship="Self.FK_dbo_Discounts_dbo_Managers_ProviderId" FromRole="Discounts" ToRole="Managers" />
+    <NavigationProperty Name="Shop" Relationship="Self.FK_dbo_Discounts_dbo_Shops_ProviderId" FromRole="Discounts" ToRole="Shops" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_dbo_Orders_dbo_Discounts_DiscountId" FromRole="Discounts" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="ImageSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_dbo_Images_dbo_Products_ProductId" FromRole="Images" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Manager">
+    <Key>
+      <PropertyRef Name="ManagerId" />
+    </Key>
+    <Property Name="ManagerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ManagerialRole" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Credentials" Relationship="Self.FK_dbo_Credentials_dbo_Managers_UserId" FromRole="Managers" ToRole="Credentials" />
+    <NavigationProperty Name="Discounts" Relationship="Self.FK_dbo_Discounts_dbo_Managers_ProviderId" FromRole="Managers" ToRole="Discounts" />
+  </EntityType>
+  <EntityType Name="MonthlyExpenditure">
+    <Key>
+      <PropertyRef Name="MonthlyExpenditureId" />
+    </Key>
+    <Property Name="MonthlyExpenditureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="Minimum" Type="Double" Nullable="false" />
+    <Property Name="Maximum" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_MonthlyExpenditures_dbo_Customers_CustomerId" FromRole="MonthlyExpenditures" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedSubtotal" Type="Double" Nullable="false" />
+    <Property Name="DiscountId" Type="Int32" Nullable="false" />
+    <Property Name="GrandTotal" Type="Double" Nullable="false" />
+    <Property Name="DeliverymanId" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryStatus" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_Orders_dbo_Customers_CustomerId" FromRole="Orders" ToRole="Customers" />
+    <NavigationProperty Name="Deliveryman" Relationship="Self.FK_dbo_Orders_dbo_Deliverymen_DeliverymanId" FromRole="Orders" ToRole="Deliverymen" />
+    <NavigationProperty Name="Discount" Relationship="Self.FK_dbo_Orders_dbo_Discounts_DiscountId" FromRole="Orders" ToRole="Discounts" />
+    <NavigationProperty Name="SalesRecords" Relationship="Self.FK_dbo_SalesRecords_dbo_Orders_OrderId" FromRole="Orders" ToRole="SalesRecords" />
+  </EntityType>
+  <EntityType Name="ProductDistribution">
+    <Key>
+      <PropertyRef Name="ProductDistributionId" />
+    </Key>
+    <Property Name="ProductDistributionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="ShopId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_dbo_ProductDistributions_dbo_Products_ProductId" FromRole="ProductDistributions" ToRole="Products" />
+    <NavigationProperty Name="Shop" Relationship="Self.FK_dbo_ProductDistributions_dbo_Shops_ShopId" FromRole="ProductDistributions" ToRole="Shops" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrandId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Warranty" Type="Double" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Brand" Relationship="Self.FK_dbo_Products_dbo_Brands_BrandId" FromRole="Products" ToRole="Brands" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_dbo_Products_dbo_Categories_CategoryId" FromRole="Products" ToRole="Categories" />
+    <NavigationProperty Name="Images" Relationship="Self.FK_dbo_Images_dbo_Products_ProductId" FromRole="Products" ToRole="Images" />
+    <NavigationProperty Name="ProductDistributions" Relationship="Self.FK_dbo_ProductDistributions_dbo_Products_ProductId" FromRole="Products" ToRole="ProductDistributions" />
+    <NavigationProperty Name="SalesRecords" Relationship="Self.FK_dbo_SalesRecords_dbo_Products_ProductId" FromRole="Products" ToRole="SalesRecords" />
+  </EntityType>
+  <EntityType Name="SalesRecord">
+    <Key>
+      <PropertyRef Name="SalesRecordId" />
+    </Key>
+    <Property Name="SalesRecordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Subtotal" Type="Double" Nullable="false" />
+    <Property Name="ShopId" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_SalesRecords_dbo_Customers_CustomerId" FromRole="SalesRecords" ToRole="Customers" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_dbo_SalesRecords_dbo_Orders_OrderId" FromRole="SalesRecords" ToRole="Orders" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_dbo_SalesRecords_dbo_Products_ProductId" FromRole="SalesRecords" ToRole="Products" />
+    <NavigationProperty Name="Shop" Relationship="Self.FK_dbo_SalesRecords_dbo_Shops_ShopId" FromRole="SalesRecords" ToRole="Shops" />
+  </EntityType>
+  <EntityType Name="ShopReview">
+    <Key>
+      <PropertyRef Name="ShopReviewId" />
+    </Key>
+    <Property Name="ShopReviewId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShopId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_ShopReviews_dbo_Customers_CustomerId" FromRole="ShopReviews" ToRole="Customers" />
+    <NavigationProperty Name="Shop" Relationship="Self.FK_dbo_ShopReviews_dbo_Shops_ShopId" FromRole="ShopReviews" ToRole="Shops" />
+  </EntityType>
+  <EntityType Name="Shop">
+    <Key>
+      <PropertyRef Name="ShopId" />
+    </Key>
+    <Property Name="ShopId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShopManager" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BankInformationId" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <Property Name="TotalSold" Type="Double" Nullable="false" />
+    <Property Name="TotalRecievedPayment" Type="Double" Nullable="false" />
+    <NavigationProperty Name="BankInformation" Relationship="Self.FK_dbo_Shops_dbo_BankInformations_BankInformationId" FromRole="Shops" ToRole="BankInformations" />
+    <NavigationProperty Name="Discounts" Relationship="Self.FK_dbo_Discounts_dbo_Shops_ProviderId" FromRole="Shops" ToRole="Discounts" />
+    <NavigationProperty Name="ProductDistributions" Relationship="Self.FK_dbo_ProductDistributions_dbo_Shops_ShopId" FromRole="Shops" ToRole="ProductDistributions" />
+    <NavigationProperty Name="SalesRecords" Relationship="Self.FK_dbo_SalesRecords_dbo_Shops_ShopId" FromRole="Shops" ToRole="SalesRecords" />
+    <NavigationProperty Name="ShopReviews" Relationship="Self.FK_dbo_ShopReviews_dbo_Shops_ShopId" FromRole="Shops" ToRole="ShopReviews" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Credentials_dbo_Admins_UserId">
+    <End Role="Admins" Type="Self.Admin" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Credentials" Type="Self.Credential" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admins">
+        <PropertyRef Name="AdminId" />
+      </Principal>
+      <Dependent Role="Credentials">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Shops_dbo_BankInformations_BankInformationId">
+    <End Role="BankInformations" Type="Self.BankInformation" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Shops" Type="Self.Shop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BankInformations">
+        <PropertyRef Name="BankInformationId" />
+      </Principal>
+      <Dependent Role="Shops">
+        <PropertyRef Name="BankInformationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Products_dbo_Brands_BrandId">
+    <End Role="Brands" Type="Self.Brand" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brands">
+        <PropertyRef Name="BrandId" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="BrandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Products_dbo_Categories_CategoryId">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Credentials_dbo_Customers_UserId">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Credentials" Type="Self.Credential" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Credentials">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Credentials_dbo_Managers_UserId">
+    <End Role="Managers" Type="Self.Manager" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Credentials" Type="Self.Credential" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Managers">
+        <PropertyRef Name="ManagerId" />
+      </Principal>
+      <Dependent Role="Credentials">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_MonthlyExpenditures_dbo_Customers_CustomerId">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MonthlyExpenditures" Type="Self.MonthlyExpenditure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="MonthlyExpenditures">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Orders_dbo_Customers_CustomerId">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SalesRecords_dbo_Customers_CustomerId">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SalesRecords" Type="Self.SalesRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="SalesRecords">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ShopReviews_dbo_Customers_CustomerId">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ShopReviews" Type="Self.ShopReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="ShopReviews">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Orders_dbo_Deliverymen_DeliverymanId">
+    <End Role="Deliverymen" Type="Self.Deliveryman" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deliverymen">
+        <PropertyRef Name="DeliveryManId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="DeliverymanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Discounts_dbo_Managers_ProviderId">
+    <End Role="Managers" Type="Self.Manager" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Discounts" Type="Self.Discount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Managers">
+        <PropertyRef Name="ManagerId" />
+      </Principal>
+      <Dependent Role="Discounts">
+        <PropertyRef Name="ProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Discounts_dbo_Shops_ProviderId">
+    <End Role="Shops" Type="Self.Shop" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Discounts" Type="Self.Discount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shops">
+        <PropertyRef Name="ShopId" />
+      </Principal>
+      <Dependent Role="Discounts">
+        <PropertyRef Name="ProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Orders_dbo_Discounts_DiscountId">
+    <End Role="Discounts" Type="Self.Discount" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Discounts">
+        <PropertyRef Name="DiscountId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="DiscountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Images_dbo_Products_ProductId">
+    <End Role="Products" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Images" Type="Self.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Images">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SalesRecords_dbo_Orders_OrderId">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="SalesRecords" Type="Self.SalesRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="SalesRecords">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductDistributions_dbo_Products_ProductId">
+    <End Role="Products" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductDistributions" Type="Self.ProductDistribution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ProductDistributions">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductDistributions_dbo_Shops_ShopId">
+    <End Role="Shops" Type="Self.Shop" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductDistributions" Type="Self.ProductDistribution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shops">
+        <PropertyRef Name="ShopId" />
+      </Principal>
+      <Dependent Role="ProductDistributions">
+        <PropertyRef Name="ShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SalesRecords_dbo_Products_ProductId">
+    <End Role="Products" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SalesRecords" Type="Self.SalesRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="SalesRecords">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SalesRecords_dbo_Shops_ShopId">
+    <End Role="Shops" Type="Self.Shop" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SalesRecords" Type="Self.SalesRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shops">
+        <PropertyRef Name="ShopId" />
+      </Principal>
+      <Dependent Role="SalesRecords">
+        <PropertyRef Name="ShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ShopReviews_dbo_Shops_ShopId">
+    <End Role="Shops" Type="Self.Shop" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ShopReviews" Type="Self.ShopReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shops">
+        <PropertyRef Name="ShopId" />
+      </Principal>
+      <Dependent Role="ShopReviews">
+        <PropertyRef Name="ShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EHutEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="BankInformations" EntityType="Self.BankInformation" />
+    <EntitySet Name="Brands" EntityType="Self.Brand" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Credentials" EntityType="Self.Credential" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Deliverymen" EntityType="Self.Deliveryman" />
+    <EntitySet Name="Discounts" EntityType="Self.Discount" />
+    <EntitySet Name="Images" EntityType="Self.Image" />
+    <EntitySet Name="Managers" EntityType="Self.Manager" />
+    <EntitySet Name="MonthlyExpenditures" EntityType="Self.MonthlyExpenditure" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="ProductDistributions" EntityType="Self.ProductDistribution" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="SalesRecords" EntityType="Self.SalesRecord" />
+    <EntitySet Name="ShopReviews" EntityType="Self.ShopReview" />
+    <EntitySet Name="Shops" EntityType="Self.Shop" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_dbo_Credentials_dbo_Admins_UserId" Association="Self.FK_dbo_Credentials_dbo_Admins_UserId">
+      <End Role="Admins" EntitySet="Admins" />
+      <End Role="Credentials" EntitySet="Credentials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Shops_dbo_BankInformations_BankInformationId" Association="Self.FK_dbo_Shops_dbo_BankInformations_BankInformationId">
+      <End Role="BankInformations" EntitySet="BankInformations" />
+      <End Role="Shops" EntitySet="Shops" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Products_dbo_Brands_BrandId" Association="Self.FK_dbo_Products_dbo_Brands_BrandId">
+      <End Role="Brands" EntitySet="Brands" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Products_dbo_Categories_CategoryId" Association="Self.FK_dbo_Products_dbo_Categories_CategoryId">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Credentials_dbo_Customers_UserId" Association="Self.FK_dbo_Credentials_dbo_Customers_UserId">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Credentials" EntitySet="Credentials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Credentials_dbo_Managers_UserId" Association="Self.FK_dbo_Credentials_dbo_Managers_UserId">
+      <End Role="Managers" EntitySet="Managers" />
+      <End Role="Credentials" EntitySet="Credentials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_MonthlyExpenditures_dbo_Customers_CustomerId" Association="Self.FK_dbo_MonthlyExpenditures_dbo_Customers_CustomerId">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="MonthlyExpenditures" EntitySet="MonthlyExpenditures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Orders_dbo_Customers_CustomerId" Association="Self.FK_dbo_Orders_dbo_Customers_CustomerId">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SalesRecords_dbo_Customers_CustomerId" Association="Self.FK_dbo_SalesRecords_dbo_Customers_CustomerId">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="SalesRecords" EntitySet="SalesRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ShopReviews_dbo_Customers_CustomerId" Association="Self.FK_dbo_ShopReviews_dbo_Customers_CustomerId">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="ShopReviews" EntitySet="ShopReviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Orders_dbo_Deliverymen_DeliverymanId" Association="Self.FK_dbo_Orders_dbo_Deliverymen_DeliverymanId">
+      <End Role="Deliverymen" EntitySet="Deliverymen" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Discounts_dbo_Managers_ProviderId" Association="Self.FK_dbo_Discounts_dbo_Managers_ProviderId">
+      <End Role="Managers" EntitySet="Managers" />
+      <End Role="Discounts" EntitySet="Discounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Discounts_dbo_Shops_ProviderId" Association="Self.FK_dbo_Discounts_dbo_Shops_ProviderId">
+      <End Role="Shops" EntitySet="Shops" />
+      <End Role="Discounts" EntitySet="Discounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Orders_dbo_Discounts_DiscountId" Association="Self.FK_dbo_Orders_dbo_Discounts_DiscountId">
+      <End Role="Discounts" EntitySet="Discounts" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Images_dbo_Products_ProductId" Association="Self.FK_dbo_Images_dbo_Products_ProductId">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Images" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SalesRecords_dbo_Orders_OrderId" Association="Self.FK_dbo_SalesRecords_dbo_Orders_OrderId">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="SalesRecords" EntitySet="SalesRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductDistributions_dbo_Products_ProductId" Association="Self.FK_dbo_ProductDistributions_dbo_Products_ProductId">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductDistributions" EntitySet="ProductDistributions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductDistributions_dbo_Shops_ShopId" Association="Self.FK_dbo_ProductDistributions_dbo_Shops_ShopId">
+      <End Role="Shops" EntitySet="Shops" />
+      <End Role="ProductDistributions" EntitySet="ProductDistributions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SalesRecords_dbo_Products_ProductId" Association="Self.FK_dbo_SalesRecords_dbo_Products_ProductId">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="SalesRecords" EntitySet="SalesRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SalesRecords_dbo_Shops_ShopId" Association="Self.FK_dbo_SalesRecords_dbo_Shops_ShopId">
+      <End Role="Shops" EntitySet="Shops" />
+      <End Role="SalesRecords" EntitySet="SalesRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ShopReviews_dbo_Shops_ShopId" Association="Self.FK_dbo_ShopReviews_dbo_Shops_ShopId">
+      <End Role="Shops" EntitySet="Shops" />
+      <End Role="ShopReviews" EntitySet="ShopReviews" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
