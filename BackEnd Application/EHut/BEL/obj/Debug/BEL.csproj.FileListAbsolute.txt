@@ -1,5 +1,0 @@
-C:\Users\syed\OneDrive\Work\Software-Project_2\Software_Project_2-EHut-\BackEnd Application\EHut\BEL\bin\Debug\BEL.dll
-C:\Users\syed\OneDrive\Work\Software-Project_2\Software_Project_2-EHut-\BackEnd Application\EHut\BEL\bin\Debug\BEL.pdb
-C:\Users\syed\OneDrive\Work\Software-Project_2\Software_Project_2-EHut-\BackEnd Application\EHut\BEL\obj\Debug\BEL.csproj.CoreCompileInputs.cache
-C:\Users\syed\OneDrive\Work\Software-Project_2\Software_Project_2-EHut-\BackEnd Application\EHut\BEL\obj\Debug\BEL.dll
-C:\Users\syed\OneDrive\Work\Software-Project_2\Software_Project_2-EHut-\BackEnd Application\EHut\BEL\obj\Debug\BEL.pdb
