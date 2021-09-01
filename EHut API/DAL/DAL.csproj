@@ -80,6 +80,7 @@
     <Compile Include="Models\ShopReview.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AdminRepo.cs" />
+    <Compile Include="Repository\DeliverymanRepo.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\ProductRepo.cs" />
     <Compile Include="Repository\Repository.cs" />

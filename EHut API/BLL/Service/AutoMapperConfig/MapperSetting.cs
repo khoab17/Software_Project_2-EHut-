@@ -31,6 +31,11 @@ namespace BLL.Service.AutoMapperConfig
             CreateMap<Shop, ShopModel>();
             CreateMap<ShopReview, ShopReviewModel>();
 
+            //---------------extra
+            //CreateMap<AdminModel, Admin>();
+            CreateMap<AdminModel, Admin>()
+                .ForMember(destinationMember => destinationMember, memberOptions => memberOptions.MapFrom(sourceMember => sourceMember.AdminId));
+           
         }
     }
 }

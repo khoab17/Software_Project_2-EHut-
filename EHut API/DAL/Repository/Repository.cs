@@ -11,10 +11,15 @@ namespace DAL.Repository
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected EHut context = new EHut();
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             context.Set<TEntity>().Remove(Get(id));
-            context.SaveChanges();
+            if (context.SaveChanges() > 0)
+            {
+                return true;
+            }
+            else
+                return false;
         }
 
         public TEntity Get(int id)
@@ -27,16 +32,26 @@ namespace DAL.Repository
             return context.Set<TEntity>().ToList();
         }
 
-        public void Insert(TEntity entity)
+        public bool Insert(TEntity entity)
         {
             context.Set<TEntity>().Add(entity);
-            context.SaveChanges();
+            if (context.SaveChanges() > 0)
+            {
+                return true;
+            }
+            else
+                return false;
         }
 
-        public void Update(TEntity entity)
+        public bool Update(TEntity entity)
         {
             context.Entry(entity).State = EntityState.Modified;
-            context.SaveChanges();
+            if (context.SaveChanges() > 0)
+            {
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

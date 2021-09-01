@@ -19,5 +19,20 @@ namespace EHut.Controllers
         {
             return Ok(adminServices.GetAll());
         }
+
+        [Route("", Name = "AdminPath"), HttpPost]
+        public IHttpActionResult Create(AdminModel admin)
+        {
+            if (ModelState.IsValid)
+            {
+                adminServices.Insert(admin);
+                string url = Url.Link("AdminPath", new { id = admin.AdminId });
+                return Created(url, admin);
+            }
+            else
+            {
+                return StatusCode(HttpStatusCode.ExpectationFailed);
+            }
+        }
     }
 }
