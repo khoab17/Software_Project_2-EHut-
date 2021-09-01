@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-//using System.Web.Http.Cors;----------problem
+using System.Web.Http.Cors;  
 
 namespace EHut
 {
@@ -23,9 +23,10 @@ namespace EHut
             );
 
 
-            //----------------PROBLEM---------------------------------//
-            /*AutoMapper.Mapper.Initialize(con => con.AddProfile<MapperSetting>());
+          
+            AutoMapper.Mapper.Initialize(con => con.AddProfile<MapperSetting>());
             EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);*/
+            config.EnableCors(cors);
+        }
     }
 }
