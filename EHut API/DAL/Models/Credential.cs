@@ -25,11 +25,11 @@ namespace DAL.Models
         public string Role { get; set; }
         public string Password { get; set; }
 
-        [ForeignKey("UserId")]
+        /*[ForeignKey("UserId")]
         public Admin Admin { get; set; }
         [ForeignKey("UserId")]
         public Manager Manager { get; set; }
         [ForeignKey("UserId")]
-        public Customer Customer { get; set; }
+        public Customer Customer { get; set; }*/
     }
 }
