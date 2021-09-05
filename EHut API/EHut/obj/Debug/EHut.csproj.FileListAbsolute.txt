@@ -61,3 +61,4 @@ D:\Class\Fall\Software_Project_2-EHut-\EHut API\EHut\obj\Debug\EHut.pdb
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\EHut\bin\System.Web.Cors.dll
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\EHut\bin\System.Web.Http.Cors.dll
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\EHut\bin\System.Web.Http.Cors.xml
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\EHut\bin\BEL.dll.config

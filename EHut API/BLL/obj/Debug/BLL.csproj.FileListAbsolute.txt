@@ -55,3 +55,4 @@ D:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CoreCom
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CopyComplete
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.dll
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.pdb
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\BEL.dll.config

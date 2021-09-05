@@ -15,3 +15,9 @@ D:\Class\Fall\Software_Project_2-EHut-\EHut API\BEL\obj\Debug\BEL.csproj.Assembl
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\BEL\obj\Debug\BEL.csproj.CoreCompileInputs.cache
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\BEL\obj\Debug\BEL.dll
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\BEL\obj\Debug\BEL.pdb
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\BEL\bin\Debug\BEL.dll.config
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\BEL\bin\Debug\EntityFramework.dll
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\BEL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\BEL\bin\Debug\EntityFramework.xml
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\BEL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\BEL\obj\Debug\BEL.csproj.CopyComplete
