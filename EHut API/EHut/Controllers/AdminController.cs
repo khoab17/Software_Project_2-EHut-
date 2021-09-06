@@ -9,18 +9,24 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
-    [RoutePrefix("api/Admins")]
+    [RoutePrefix("api/admins")]
     public class AdminController : ApiController
     {
         AdminServices adminServices = new AdminServices();
 
-        [Route(""), HttpGet]
+        [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {
              return Ok(adminServices.GetAll());
         }
 
-        [Route("", Name = "AdminPath"), HttpPost]
+        [HttpGet, Route("{id}")]
+        public IHttpActionResult Get(int id)
+        {
+            return Ok(adminServices.Get(id));
+        }
+
+        [HttpPost, Route("", Name = "AdminPath")]
         public IHttpActionResult Create(AdminModel admin)
         {
             if (ModelState.IsValid)
@@ -30,10 +36,30 @@ namespace EHut.Controllers
                 return Created(url, admin);
             }
             else
-            {
-                
-                return StatusCode(HttpStatusCode.ExpectationFailed);
+            { 
+                return StatusCode(HttpStatusCode.NoContent);
             }
+        }
+
+        [HttpPut, Route("{id}")]
+        public IHttpActionResult Edit([FromBody] AdminModel admin, [FromUri] int id)
+        {
+
+            if (ModelState.IsValid)
+            {
+                admin.AdminId = id;
+                adminServices.Update(admin);
+                return Ok(admin);
+            }
+            else
+                return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        [HttpDelete, Route("{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            adminServices.Delete(id);
+            return StatusCode(HttpStatusCode.NoContent);
         }
     }
 }
