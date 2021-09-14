@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Service.AutoMapperConfig
+namespace BLL.Services.AutoMapperConfig
 {
     public class MapperSetting:Profile
     {

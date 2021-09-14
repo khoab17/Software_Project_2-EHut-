@@ -12,6 +12,7 @@ namespace DAL.Models
         public Category()
         {
             Products = new HashSet<Product>();
+           
         }
         public int CategoryId { get; set; }
 

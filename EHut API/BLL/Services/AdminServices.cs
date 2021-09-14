@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace BLL.Service
+namespace BLL.Services
 {
     public class AdminServices
     {
