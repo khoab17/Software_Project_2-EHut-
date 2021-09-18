@@ -84,10 +84,26 @@
     <Compile Include="Models\ShopReview.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AdminRepo.cs" />
+    <Compile Include="Repository\BankInformationModelRepo.cs" />
+    <Compile Include="Repository\BrandRepo.cs" />
+    <Compile Include="Repository\CategoryRepo.cs" />
+    <Compile Include="Repository\CredentialRepo.cs" />
+    <Compile Include="Repository\CustomerRepo.cs" />
     <Compile Include="Repository\DeliverymanRepo.cs" />
+    <Compile Include="Repository\DeliverymanReviewRepo.cs" />
+    <Compile Include="Repository\DiscountRepo.cs" />
+    <Compile Include="Repository\ImageRepo.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\ManagerRepo.cs" />
+    <Compile Include="Repository\MasterRepo.cs" />
+    <Compile Include="Repository\MonthlyExpenditureRepo.cs" />
+    <Compile Include="Repository\OrderReop.cs" />
+    <Compile Include="Repository\ProductDistributionRepo.cs" />
     <Compile Include="Repository\ProductRepo.cs" />
     <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\SalesRecordRepo.cs" />
+    <Compile Include="Repository\ShopRepo.cs" />
+    <Compile Include="Repository\ShopReviewRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

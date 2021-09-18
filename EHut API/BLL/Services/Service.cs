@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+﻿using BEL.Model;
+using DAL.Models;
 using DAL.Repository;
 using System;
 using System.Collections.Generic;
@@ -8,43 +9,63 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class Service<TEntity, TEntityModel> : IService<TEntity, TEntityModel> 
+    public class Service /*<TEntity, TEntityModel> : IService<TEntity, TEntityModel> 
                                                     where TEntity : class
-                                                    where TEntityModel : class
+                                                    where TEntityModel : class*/
     {
-        /* public object RepoFinder(TEntity)
-         {
-
-         //Find the type of TEntity.
-         //Create Repo of that type.
-         //Return the Repo object.
-
-         }*/
-        public bool Delete(int id)
+        private object entity;
+        private object entityModel;
+        private MasterRepo repo;
+        public Service(object en, object enModel)
         {
-            throw new NotImplementedException();
+            entity = en;
+            entityModel = enModel;
+            RepoFinder();
         }
 
-        public TEntityModel Get(int id)
+        public void RepoFinder()
         {
-            throw new NotImplementedException();
+            if (entity == new Admin() { })
+            {
+                AdminRepo adminRepo = new AdminRepo();
+                repo.AdminRepo = new AdminRepo();
+            }
+            else
+            {
+                ProductRepo productRepo = new ProductRepo();
+               // this.repo = productRepo;
+            }    
         }
 
-        public List<TEntityModel> GetAll()
+        public void GetAll()
         {
             //Object repoObject= RepoFinder();
             //var temp = repoObject.GetAll();
             //var data = AutoMapper.Mapper.Map<List<TEntity>, List<TEntityModel>>(temp);
             //return data;
-            return null;
+            var temp = repo.AdminRepo.GetAll();
+            List<AdminModel> adminModels  = AutoMapper.Mapper.Map<List<Admin>, List<AdminModel>>(temp);//---------------to map adminModel to Admin
+            int a = 0;
+            //return adminModels;
         }
-
-        public TEntityModel Insert(TEntity entity)
+        public bool Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public TEntityModel Update(TEntity entity)
+        public object Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        
+
+        public object Insert(object en)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object Update(object en)
         {
             throw new NotImplementedException();
         }

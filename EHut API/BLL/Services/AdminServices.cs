@@ -12,6 +12,8 @@ namespace BLL.Services
 {
     public class AdminServices
     {
+        //public Service Service = new Service(new Admin(),new AdminModel());
+
         AdminRepo adminRepo = new AdminRepo();  //--------------to get data from Repository
         public List<AdminModel> GetAll()
         {
@@ -23,14 +25,14 @@ namespace BLL.Services
         public AdminModel Get(int id)
         {
             var temp = adminRepo.Get(id);
-            var data = AutoMapper.Mapper.Map<Admin, AdminModel>(temp); 
+            var data = AutoMapper.Mapper.Map<Admin, AdminModel>(temp);
             return data;
         }
 
         public AdminModel GetByPhone(string phone)                     //--------------to get User By Phone number
         {
             var temp = adminRepo.GetByPhone(phone);
-            var data = AutoMapper.Mapper.Map<Admin, AdminModel>(temp); 
+            var data = AutoMapper.Mapper.Map<Admin, AdminModel>(temp);
             return data;
         }
 
@@ -47,7 +49,7 @@ namespace BLL.Services
                 return null;
         }
 
-        
+
         public AdminModel Update(AdminModel adminModel)
         {
             Admin admin = AutoMapper.Mapper.Map<AdminModel, Admin>(adminModel);//---------------to map admin to AdminModel

@@ -17,7 +17,8 @@ namespace EHut.Controllers
         [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {
-             return Ok(adminServices.GetAll());
+            adminServices.GetAll();
+             return Ok();
         }
 
         [HttpGet, Route("{id}")]
@@ -36,7 +37,7 @@ namespace EHut.Controllers
                 return Created(url, admin);
             }
             else
-            { 
+            {
                 return StatusCode(HttpStatusCode.NoContent);
             }
         }
