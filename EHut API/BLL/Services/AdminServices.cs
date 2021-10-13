@@ -8,55 +8,55 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+/// Please read the DocumentConventions.txt first
+
+
 namespace BLL.Services
 {
     public class AdminServices
     {
-        //public Service Service = new Service(new Admin(),new AdminModel());
-
-        AdminRepo adminRepo = new AdminRepo();  //--------------to get data from Repository
+        
+        AdminRepo adminRepo = new AdminRepo();  
         public List<AdminModel> GetAll()
         {
-            var temp = adminRepo.GetAll();
-            var data = AutoMapper.Mapper.Map<List<Admin>, List<AdminModel>>(temp);//---------------to map adminModel to Admin
-            return data;
+            var data = adminRepo.GetAll();
+            return Mapper<Admin, AdminModel>.ListOfEntityToModel(data);
+            
         }
 
         public AdminModel Get(int id)
         {
-            var temp = adminRepo.Get(id);
-            var data = AutoMapper.Mapper.Map<Admin, AdminModel>(temp);
-            return data;
+            var data = adminRepo.Get(id);
+            return Mapper<Admin, AdminModel>.EntityToModel(data);
         }
 
-        public AdminModel GetByPhone(string phone)                     //--------------to get User By Phone number
+        public AdminModel GetByPhone(string phone)                     
         {
-            var temp = adminRepo.GetByPhone(phone);
-            var data = AutoMapper.Mapper.Map<Admin, AdminModel>(temp);
-            return data;
+            var data = adminRepo.GetByPhone(phone);
+            return Mapper<Admin, AdminModel>.EntityToModel(data);
         }
 
-        public AdminModel Insert(AdminModel adminModel)
+        public AdminModel Insert(AdminModel model)
         {
-            Admin admin = AutoMapper.Mapper.Map<AdminModel, Admin>(adminModel);
-            bool done = adminRepo.Insert(admin);
+            var entity = Mapper<Admin, AdminModel>.ModelToEntity(model);
+            bool done = adminRepo.Insert(entity);
 
             if (done)
             {
-                return adminModel;
+                return model;
             }
             else
                 return null;
         }
 
 
-        public AdminModel Update(AdminModel adminModel)
+        public AdminModel Update(AdminModel model)
         {
-            Admin admin = AutoMapper.Mapper.Map<AdminModel, Admin>(adminModel);//---------------to map admin to AdminModel
-            bool done = adminRepo.Update(admin);
+            var entity = Mapper<Admin, AdminModel>.ModelToEntity(model);  
+            bool done = adminRepo.Update(entity);
             if (done)
             {
-                return adminModel;
+                return model;
             }
             else
                 return null;

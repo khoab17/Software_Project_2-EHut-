@@ -1,0 +1,23 @@
+﻿
+ This convention applies only for BLL Project
+
+
+"entity"--------> Actual data models from DAL>Models;
+"model"---------> Business models from BEL>Model;
+
+
+public static TModel EntityToModel(TEntity entity)
+{
+	Maps: (DAL>Models)->(BEL>Model);
+}
+
+public static List<TModel> ListOfEntityToModel(List<TEntity> entity)
+{
+	Maps:List of (DAL>Models)-> List of (BEL>Model);
+}
+
+public static TEntity ModelToEntity(TModel model)
+{
+	Maps: (BEL>Model)->(DAL>Models); 
+}
+

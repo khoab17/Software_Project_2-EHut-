@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// Please read the DocumentConventions.txt first
+
 namespace BLL.Services
 {
     public class DeliverymanServices
@@ -15,46 +17,43 @@ namespace BLL.Services
 
         public List<DeliverymanModel> GetAll()
         {
-            var temp = deliverymanRepo.GetAll();
-            var data = AutoMapper.Mapper.Map<List<Deliveryman>, List<DeliverymanModel>>(temp);//---------------to map deliverymanModel to Admin
-            return data;
+            var data = deliverymanRepo.GetAll();
+            return Mapper<Deliveryman, DeliverymanModel>.ListOfEntityToModel(data);
         }
 
         public DeliverymanModel Get(int id)
         {
-            var temp = deliverymanRepo.Get(id);
-            var data = AutoMapper.Mapper.Map<Deliveryman, DeliverymanModel>(temp);
-            return data;
+            var data = deliverymanRepo.Get(id);
+            return Mapper<Deliveryman, DeliverymanModel>.EntityToModel(data);
         }
 
-        public DeliverymanModel GetByPhone(string phone)                     //--------------to get User By Phone number
+        public DeliverymanModel GetByPhone(string phone)                     
         {
-            var temp = deliverymanRepo.GetByPhone(phone);
-            var data = AutoMapper.Mapper.Map<Deliveryman, DeliverymanModel>(temp); 
-            return data;
+            var data = deliverymanRepo.GetByPhone(phone);
+            return Mapper<Deliveryman, DeliverymanModel>.EntityToModel(data);
         }
 
-        public DeliverymanModel Insert(DeliverymanModel deliverymanModel)
+        public DeliverymanModel Insert(DeliverymanModel model)
         {
-            Deliveryman deliveryman = AutoMapper.Mapper.Map<DeliverymanModel, Deliveryman>(deliverymanModel);
-            bool done = deliverymanRepo.Insert(deliveryman);
+           var entity = Mapper<Deliveryman, DeliverymanModel>.ModelToEntity(model);
+            bool done = deliverymanRepo.Insert(entity);
 
             if (done)
             {
-                return deliverymanModel;
+                return model;
             }
             else
                 return null;
         }
 
         
-        public DeliverymanModel Update(DeliverymanModel deliverymanModel)
+        public DeliverymanModel Update(DeliverymanModel model)
         {
-            Deliveryman deliveryman = AutoMapper.Mapper.Map<DeliverymanModel, Deliveryman>(deliverymanModel);//---------------to map admin to DeliverymanModel
-            bool done = deliverymanRepo.Update(deliveryman);
+            var entity = Mapper<Deliveryman, DeliverymanModel>.ModelToEntity(model);
+            bool done = deliverymanRepo.Update(entity);
             if (done)
             {
-                return deliverymanModel;
+                return model;
             }
             else
                 return null;

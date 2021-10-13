@@ -52,11 +52,17 @@
     <Compile Include="Services\AdminServices.cs" />
     <Compile Include="Services\AutoMapperConfig\MapperSetting.cs" />
     <Compile Include="Services\BankInformationServices.cs" />
+    <Compile Include="Services\BrandServices.cs" />
+    <Compile Include="Services\CategoryServices.cs" />
+    <Compile Include="Services\CredentialServices.cs" />
+    <Compile Include="Services\CustomerServices.cs" />
     <Compile Include="Services\DeliverymanServices.cs" />
+    <Compile Include="Services\Mapper.cs" />
     <Compile Include="Services\ProductServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Services\DocumentConventions.txt" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

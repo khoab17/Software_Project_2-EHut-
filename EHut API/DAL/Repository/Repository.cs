@@ -54,5 +54,11 @@ namespace DAL.Repository
             else
                 return false;
         }
+
+        /// Custom Methods
+        public TEntity GetByPhone(string phone)
+        {
+            return context.Set<TEntity>().Find(phone);
+        }
     }
 }

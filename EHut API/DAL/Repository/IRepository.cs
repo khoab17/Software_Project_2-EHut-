@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    interface IRepository<TEntity> where TEntity:class
+    public interface IRepository<TEntity> where TEntity:class
     {
         List<TEntity> GetAll();
         TEntity Get(int id);

@@ -7,52 +7,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+/// Please read the DocumentConventions.txt first
+
 namespace BLL.Services
 {
     public class BankInformationServices
     {
         BankInformationRepo bankInformationRepo = new BankInformationRepo();
 
-        private BankInformationModel EntityToModelMapper(BankInformation entity)
-        {
-            BankInformationModel bankInformationModel = AutoMapper.Mapper.Map<BankInformation, BankInformationModel>(entity);
-            return bankInformationModel;
-        }
+        
         public List<BankInformationModel> GetAll()
         {
-            var temp = bankInformationRepo.GetAll();
-            var data = AutoMapper.Mapper.Map<List<BankInformation>, List<BankInformationModel>>(temp);//---------------to map adminModel to Admin
-            return data;
+            var data = bankInformationRepo.GetAll();
+            return Mapper<BankInformation, BankInformationModel>.ListOfEntityToModel(data);
         }
         
         public BankInformationModel Get(int id)
         {
-            var temp = bankInformationRepo.Get(id);
-            return EntityToModelMapper(temp);
+            var data = bankInformationRepo.Get(id);
+            return Mapper<BankInformation, BankInformationModel>.EntityToModel(data);
         }
 
       
-        public BankInformationModel Insert(BankInformationModel entity)
+        public BankInformationModel Insert(BankInformationModel model)
         {
-            BankInformation bankInformation  = AutoMapper.Mapper.Map<BankInformationModel, BankInformation>(entity);
-            bool done = bankInformationRepo.Insert(bankInformation);
+            var entity = Mapper<BankInformation, BankInformationModel>.ModelToEntity(model);
+            bool done = bankInformationRepo.Insert(entity);
 
             if (done)
             {
-                return entity;
+                return model;
             }
             else
                 return null;
         }
 
 
-        public BankInformationModel Update(BankInformationModel entityModel)
-        { 
-            BankInformation bankInformation = AutoMapper.Mapper.Map<BankInformationModel, BankInformation>(entityModel);//---------------to map admin to AdminModel
-            bool done = bankInformationRepo.Update(bankInformation);
+        public BankInformationModel Update(BankInformationModel model)
+        {
+            var entity = Mapper<BankInformation, BankInformationModel>.ModelToEntity(model);  
+            bool done = bankInformationRepo.Update(entity);
             if (done)
             {
-                return entityModel;
+                return model;
             }
             else
                 return null;
