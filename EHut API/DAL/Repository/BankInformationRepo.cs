@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class BankInformationModelRepo:Repository<BankInformation>
+    public class BankInformationRepo:Repository<BankInformation>
     {
 
     }

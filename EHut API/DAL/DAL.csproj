@@ -84,7 +84,7 @@
     <Compile Include="Models\ShopReview.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AdminRepo.cs" />
-    <Compile Include="Repository\BankInformationModelRepo.cs" />
+    <Compile Include="Repository\BankInformationRepo.cs" />
     <Compile Include="Repository\BrandRepo.cs" />
     <Compile Include="Repository\CategoryRepo.cs" />
     <Compile Include="Repository\CredentialRepo.cs" />

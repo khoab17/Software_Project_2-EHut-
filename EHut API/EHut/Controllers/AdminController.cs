@@ -17,8 +17,8 @@ namespace EHut.Controllers
         [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {
-            adminServices.GetAll();
-             return Ok();
+            
+             return Ok(adminServices.GetAll());
         }
 
         [HttpGet, Route("{id}")]

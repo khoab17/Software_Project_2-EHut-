@@ -28,6 +28,7 @@ namespace DAL.Repository
         }
 
         public List<TEntity> GetAll()
+        
         {
             return context.Set<TEntity>().ToList();
         }
