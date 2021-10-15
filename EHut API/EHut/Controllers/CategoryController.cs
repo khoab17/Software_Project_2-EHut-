@@ -22,7 +22,7 @@ namespace EHut.Controllers
             return Ok();
         }
 
-        [HttpPost, Route("", Name = "/*BankInformationPath*/")]
+        [HttpPost, Route(""/*, Name = "BankInformationPath"*/)]
         public IHttpActionResult Create(/*BankInformationModel model*/)
         {
             if (ModelState.IsValid)
