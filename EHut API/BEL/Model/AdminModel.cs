@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BEL.Model
 {
-     public class AdminModel: PersonModel
+    public class AdminModel: PersonModel
     {
         public int AdminId { get; set; }
     }

@@ -21,7 +21,6 @@ namespace BLL.Services
         {
             var data = adminRepo.GetAll();
             return Mapper<Admin, AdminModel>.ListOfEntityToModel(data);
-            
         }
 
         public AdminModel Get(int id)
