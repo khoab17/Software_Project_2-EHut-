@@ -97,7 +97,7 @@
     <Compile Include="Repository\ManagerRepo.cs" />
     <Compile Include="Repository\MasterRepo.cs" />
     <Compile Include="Repository\MonthlyExpenditureRepo.cs" />
-    <Compile Include="Repository\OrderReop.cs" />
+    <Compile Include="Repository\OrderRepo.cs" />
     <Compile Include="Repository\ProductDistributionRepo.cs" />
     <Compile Include="Repository\ProductRepo.cs" />
     <Compile Include="Repository\Repository.cs" />

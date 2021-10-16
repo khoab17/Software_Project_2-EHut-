@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BEL.Model;
+using BLL.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,28 +11,30 @@ namespace EHut.Controllers
 {
     public class CategoryController : ApiController
     {
+        CategoryServices categoryServices = new CategoryServices();
+
         [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {
 
-            return Ok();
+            return Ok(categoryServices.GetAll());
         }
 
         [HttpGet, Route("{id}")]
         public IHttpActionResult Get(int id)
         {
-            return Ok();
+            return Ok(categoryServices.Get(id));
         }
 
-        [HttpPost, Route(""/*, Name = "BankInformationPath"*/)]
-        public IHttpActionResult Create(/*BankInformationModel model*/)
+        [HttpPost, Route("", Name = "CategoryPath")]
+        public IHttpActionResult Create(CategoryModel model)
         {
             if (ModelState.IsValid)
             {
-
-                /* string url = Url.Link("BankInformationPath", new { id = model.BankInformationId });
-                 return Created(url, model);*/
-                return Created("url", "model");
+                categoryServices.Insert(model);
+                string url = Url.Link("CategoryPath", new { id = model.CategoryId });
+                return Created(url, model);
+                
             }
             else
             {
@@ -39,13 +43,13 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit(/*[FromBody] BankInformationModel model,*/ [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] CategoryModel model , [FromUri] int id)
         {
 
             if (ModelState.IsValid)
             {
-                // model.BankInformationId = id;
-
+                model.CategoryId = id;
+                categoryServices.Update(model);
                 return Ok("model");
             }
             else
@@ -55,7 +59,7 @@ namespace EHut.Controllers
         [HttpDelete, Route("{id}")]
         public IHttpActionResult Delete(int id)
         {
-
+            categoryServices.Delete(id);
             return StatusCode(HttpStatusCode.NoContent);
         }
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class OrderReop : Repository<Order>
+    public class OrderRepo : Repository<Order>
     {
     }
 }

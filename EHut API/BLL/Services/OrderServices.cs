@@ -11,7 +11,7 @@ namespace BLL.Services
 {
     public class OrderServices
     {
-        OrderReop repo = new OrderReop();
+        OrderRepo repo = new OrderRepo();
         public List<OrderModel> GetAll()
         {
             var data = repo.GetAll();

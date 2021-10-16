@@ -9,31 +9,31 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
-    public class DiscountController : ApiController
+    public class OrderController : ApiController
     {
-        DiscountServices discountServices = new DiscountServices();
+        OrderServices orderServices = new OrderServices();
         [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {
 
-            return Ok(discountServices.GetAll());
+            return Ok(orderServices.GetAll());
         }
 
         [HttpGet, Route("{id}")]
         public IHttpActionResult Get(int id)
         {
-            return Ok(discountServices.Get(id));
+            return Ok(orderServices.Get(id));
         }
 
-        [HttpPost, Route("", Name = "DiscountPath")]
-        public IHttpActionResult Create(DiscountModel model)
+        [HttpPost, Route("", Name = "OrderPath")]
+        public IHttpActionResult Create(OrderModel model)
         {
             if (ModelState.IsValid)
             {
-                discountServices.Insert(model);
-                string url = Url.Link("DiscountPath", new { id = model.DiscountId });
+                orderServices.Insert(model);
+                string url = Url.Link("OrderPath", new { id = model.OrderId });
                 return Created(url, model);
-              
+                
             }
             else
             {
@@ -42,13 +42,13 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] DiscountModel model, [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] OrderModel model, [FromUri] int id)
         {
 
             if (ModelState.IsValid)
             {
-                 model.DiscountId = id;
-                discountServices.Update(model);
+                 model.OrderId = id;
+                orderServices.Update(model);
                 return Ok("model");
             }
             else
@@ -58,7 +58,7 @@ namespace EHut.Controllers
         [HttpDelete, Route("{id}")]
         public IHttpActionResult Delete(int id)
         {
-            discountServices.Delete(id);
+            orderServices.Delete(id);
             return StatusCode(HttpStatusCode.NoContent);
         }
     }

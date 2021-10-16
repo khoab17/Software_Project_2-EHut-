@@ -12,27 +12,27 @@ namespace BLL.Services
     public class ShopServices
     {
         ShopRepo repo = new ShopRepo();
-        public List<SalesRecordModel> GetAll()
+        public List<ShopModel> GetAll()
         {
             var data = repo.GetAll();
-            return Mapper<SalesRecord, SalesRecordModel>.ListOfEntityToModel(data);
+            return Mapper<Shop, ShopModel>.ListOfEntityToModel(data);
         }
 
-        public SalesRecordModel Get(int id)
+        public ShopModel Get(int id)
         {
             var data = repo.Get(id);
-            return Mapper<SalesRecord, SalesRecordModel>.EntityToModel(data);
+            return Mapper<Shop, ShopModel>.EntityToModel(data);
         }
 
-        public SalesRecordModel GetByPhone(string phone)
+        public ShopModel GetByPhone(string phone)
         {
             var data = repo.GetByPhone(phone);
-            return Mapper<SalesRecord, SalesRecordModel>.EntityToModel(data);
+            return Mapper<Shop, ShopModel>.EntityToModel(data);
         }
 
-        public SalesRecordModel Insert(SalesRecordModel model)
+        public ShopModel Insert(ShopModel model)
         {
-            var entity = Mapper<SalesRecord, SalesRecordModel>.ModelToEntity(model);
+            var entity = Mapper<Shop, ShopModel>.ModelToEntity(model);
             bool done = repo.Insert(entity);
 
             if (done)
@@ -44,9 +44,9 @@ namespace BLL.Services
         }
 
 
-        public SalesRecordModel Update(SalesRecordModel model)
+        public ShopModel Update(ShopModel model)
         {
-            var entity = Mapper<SalesRecord, SalesRecordModel>.ModelToEntity(model);
+            var entity = Mapper<Shop, ShopModel>.ModelToEntity(model);
             bool done = repo.Update(entity);
             if (done)
             {

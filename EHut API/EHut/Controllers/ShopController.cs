@@ -9,31 +9,31 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
-    public class DiscountController : ApiController
+    public class ShopController : ApiController
     {
-        DiscountServices discountServices = new DiscountServices();
+        ShopServices shopServices = new ShopServices();
         [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {
 
-            return Ok(discountServices.GetAll());
+            return Ok(shopServices.GetAll());
         }
 
         [HttpGet, Route("{id}")]
         public IHttpActionResult Get(int id)
         {
-            return Ok(discountServices.Get(id));
+            return Ok(shopServices.Get(id));
         }
 
-        [HttpPost, Route("", Name = "DiscountPath")]
-        public IHttpActionResult Create(DiscountModel model)
+        [HttpPost, Route("", Name = "ShopPath")]
+        public IHttpActionResult Create(ShopModel model)
         {
             if (ModelState.IsValid)
             {
-                discountServices.Insert(model);
-                string url = Url.Link("DiscountPath", new { id = model.DiscountId });
+                shopServices.Insert(model);
+                string url = Url.Link("ShopPath", new { id = model.ShopId });
                 return Created(url, model);
-              
+                
             }
             else
             {
@@ -42,13 +42,13 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] DiscountModel model, [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] ShopModel model, [FromUri] int id)
         {
 
             if (ModelState.IsValid)
             {
-                 model.DiscountId = id;
-                discountServices.Update(model);
+                 model.ShopId = id;
+                shopServices.Update(model);
                 return Ok("model");
             }
             else
@@ -58,7 +58,7 @@ namespace EHut.Controllers
         [HttpDelete, Route("{id}")]
         public IHttpActionResult Delete(int id)
         {
-            discountServices.Delete(id);
+            shopServices.Delete(id);
             return StatusCode(HttpStatusCode.NoContent);
         }
     }

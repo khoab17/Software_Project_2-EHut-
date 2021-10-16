@@ -9,31 +9,31 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
-    public class DiscountController : ApiController
+    public class MonthlyExpenditureController : ApiController
     {
-        DiscountServices discountServices = new DiscountServices();
+        MonthlyExpenditureServices meServices = new MonthlyExpenditureServices();
         [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {
 
-            return Ok(discountServices.GetAll());
+            return Ok(meServices.GetAll());
         }
 
         [HttpGet, Route("{id}")]
         public IHttpActionResult Get(int id)
         {
-            return Ok(discountServices.Get(id));
+            return Ok(meServices.Get(id));
         }
 
-        [HttpPost, Route("", Name = "DiscountPath")]
-        public IHttpActionResult Create(DiscountModel model)
+        [HttpPost, Route("", Name = "MonthlyExpenditurePath")]
+        public IHttpActionResult Create(MonthlyExpenditureModel model)
         {
             if (ModelState.IsValid)
             {
-                discountServices.Insert(model);
-                string url = Url.Link("DiscountPath", new { id = model.DiscountId });
+                meServices.Insert(model);
+                string url = Url.Link("MonthlyExpenditurePath", new { id = model.MonthlyExpenditureId });
                 return Created(url, model);
-              
+             
             }
             else
             {
@@ -42,13 +42,13 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] DiscountModel model, [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] MonthlyExpenditureModel model, [FromUri] int id)
         {
 
             if (ModelState.IsValid)
             {
-                 model.DiscountId = id;
-                discountServices.Update(model);
+                 model.MonthlyExpenditureId = id;
+                meServices.Update(model);
                 return Ok("model");
             }
             else
@@ -58,7 +58,7 @@ namespace EHut.Controllers
         [HttpDelete, Route("{id}")]
         public IHttpActionResult Delete(int id)
         {
-            discountServices.Delete(id);
+            meServices.Delete(id);
             return StatusCode(HttpStatusCode.NoContent);
         }
     }

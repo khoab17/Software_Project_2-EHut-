@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BEL.Model;
+using BLL.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,28 +11,31 @@ namespace EHut.Controllers
 {
     public class DeliverymanReviewController : ApiController
     {
+        DeliverymanReviewServices deliverymanReviewServices = new DeliverymanReviewServices();
+
         [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {
-
-            return Ok();
+            return Ok(deliverymanReviewServices.GetAll());
         }
 
         [HttpGet, Route("{id}")]
         public IHttpActionResult Get(int id)
         {
-            return Ok();
+            
+            return Ok(deliverymanReviewServices.Get(id));
         }
 
-        [HttpPost, Route(""/*, Name = "BankInformationPath"*/)]
-        public IHttpActionResult Create(/*BankInformationModel model*/)
+        ////////////////////////////////////
+
+        [HttpPost, Route("", Name = "DeliverymanReviewPath")]
+        public IHttpActionResult Create(DeliverymanReviewModel deliverymanReview)
         {
             if (ModelState.IsValid)
             {
-
-                /* string url = Url.Link("BankInformationPath", new { id = model.BankInformationId });
-                 return Created(url, model);*/
-                return Created("url", "model");
+                deliverymanReviewServices.Insert(deliverymanReview);
+                string url = Url.Link("DeliverymanReviewPath", new { id = deliverymanReview.DeliveryManReviewId });
+                return Created(url, deliverymanReview);
             }
             else
             {
@@ -39,14 +44,14 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit(/*[FromBody] BankInformationModel model,*/ [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] DeliverymanReviewModel deliverymanReview, [FromUri] int id)
         {
 
             if (ModelState.IsValid)
             {
-                // model.BankInformationId = id;
-
-                return Ok("model");
+                deliverymanReview.DeliveryManReviewId = id;
+                deliverymanReviewServices.Update(deliverymanReview);
+                return Ok(deliverymanReview);
             }
             else
                 return StatusCode(HttpStatusCode.NoContent);
@@ -55,7 +60,7 @@ namespace EHut.Controllers
         [HttpDelete, Route("{id}")]
         public IHttpActionResult Delete(int id)
         {
-
+            deliverymanReviewServices.Delete(id);
             return StatusCode(HttpStatusCode.NoContent);
         }
     }

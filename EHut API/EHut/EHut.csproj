@@ -114,7 +114,14 @@
     <Compile Include="Controllers\DeliverymanReviewController.cs" />
     <Compile Include="Controllers\DiscountController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\MonthlyExpenditureController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductDistributionController.cs" />
+    <Compile Include="Controllers\SalesRecordController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\ShopReviewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BEL.Model;
+using BLL.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,28 +11,29 @@ namespace EHut.Controllers
 {
     public class ImageController : ApiController
     {
+        ImageServices imageServices = new ImageServices();
         [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {
 
-            return Ok();
+            return Ok(imageServices.GetAll());
         }
 
         [HttpGet, Route("{id}")]
         public IHttpActionResult Get(int id)
         {
-            return Ok();
+            return Ok(imageServices.Get(id));
         }
 
-        [HttpPost, Route(""/*, Name = "BankInformationPath"*/)]
-        public IHttpActionResult Create(/*BankInformationModel model*/)
+        [HttpPost, Route("", Name = "ImagePath")]
+        public IHttpActionResult Create(ImageModel model)
         {
             if (ModelState.IsValid)
             {
-
-                /* string url = Url.Link("BankInformationPath", new { id = model.BankInformationId });
-                 return Created(url, model);*/
-                return Created("url", "model");
+                imageServices.Insert(model);
+                string url = Url.Link("ImagePath", new { id = model.ImageId });
+                return Created(url, model);
+                
             }
             else
             {
@@ -39,13 +42,13 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit(/*[FromBody] BankInformationModel model,*/ [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] ImageModel model,[FromUri] int id)
         {
 
             if (ModelState.IsValid)
             {
-                // model.BankInformationId = id;
-
+                 model.ImageId = id;
+                imageServices.Update(model);
                 return Ok("model");
             }
             else
@@ -55,7 +58,7 @@ namespace EHut.Controllers
         [HttpDelete, Route("{id}")]
         public IHttpActionResult Delete(int id)
         {
-
+            imageServices.Delete(id);
             return StatusCode(HttpStatusCode.NoContent);
         }
     }
