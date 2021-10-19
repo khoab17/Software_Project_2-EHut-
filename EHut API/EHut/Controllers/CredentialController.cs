@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
+    [RoutePrefix("api/Credential")]
     public class CredentialController : ApiController
     {
         CredentialServices credentialServices = new CredentialServices();

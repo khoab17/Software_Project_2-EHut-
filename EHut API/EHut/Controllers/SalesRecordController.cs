@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
+    [RoutePrefix("api/SalesRecord")]
     public class SalesRecordController : ApiController
     {
         SalesRecordServices srServices = new SalesRecordServices();

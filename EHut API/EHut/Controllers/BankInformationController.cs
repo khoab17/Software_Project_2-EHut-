@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
+    [RoutePrefix("api/BankInformation")]
     public class BankInformationController : ApiController
     {
         [HttpGet, Route("")]

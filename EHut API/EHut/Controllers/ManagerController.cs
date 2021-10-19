@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
+    [RoutePrefix("api/Manager")]
     public class ManagerController : ApiController
     {
         ManagerServices managerServices = new ManagerServices();
@@ -33,6 +34,18 @@ namespace EHut.Controllers
             {
                 managerServices.Insert(model);
                 string url = Url.Link("ManagerPath", new { id = model.ManagerId });
+
+                //get the model just inserted
+                CredentialServices credentialServices = new CredentialServices();
+                var temp = managerServices.GetByPhone(model.Phone);
+                //insert in credential table
+                CredentialModel credentialModel = new CredentialModel();
+                credentialModel.Password = temp.Password;
+                credentialModel.Password = temp.Phone;
+                credentialModel.Role = temp.ManagerialRole;
+                credentialModel.UserId = temp.ManagerId;
+                credentialServices.Insert(credentialModel);
+
                 return Created(url, model);
                 
             }
