@@ -13,7 +13,7 @@ namespace EHut.Controllers
     public class CustomerController : ApiController
     {
         CustomerServices customerServices = new CustomerServices();
-
+        
         [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {
@@ -51,7 +51,28 @@ namespace EHut.Controllers
             {
                  model.CustomerId = id;
                 customerServices.Update(model);
-                return Ok("model");
+                return Ok(model);
+            }
+            else
+                return StatusCode(HttpStatusCode.NoContent);
+        } 
+        
+        
+        [HttpPut, Route("ChangePassword/{id}")]
+        public IHttpActionResult ChangePassword([FromBody] CustomerModel model, [FromUri] int id)
+        {
+
+            if (ModelState.IsValid)
+            {
+                 model.CustomerId = id;
+                customerServices.Update(model);
+
+                CredentialServices credentialServices = new CredentialServices();
+                CredentialModel credentialModel = credentialServices.GetByPhone(model.Phone);
+                credentialModel.Password = model.Password;
+                credentialServices.Update(credentialModel);
+
+                return Ok(model);
             }
             else
                 return StatusCode(HttpStatusCode.NoContent);

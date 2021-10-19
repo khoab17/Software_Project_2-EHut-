@@ -51,7 +51,27 @@ namespace EHut.Controllers
             {
                  model.ManagerId = id;
                 managerServices.Update(model);
-                return Ok("model");
+                return Ok(model);
+            }
+            else
+                return StatusCode(HttpStatusCode.NoContent);
+        }
+        
+        [HttpPut, Route("ChangePassword/{id}")]
+        public IHttpActionResult ChangePassword([FromBody] ManagerModel model, [FromUri] int id)
+        {
+
+            if (ModelState.IsValid)
+            {
+                model.ManagerId = id;
+                managerServices.Update(model);
+
+                CredentialServices credentialServices = new CredentialServices();
+                CredentialModel credentialModel = credentialServices.GetByPhone(model.Phone);
+                credentialModel.Password = model.Password;
+                credentialServices.Update(credentialModel);
+
+                return Ok(model);
             }
             else
                 return StatusCode(HttpStatusCode.NoContent);

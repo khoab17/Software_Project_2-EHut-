@@ -45,14 +45,33 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] AdminModel admin, [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] AdminModel model, [FromUri] int id)
         {
 
             if (ModelState.IsValid)
             {
-                admin.AdminId = id;
-                adminServices.Update(admin);
-                return Ok(admin);
+                model.AdminId = id;
+                adminServices.Update(model);
+                return Ok(model);
+            }
+            else
+                return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        [HttpPut, Route("ChangePassword/{id}")]
+        public IHttpActionResult ChangePassword([FromBody] AdminModel model, [FromUri] int id)
+        {
+
+            if (ModelState.IsValid)
+            {
+                model.AdminId = id;
+                adminServices.Update(model);
+
+                CredentialModel credentialModel = credentialServices.GetByPhone(model.Phone);
+                credentialModel.Password = model.Password;
+                credentialServices.Update(credentialModel);
+                
+                return Ok(model);
             }
             else
                 return StatusCode(HttpStatusCode.NoContent);

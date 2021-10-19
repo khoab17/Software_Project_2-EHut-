@@ -25,6 +25,11 @@ namespace BLL.Services
             return Mapper<Credential, CredentialModel>.EntityToModel(data);
         }
 
+        public CredentialModel GetByPhone(string phone)
+        {
+            var data = credentialRepo.GetByPhone(phone);
+            return Mapper<Credential, CredentialModel>.EntityToModel(data);
+        }
 
 
         public CredentialModel Insert(CredentialModel model)

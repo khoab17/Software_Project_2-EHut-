@@ -52,7 +52,27 @@ namespace EHut.Controllers
             {
                  model.ShopId = id;
                 shopServices.Update(model);
-                return Ok("model");
+                return Ok(model);
+            }
+            else
+                return StatusCode(HttpStatusCode.NoContent);
+        }
+        
+        [HttpPut, Route("ChangePassword/{id}")]
+        public IHttpActionResult ChangePassword([FromBody] ShopModel model, [FromUri] int id)
+        {
+
+            if (ModelState.IsValid)
+            {
+                model.ShopId = id;
+                shopServices.Update(model);
+
+                CredentialServices credentialServices = new CredentialServices();
+                CredentialModel credentialModel = credentialServices.GetByPhone(model.Phone);
+                credentialModel.Password = model.Password;
+                credentialServices.Update(credentialModel);
+
+                return Ok(model);
             }
             else
                 return StatusCode(HttpStatusCode.NoContent);
