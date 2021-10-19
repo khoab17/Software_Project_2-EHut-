@@ -48,7 +48,10 @@ namespace DAL.Models
         public int Rating { get; set; }
         public double TotalSold { get; set; }
         public double TotalRecievedPayment { get; set; }
-
+        //
+        [Required(ErrorMessage = "Can't be empty")]
+        public string Password { get; set; }
+       //
         [ForeignKey("BankInformationId")]
         public BankInformation BankInformation { get; set; }
 

@@ -40,7 +40,18 @@ namespace BLL.Services
             var entity = Mapper<Admin, AdminModel>.ModelToEntity(model);
             bool done = adminRepo.Insert(entity);
 
-            if (done)
+            //get the model just inserted
+            CredentialServices credentialServices = new CredentialServices();
+            var temp = this.GetByPhone(model.Phone);
+            //insert in credential table
+            CredentialModel credentialModel = new CredentialModel();
+            credentialModel.Password = temp.Password;
+            credentialModel.Password = temp.Phone;
+            credentialModel.Role = "Admin";
+            credentialModel.UserId = temp.AdminId;
+            var cred = credentialServices.Insert(credentialModel);
+
+            if (done && cred!=null)
             {
                 return model;
             }

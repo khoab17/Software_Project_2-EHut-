@@ -31,8 +31,10 @@ namespace EHut.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 shopServices.Insert(model);
                 string url = Url.Link("ShopPath", new { id = model.ShopId });
+
                 return Created(url, model);
                 
             }

@@ -36,16 +36,6 @@ namespace EHut.Controllers
                 //insert in Admin table
                 adminServices.Insert(admin);
                 string url = Url.Link("AdminPath", new { id = admin.AdminId });
-                //get the admin just inserted
-                var temp = adminServices.GetByPhone(admin.Phone);
-                //insert in credential table
-                CredentialModel credentialModel = new CredentialModel();
-                credentialModel.Password = temp.Password;
-                credentialModel.Password = temp.Phone;
-                credentialModel.Role = "Admin";
-                credentialModel.UserId = temp.AdminId;
-                credentialServices.Insert(credentialModel);
-
                 return Created(url, admin);
             }
             else

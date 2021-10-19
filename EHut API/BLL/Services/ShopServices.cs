@@ -32,10 +32,26 @@ namespace BLL.Services
 
         public ShopModel Insert(ShopModel model)
         {
+            //inital value for every shop
+            model.Rating = 5;
+            model.TotalRecievedPayment = 0;
+            model.TotalSold = 0;
+
             var entity = Mapper<Shop, ShopModel>.ModelToEntity(model);
             bool done = repo.Insert(entity);
 
-            if (done)
+            //get the model just inserted
+            CredentialServices credentialServices = new CredentialServices();
+            var temp = this.GetByPhone(model.Phone);
+            //insert in credential table
+            CredentialModel credentialModel = new CredentialModel();
+            credentialModel.Password = temp.Password;
+            credentialModel.Password = temp.Phone;
+            credentialModel.Role = "Shop";
+            credentialModel.UserId = temp.ShopId;
+            var cred= credentialServices.Insert(credentialModel);
+
+            if (done && cred!=null)
             {
                 return model;
             }

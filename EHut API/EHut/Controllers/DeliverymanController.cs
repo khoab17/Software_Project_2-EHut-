@@ -36,17 +36,6 @@ namespace EHut.Controllers
             {
                 deliverymanServices.Insert(deliveryman);
                 string url = Url.Link("DeliverymanPath", new { id = deliveryman.DeliveryManId });
-                //get the model just inserted
-                CredentialServices credentialServices = new CredentialServices();
-                var temp = deliverymanServices.GetByPhone(deliveryman.Phone);
-                //insert in credential table
-                CredentialModel credentialModel = new CredentialModel();
-                credentialModel.Password = temp.Password;
-                credentialModel.Password = temp.Phone;
-                credentialModel.Role = "Deliveryman";
-                credentialModel.UserId = temp.DeliveryManId;
-                credentialServices.Insert(credentialModel);
-
                 return Created(url, deliveryman);
             }
             else

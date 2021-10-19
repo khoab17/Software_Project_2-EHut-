@@ -38,7 +38,17 @@ namespace BLL.Services
            var entity = Mapper<Deliveryman, DeliverymanModel>.ModelToEntity(model);
             bool done = deliverymanRepo.Insert(entity);
 
-            if (done)
+            CredentialServices credentialServices = new CredentialServices();
+            var temp = this.GetByPhone(model.Phone);
+            //insert in credential table
+            CredentialModel credentialModel = new CredentialModel();
+            credentialModel.Password = temp.Password;
+            credentialModel.Password = temp.Phone;
+            credentialModel.Role = "Deliveryman";
+            credentialModel.UserId = temp.DeliveryManId;
+            var cred = credentialServices.Insert(credentialModel);
+
+            if (done && cred != null)
             {
                 return model;
             }

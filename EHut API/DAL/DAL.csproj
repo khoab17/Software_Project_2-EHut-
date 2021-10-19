@@ -61,6 +61,10 @@
     <Compile Include="Migrations\202109011715300_FKRemovedCredential.designer.cs">
       <DependentUpon>202109011715300_FKRemovedCredential.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110191445161_PasswordForShop.cs" />
+    <Compile Include="Migrations\202110191445161_PasswordForShop.designer.cs">
+      <DependentUpon>202110191445161_PasswordForShop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BankInformation.cs" />
@@ -119,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109011715300_FKRemovedCredential.resx">
       <DependentUpon>202109011715300_FKRemovedCredential.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110191445161_PasswordForShop.resx">
+      <DependentUpon>202110191445161_PasswordForShop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

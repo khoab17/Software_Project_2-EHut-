@@ -34,18 +34,6 @@ namespace EHut.Controllers
             {
                 customerServices.Insert(model);
                 string url = Url.Link("CustomerPath", new { id = model.CustomerId });
-
-                //get the model just inserted
-                CredentialServices credentialServices = new CredentialServices();
-                var temp = customerServices.GetByPhone(model.Phone);
-                //insert in credential table
-                CredentialModel credentialModel = new CredentialModel();
-                credentialModel.Password = temp.Password;
-                credentialModel.Password = temp.Phone;
-                credentialModel.Role = "Customer";
-                credentialModel.UserId = temp.CustomerId;
-                credentialServices.Insert(credentialModel);
-
                 return Created(url, model);
                 
             }

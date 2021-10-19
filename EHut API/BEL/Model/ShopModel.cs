@@ -36,6 +36,8 @@ namespace BEL.Model
         [Required(ErrorMessage = "Can't be empty")]
         public int BankInformationId { get; set; }
 
+        [Required(ErrorMessage = "Can't be empty")]
+        public string Password { get; set; }
 
         [Required(ErrorMessage = "Can't be empty")]
         public bool Status { get; set; }
