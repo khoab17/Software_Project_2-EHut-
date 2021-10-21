@@ -56,7 +56,7 @@ namespace DAL.Repository
         }
 
         /// Custom Methods
-        public TEntity GetByPhone(string phone)
+        public virtual TEntity GetByPhone(string phone)
         {
             return context.Set<TEntity>().Find(phone);
         }

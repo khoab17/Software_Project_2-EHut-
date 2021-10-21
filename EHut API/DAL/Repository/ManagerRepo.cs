@@ -9,5 +9,10 @@ namespace DAL.Repository
 {
     public class ManagerRepo : Repository<Manager>
     {
+        public override Manager GetByPhone(string phone)
+        {
+            return context.Managers.Where(x => x.Phone == phone).FirstOrDefault();
+        }
+
     }
 }

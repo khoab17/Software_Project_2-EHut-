@@ -9,5 +9,9 @@ namespace DAL.Repository
 {
     public class ShopRepo : Repository<Shop>
     {
+        public override Shop GetByPhone(string phone)
+        {
+            return context.Shops.Where(x => x.Phone == phone).FirstOrDefault();
+        }
     }
 }

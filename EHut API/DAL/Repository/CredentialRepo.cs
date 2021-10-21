@@ -9,5 +9,9 @@ namespace DAL.Repository
 {
     public class CredentialRepo:Repository<Credential>
     {
+        public override Credential GetByPhone(string phone)
+        {
+            return context.Credentials.Where(x => x.Phone == phone).FirstOrDefault();
+        }
     }
 }
