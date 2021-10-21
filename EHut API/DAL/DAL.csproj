@@ -65,6 +65,10 @@
     <Compile Include="Migrations\202110191445161_PasswordForShop.designer.cs">
       <DependentUpon>202110191445161_PasswordForShop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110211347219_PhoneUnique.cs" />
+    <Compile Include="Migrations\202110211347219_PhoneUnique.designer.cs">
+      <DependentUpon>202110211347219_PhoneUnique.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BankInformation.cs" />
@@ -125,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110191445161_PasswordForShop.resx">
       <DependentUpon>202110191445161_PasswordForShop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110211347219_PhoneUnique.resx">
+      <DependentUpon>202110211347219_PhoneUnique.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

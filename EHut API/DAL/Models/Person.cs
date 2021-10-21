@@ -22,7 +22,8 @@ namespace DAL.Models
 
         [Required(ErrorMessage = "Can't be empty")]
         [Phone(ErrorMessage = "Phone Number is not valid")]
-        //[Index(IsUnique =true)]
+        [MaxLength(50,ErrorMessage ="Can't be more than 50 character")]
+        [Index(IsUnique =true)]
         public string Phone { get; set; }
 
 
