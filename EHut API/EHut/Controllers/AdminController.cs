@@ -40,7 +40,7 @@ namespace EHut.Controllers
             }
             else
             {
-                return StatusCode(HttpStatusCode.NoContent);
+                return StatusCode(HttpStatusCode.NoContent); /// if No Content then User tried to insert duplicate email or phone.
             }
         }
 

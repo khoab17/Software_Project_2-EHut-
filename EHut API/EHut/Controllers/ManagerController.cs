@@ -32,9 +32,9 @@ namespace EHut.Controllers
         {
             if (ModelState.IsValid)
             {
-                managerServices.Insert(model);
+                var temp= managerServices.Insert(model);
                 string url = Url.Link("ManagerPath", new { id = model.ManagerId });
-                return Created(url, model);
+                return Created(url, temp);
                 
             }
             else

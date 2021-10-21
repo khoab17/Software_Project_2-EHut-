@@ -18,6 +18,8 @@ namespace DAL.Models
 
 
         [Phone]
+        [MaxLength(50, ErrorMessage = "Can't be more than 50 character")]
+        [Index(IsUnique = true)]
         public string Phone { get; set; }
 
 

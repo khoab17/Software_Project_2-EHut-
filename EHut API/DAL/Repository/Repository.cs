@@ -28,7 +28,6 @@ namespace DAL.Repository
         }
 
         public List<TEntity> GetAll()
-        
         {
             return context.Set<TEntity>().ToList();
         }
@@ -36,23 +35,38 @@ namespace DAL.Repository
         public bool Insert(TEntity entity)
         {
             context.Set<TEntity>().Add(entity);
-            if (context.SaveChanges() > 0)
+            try
             {
-                return true;
+                if (context.SaveChanges() > 0)
+                {
+                    return true;
+                }
+                else
+                    return false;
             }
-            else
+            catch
+            {
                 return false;
+            }
+            
         }
 
         public bool Update(TEntity entity)
         {
             context.Entry(entity).State = EntityState.Modified;
-            if (context.SaveChanges() > 0)
+            try
             {
-                return true;
+                if (context.SaveChanges() > 0)
+                {
+                    return true;
+                }
+                else
+                    return false;
             }
-            else
+            catch
+            {
                 return false;
+            }
         }
 
         /// Custom Methods

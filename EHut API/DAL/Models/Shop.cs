@@ -38,6 +38,8 @@ namespace DAL.Models
 
         [Required(ErrorMessage = "Can't be empty")]
         [EmailAddress(ErrorMessage = "Email address is not valid")]
+        [MaxLength(50, ErrorMessage = "Can't be more than 50 character")]
+        [Index(IsUnique = true)]
         public string Email { get; set; }
 
 

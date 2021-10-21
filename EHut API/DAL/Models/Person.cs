@@ -11,7 +11,7 @@ namespace DAL.Models
     public class Person
     {
         [Required(ErrorMessage = "Can't be empty")]
-        [StringLength(50, ErrorMessage = "Can't be more than 50 character", MinimumLength = 5)]
+        [StringLength(50, ErrorMessage = "Can't be more than 50 character and less than 5 character", MinimumLength = 5)]
         public string Name { get; set; }
 
 
@@ -29,6 +29,8 @@ namespace DAL.Models
 
         [Required(ErrorMessage = "Can't be empty")]
         [EmailAddress(ErrorMessage = "Email address is not valid")]
+        [MaxLength(50, ErrorMessage = "Can't be more than 50 character")]
+        [Index(IsUnique = true)]
         public string Email { get; set; }
 
 

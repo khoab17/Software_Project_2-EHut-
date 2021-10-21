@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace BEL.Model
 
         [Required(ErrorMessage = "Can't be empty")]
         [Phone(ErrorMessage = "Phone Number is not valid")]
+        [MaxLength(50, ErrorMessage = "Can't be more than 50 character")]
+        [Index(IsUnique = true)]
         public string Phone { get; set; }
 
 

@@ -46,13 +46,14 @@ namespace BLL.Services
             //insert in credential table
             CredentialModel credentialModel = new CredentialModel();
             credentialModel.Password = temp.Password;
-            credentialModel.Password = temp.Phone;
+            credentialModel.Phone = temp.Phone;
             credentialModel.Role = "Shop";
             credentialModel.UserId = temp.ShopId;
             var cred= credentialServices.Insert(credentialModel);
 
             if (done && cred!=null)
             {
+                model.ShopId = credentialModel.UserId;
                 return model;
             }
             else
