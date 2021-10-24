@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
-    [RoutePrefix("api/Manager")]
+    [RoutePrefix("api/Managers")]
     public class ManagerController : ApiController
     {
         ManagerServices managerServices = new ManagerServices();

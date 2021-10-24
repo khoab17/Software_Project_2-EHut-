@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
-    [RoutePrefix("api/Image")]
+    [RoutePrefix("api/Images")]
     public class ImageController : ApiController
     {
         ImageServices imageServices = new ImageServices();
