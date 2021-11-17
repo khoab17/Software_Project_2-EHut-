@@ -22,9 +22,10 @@ namespace EHut
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
 
-          
-            
+
         }
     }
 }
