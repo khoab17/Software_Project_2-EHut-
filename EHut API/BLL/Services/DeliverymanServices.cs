@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -15,42 +15,42 @@ namespace BLL.Services
     {
         DeliverymanRepo deliverymanRepo = new DeliverymanRepo();
 
-        public List<DeliverymanModel> GetAll()
+        public List<Deliveryman> GetAll()
         {
             var data = deliverymanRepo.GetAll();
-            return Mapper<Deliveryman, DeliverymanModel>.ListOfEntityToModel(data);
+            return data;
         }
 
-        public DeliverymanModel Get(int id)
+        public Deliveryman Get(int id)
         {
             var data = deliverymanRepo.Get(id);
-            return Mapper<Deliveryman, DeliverymanModel>.EntityToModel(data);
+            return data;
         }
 
-        public DeliverymanModel GetByPhone(string phone)                     
+        public Deliveryman GetByPhone(string phone)                     
         {
             var data = deliverymanRepo.GetByPhone(phone);
-            return Mapper<Deliveryman, DeliverymanModel>.EntityToModel(data);
+            return data;
         }
 
-        public DeliverymanModel Insert(DeliverymanModel model)
+        public Deliveryman Insert(Deliveryman model)
         {
-           var entity = Mapper<Deliveryman, DeliverymanModel>.ModelToEntity(model);
+           var entity = model;
             bool done = deliverymanRepo.Insert(entity);
 
             CredentialServices credentialServices = new CredentialServices();
             var temp = this.GetByPhone(model.Phone);
             //insert in credential table
-            CredentialModel credentialModel = new CredentialModel();
-            credentialModel.Password = temp.Password;
-            credentialModel.Phone = temp.Phone;
-            credentialModel.Role = "Deliveryman";
-            credentialModel.UserId = temp.DeliveryManId;
-            var cred = credentialServices.Insert(credentialModel);
+            Credential credential = new Credential();
+            credential.Password = temp.Password;
+            credential.Phone = temp.Phone;
+            credential.Role = "Deliveryman";
+            credential.UserId = temp.DeliveryManId;
+            var cred = credentialServices.Insert(credential);
 
             if (done && cred != null)
             {
-                model.DeliveryManId = credentialModel.UserId;
+                model.DeliveryManId = credential.UserId;
                 return model;
             }
             else
@@ -58,9 +58,9 @@ namespace BLL.Services
         }
 
         
-        public DeliverymanModel Update(DeliverymanModel model)
+        public Deliveryman Update(Deliveryman model)
         {
-            var entity = Mapper<Deliveryman, DeliverymanModel>.ModelToEntity(model);
+            var entity = model;
             bool done = deliverymanRepo.Update(entity);
             if (done)
             {

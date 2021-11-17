@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -17,43 +17,43 @@ namespace BLL.Services
     {
         
         AdminRepo adminRepo = new AdminRepo();  
-        public List<AdminModel> GetAll()
+        public List<Admin> GetAll()
         {
             var data = adminRepo.GetAll();
-            return Mapper<Admin, AdminModel>.ListOfEntityToModel(data);
+            return data;
         }
 
-        public AdminModel Get(int id)
+        public Admin Get(int id)
         {
             var data = adminRepo.Get(id);
-            return Mapper<Admin, AdminModel>.EntityToModel(data);
+            return data;
         }
 
-        public AdminModel GetByPhone(string phone)                     
+        public Admin GetByPhone(string phone)                     
         {
             var data = adminRepo.GetByPhone(phone);
-            return Mapper<Admin, AdminModel>.EntityToModel(data);
+            return data;
         }
 
-        public AdminModel Insert(AdminModel model)
+        public Admin Insert(Admin model)
         {
-            var entity = Mapper<Admin, AdminModel>.ModelToEntity(model);
+            var entity = model; 
             bool done = adminRepo.Insert(entity);
 
             //get the model just inserted
             CredentialServices credentialServices = new CredentialServices();
             var temp = this.GetByPhone(model.Phone);
             //insert in credential table
-            CredentialModel credentialModel = new CredentialModel();
-            credentialModel.Password = temp.Password;
-            credentialModel.Phone = temp.Phone;
-            credentialModel.Role = "Admin";
-            credentialModel.UserId = temp.AdminId;
-            var cred = credentialServices.Insert(credentialModel);
+            Credential credential = new Credential();
+            credential.Password = temp.Password;
+            credential.Phone = temp.Phone;
+            credential.Role = "Admin";
+            credential.UserId = temp.AdminId;
+            var cred = credentialServices.Insert(credential);
 
             if (done && cred!=null)
             {
-                model.AdminId = credentialModel.UserId;
+                model.AdminId = credential.UserId;
                 return model;
             }
             else
@@ -61,9 +61,9 @@ namespace BLL.Services
         }
 
 
-        public AdminModel Update(AdminModel model)
+        public Admin Update(Admin model)
         {
-            var entity = Mapper<Admin, AdminModel>.ModelToEntity(model);  
+            var entity = model;  
             bool done = adminRepo.Update(entity);
             if (done)
             {

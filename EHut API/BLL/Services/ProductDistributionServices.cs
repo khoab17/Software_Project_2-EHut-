@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -12,27 +12,27 @@ namespace BLL.Services
     public class ProductDistributionServices
     {
         ProductDistributionRepo repo = new ProductDistributionRepo();
-        public List<ProductDistributionModel> GetAll()
+        public List<ProductDistribution> GetAll()
         {
             var data = repo.GetAll();
-            return Mapper<ProductDistribution, ProductDistributionModel>.ListOfEntityToModel(data);
+            return data;
         }
 
-        public ProductDistributionModel Get(int id)
+        public ProductDistribution Get(int id)
         {
             var data = repo.Get(id);
-            return Mapper<ProductDistribution, ProductDistributionModel>.EntityToModel(data);
+            return data;
         }
 
-        public ProductDistributionModel GetByPhone(string phone)
+        public ProductDistribution GetByPhone(string phone)
         {
             var data = repo.GetByPhone(phone);
-            return Mapper<ProductDistribution, ProductDistributionModel>.EntityToModel(data);
+            return data;
         }
 
-        public ProductDistributionModel Insert(ProductDistributionModel model)
+        public ProductDistribution Insert(ProductDistribution model)
         {
-            var entity = Mapper<ProductDistribution, ProductDistributionModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Insert(entity);
 
             if (done)
@@ -44,9 +44,9 @@ namespace BLL.Services
         }
 
 
-        public ProductDistributionModel Update(ProductDistributionModel model)
+        public ProductDistribution Update(ProductDistribution model)
         {
-            var entity = Mapper<ProductDistribution, ProductDistributionModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Update(entity);
             if (done)
             {

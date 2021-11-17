@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL;
 using DAL.Models;
 using DAL.Repository;
@@ -19,24 +19,24 @@ namespace BLL.Services
         ProductRepo productRepo = new ProductRepo();
 
         //Get Products
-        public List<ProductModel> GetAll()
+        public List<Product> GetAll()
         {
 
             var data = productRepo.GetAll();
-            return Mapper<Product, ProductModel>.ListOfEntityToModel(data);
+            return data;
         }
 
-        public ProductModel Get(int id)
+        public Product Get(int id)
         {
             var data = productRepo.Get(id);
-            return Mapper<Product, ProductModel>.EntityToModel(data);
+            return data;
         }
 
         
 
-        public ProductModel Insert(ProductModel model)
+        public Product Insert(Product model)
         {
-            var entity = Mapper<Product, ProductModel>.ModelToEntity(model);
+            var entity = model;
             bool done = productRepo.Insert(entity);
 
             if (done)
@@ -48,9 +48,9 @@ namespace BLL.Services
         }
 
 
-        public ProductModel Update(ProductModel model)
+        public Product Update(Product model)
         {
-            var entity = Mapper<Product, ProductModel>.ModelToEntity(model);  
+            var entity = model;  
             bool done = productRepo.Update(entity);
             if (done)
             {

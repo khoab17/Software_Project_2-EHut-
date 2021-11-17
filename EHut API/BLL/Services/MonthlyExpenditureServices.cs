@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -12,27 +12,27 @@ namespace BLL.Services
     public class MonthlyExpenditureServices
     {
         MonthlyExpenditureRepo repo = new MonthlyExpenditureRepo();
-        public List<MonthlyExpenditureModel> GetAll()
+        public List<MonthlyExpenditure> GetAll()
         {
             var data = repo.GetAll();
-            return Mapper<MonthlyExpenditure, MonthlyExpenditureModel>.ListOfEntityToModel(data);
+            return data;
         }
 
-        public MonthlyExpenditureModel Get(int id)
+        public MonthlyExpenditure Get(int id)
         {
             var data = repo.Get(id);
-            return Mapper<MonthlyExpenditure, MonthlyExpenditureModel>.EntityToModel(data);
+            return data;
         }
 
-        public MonthlyExpenditureModel GetByPhone(string phone)
+        public MonthlyExpenditure GetByPhone(string phone)
         {
             var data = repo.GetByPhone(phone);
-            return Mapper<MonthlyExpenditure, MonthlyExpenditureModel>.EntityToModel(data);
+            return data;
         }
 
-        public MonthlyExpenditureModel Insert(MonthlyExpenditureModel model)
+        public MonthlyExpenditure Insert(MonthlyExpenditure model)
         {
-            var entity = Mapper<MonthlyExpenditure, MonthlyExpenditureModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Insert(entity);
 
             if (done)
@@ -44,9 +44,9 @@ namespace BLL.Services
         }
 
 
-        public MonthlyExpenditureModel Update(MonthlyExpenditureModel model)
+        public MonthlyExpenditure Update(MonthlyExpenditure model)
         {
-            var entity = Mapper<MonthlyExpenditure, MonthlyExpenditureModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Update(entity);
             if (done)
             {

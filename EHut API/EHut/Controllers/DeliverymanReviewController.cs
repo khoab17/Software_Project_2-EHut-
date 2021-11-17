@@ -1,5 +1,6 @@
-﻿using BEL.Model;
+﻿
 using BLL.Services;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace EHut.Controllers
         ////////////////////////////////////
 
         [HttpPost, Route("", Name = "DeliverymanReviewPath")]
-        public IHttpActionResult Create(DeliverymanReviewModel deliverymanReview)
+        public IHttpActionResult Create(DeliverymanReview  deliverymanReview)
         {
             if (ModelState.IsValid)
             {
@@ -45,7 +46,7 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] DeliverymanReviewModel deliverymanReview, [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] DeliverymanReview  deliverymanReview, [FromUri] int id)
         {
 
             if (ModelState.IsValid)

@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -12,27 +12,27 @@ namespace BLL.Services
     public class OrderServices
     {
         OrderRepo repo = new OrderRepo();
-        public List<OrderModel> GetAll()
+        public List<Order> GetAll()
         {
             var data = repo.GetAll();
-            return Mapper<Order, OrderModel>.ListOfEntityToModel(data);
+            return data;
         }
 
-        public OrderModel Get(int id)
+        public Order Get(int id)
         {
             var data = repo.Get(id);
-            return Mapper<Order, OrderModel>.EntityToModel(data);
+            return data;
         }
 
-        public OrderModel GetByPhone(string phone)
+        public Order GetByPhone(string phone)
         {
             var data = repo.GetByPhone(phone);
-            return Mapper<Order, OrderModel>.EntityToModel(data);
+            return data;
         }
 
-        public OrderModel Insert(OrderModel model)
+        public Order Insert(Order model)
         {
-            var entity = Mapper<Order, OrderModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Insert(entity);
 
             if (done)
@@ -44,9 +44,9 @@ namespace BLL.Services
         }
 
 
-        public OrderModel Update(OrderModel model)
+        public Order Update(Order model)
         {
-            var entity = Mapper<Order, OrderModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Update(entity);
             if (done)
             {

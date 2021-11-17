@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -12,27 +12,27 @@ namespace BLL.Services
     public class DiscountServices
     {
         DiscountRepo repo = new DiscountRepo();
-        public List<DiscountModel> GetAll()
+        public List<Discount> GetAll()
         {
             var data = repo.GetAll();
-            return Mapper<Discount, DiscountModel>.ListOfEntityToModel(data);
+            return data;
         }
 
-        public DiscountModel Get(int id)
+        public Discount Get(int id)
         {
             var data = repo.Get(id);
-            return Mapper<Discount, DiscountModel>.EntityToModel(data);
+            return data;
         }
 
-        public DiscountModel GetByPhone(string phone)
+        public Discount GetByPhone(string phone)
         {
             var data = repo.GetByPhone(phone);
-            return Mapper<Discount, DiscountModel>.EntityToModel(data);
+            return data;
         }
 
-        public DiscountModel Insert(DiscountModel model)
+        public Discount Insert(Discount model)
         {
-            var entity = Mapper<Discount, DiscountModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Insert(entity);
 
             if (done)
@@ -44,9 +44,9 @@ namespace BLL.Services
         }
 
 
-        public DiscountModel Update(DiscountModel model)
+        public Discount Update(Discount model)
         {
-            var entity = Mapper<Discount, DiscountModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Update(entity);
             if (done)
             {

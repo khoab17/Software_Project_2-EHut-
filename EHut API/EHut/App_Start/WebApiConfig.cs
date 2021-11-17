@@ -1,4 +1,4 @@
-﻿using BLL.Services.AutoMapperConfig;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +24,7 @@ namespace EHut
 
 
           
-            AutoMapper.Mapper.Initialize(con => con.AddProfile<MapperSetting>());
-            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
+            
         }
     }
 }

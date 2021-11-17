@@ -1,5 +1,6 @@
-﻿using BEL.Model;
+﻿ 
 using BLL.Services;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace EHut.Controllers
         }
 
         [HttpPost, Route("", Name = "MonthlyExpenditurePath")]
-        public IHttpActionResult Create(MonthlyExpenditureModel model)
+        public IHttpActionResult Create(MonthlyExpenditure  model)
         {
             if (ModelState.IsValid)
             {
@@ -43,7 +44,7 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] MonthlyExpenditureModel model, [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] MonthlyExpenditure  model, [FromUri] int id)
         {
 
             if (ModelState.IsValid)

@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AdminServices.cs" />
-    <Compile Include="Services\AutoMapperConfig\MapperSetting.cs" />
     <Compile Include="Services\BankInformationServices.cs" />
     <Compile Include="Services\BrandServices.cs" />
     <Compile Include="Services\CategoryServices.cs" />
@@ -61,7 +60,6 @@
     <Compile Include="Services\DiscountServices.cs" />
     <Compile Include="Services\ImageServices.cs" />
     <Compile Include="Services\ManagerServices.cs" />
-    <Compile Include="Services\Mapper.cs" />
     <Compile Include="Services\MonthlyExpenditureServices.cs" />
     <Compile Include="Services\OrderServices.cs" />
     <Compile Include="Services\ProductDistributionServices.cs" />
@@ -76,10 +74,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\BEL\BEL.csproj">
-      <Project>{6792880a-35da-4891-b577-8712fedced52}</Project>
-      <Name>BEL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{4c370cb7-f5d7-4fd3-b386-536e20f89d96}</Project>
       <Name>DAL</Name>

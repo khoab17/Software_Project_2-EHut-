@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -12,48 +12,48 @@ namespace BLL.Services
     public class ShopServices
     {
         ShopRepo repo = new ShopRepo();
-        public List<ShopModel> GetAll()
+        public List<Shop> GetAll()
         {
             var data = repo.GetAll();
-            return Mapper<Shop, ShopModel>.ListOfEntityToModel(data);
+            return data;
         }
 
-        public ShopModel Get(int id)
+        public Shop Get(int id)
         {
             var data = repo.Get(id);
-            return Mapper<Shop, ShopModel>.EntityToModel(data);
+            return data;
         }
 
-        public ShopModel GetByPhone(string phone)
+        public Shop GetByPhone(string phone)
         {
             var data = repo.GetByPhone(phone);
-            return Mapper<Shop, ShopModel>.EntityToModel(data);
+            return data;
         }
 
-        public ShopModel Insert(ShopModel model)
+        public Shop Insert(Shop model)
         {
             //inital value for every shop
             model.Rating = 5;
             model.TotalRecievedPayment = 0;
             model.TotalSold = 0;
 
-            var entity = Mapper<Shop, ShopModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Insert(entity);
 
             //get the model just inserted
             CredentialServices credentialServices = new CredentialServices();
             var temp = this.GetByPhone(model.Phone);
             //insert in credential table
-            CredentialModel credentialModel = new CredentialModel();
-            credentialModel.Password = temp.Password;
-            credentialModel.Phone = temp.Phone;
-            credentialModel.Role = "Shop";
-            credentialModel.UserId = temp.ShopId;
-            var cred= credentialServices.Insert(credentialModel);
+            Credential credential = new Credential();
+            credential.Password = temp.Password;
+            credential.Phone = temp.Phone;
+            credential.Role = "Shop";
+            credential.UserId = temp.ShopId;
+            var cred= credentialServices.Insert(credential);
 
             if (done && cred!=null)
             {
-                model.ShopId = credentialModel.UserId;
+                model.ShopId = credential.UserId;
                 return model;
             }
             else
@@ -61,9 +61,9 @@ namespace BLL.Services
         }
 
 
-        public ShopModel Update(ShopModel model)
+        public Shop Update(Shop model)
         {
-            var entity = Mapper<Shop, ShopModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Update(entity);
             if (done)
             {

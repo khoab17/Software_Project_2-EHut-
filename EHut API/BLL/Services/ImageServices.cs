@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -12,27 +12,27 @@ namespace BLL.Services
     public class ImageServices
     {
         ImageRepo repo = new ImageRepo();
-        public List<ImageModel> GetAll()
+        public List<Image> GetAll()
         {
             var data = repo.GetAll();
-            return Mapper<Image, ImageModel>.ListOfEntityToModel(data);
+            return data; 
         }
 
-        public ImageModel Get(int id)
+        public Image Get(int id)
         {
             var data = repo.Get(id);
-            return Mapper<Image, ImageModel>.EntityToModel(data);
+            return data;
         }
 
-        public ImageModel GetByPhone(string phone)
+        public Image GetByPhone(string phone)
         {
             var data = repo.GetByPhone(phone);
-            return Mapper<Image, ImageModel>.EntityToModel(data);
+            return data;
         }
 
-        public ImageModel Insert(ImageModel model)
+        public Image Insert(Image model)
         {
-            var entity = Mapper<Image, ImageModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Insert(entity);
 
             if (done)
@@ -44,9 +44,9 @@ namespace BLL.Services
         }
 
 
-        public ImageModel Update(ImageModel model)
+        public Image Update(Image model)
         {
-            var entity = Mapper<Image, ImageModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Update(entity);
             if (done)
             {

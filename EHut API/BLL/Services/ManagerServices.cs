@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -12,42 +12,42 @@ namespace BLL.Services
     public class ManagerServices
     {
         ManagerRepo repo = new ManagerRepo();
-        public List<ManagerModel> GetAll()
+        public List<Manager> GetAll()
         {
             var data = repo.GetAll();
-            return Mapper<Manager, ManagerModel>.ListOfEntityToModel(data);
+            return data;
         }
 
-        public ManagerModel Get(int id)
+        public Manager Get(int id)
         {
             var data = repo.Get(id);
-            return Mapper<Manager, ManagerModel>.EntityToModel(data);
+            return data;
         }
 
-        public ManagerModel GetByPhone(string phone)
+        public Manager GetByPhone(string phone)
         {
             var data = repo.GetByPhone(phone);
-            return Mapper<Manager, ManagerModel>.EntityToModel(data);
+            return data;
         }
 
-        public ManagerModel Insert(ManagerModel model)
+        public Manager Insert(Manager model)
         {
-            var entity = Mapper<Manager, ManagerModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Insert(entity);
 
             CredentialServices credentialServices = new CredentialServices();
             var temp = this.GetByPhone(model.Phone);
             //insert in credential table
-            CredentialModel credentialModel = new CredentialModel();
-            credentialModel.Password = temp.Password;
-            credentialModel.Phone = temp.Phone;
-            credentialModel.Role = temp.ManagerialRole;
-            credentialModel.UserId = temp.ManagerId;
-            var cred = credentialServices.Insert(credentialModel);
+            Credential credential = new Credential();
+            credential.Password = temp.Password;
+            credential.Phone = temp.Phone;
+            credential.Role = temp.ManagerialRole;
+            credential.UserId = temp.ManagerId;
+            var cred = credentialServices.Insert(credential);
 
             if (done && cred != null)
             {
-                model.ManagerId = credentialModel.UserId;
+                model.ManagerId = credential.UserId;
                 return model;
             }
             else
@@ -55,9 +55,9 @@ namespace BLL.Services
         }
 
 
-        public ManagerModel Update(ManagerModel model)
+        public Manager Update(Manager model)
         {
-            var entity = Mapper<Manager, ManagerModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Update(entity);
             if (done)
             {

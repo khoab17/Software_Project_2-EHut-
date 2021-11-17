@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -12,29 +12,29 @@ namespace BLL.Services
     public class CredentialServices
     {
         CredentialRepo credentialRepo = new CredentialRepo();
-        public List<CredentialModel> GetAll()
+        public List<Credential> GetAll()
         {
             var data = credentialRepo.GetAll();
-            return Mapper<Credential, CredentialModel>.ListOfEntityToModel(data);
+            return data;
 
         }
 
-        public CredentialModel Get(int id)
+        public Credential Get(int id)
         {
             var data = credentialRepo.Get(id);
-            return Mapper<Credential, CredentialModel>.EntityToModel(data);
+            return data;
         }
 
-        public CredentialModel GetByPhone(string phone)
+        public Credential GetByPhone(string phone)
         {
             var data = credentialRepo.GetByPhone(phone);
-            return Mapper<Credential, CredentialModel>.EntityToModel(data);
+            return data;
         }
 
 
-        public CredentialModel Insert(CredentialModel model)
+        public Credential Insert(Credential model)
         {
-            var entity = Mapper<Credential, CredentialModel>.ModelToEntity(model);
+            var entity = model;
             bool done = credentialRepo.Insert(entity);
 
             if (done)
@@ -46,9 +46,9 @@ namespace BLL.Services
         }
 
 
-        public CredentialModel Update(CredentialModel model)
+        public Credential Update(Credential model)
         {
-            var entity = Mapper<Credential, CredentialModel>.ModelToEntity(model);
+            var entity = model; ;
             bool done = credentialRepo.Update(entity);
             if (done)
             {

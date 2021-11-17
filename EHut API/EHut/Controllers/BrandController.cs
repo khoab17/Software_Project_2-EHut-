@@ -1,5 +1,6 @@
-﻿using BEL.Model;
+﻿
 using BLL.Services;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace EHut.Controllers
         }
 
         [HttpPost, Route("", Name = "BrandPath")]
-        public IHttpActionResult Create(BrandModel model)
+        public IHttpActionResult Create(Brand model)
         {
             if (ModelState.IsValid)
             {
@@ -42,7 +43,7 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] BrandModel model, [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] Brand model, [FromUri] int id)
         {
 
             if (ModelState.IsValid)

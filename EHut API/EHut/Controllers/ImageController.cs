@@ -1,7 +1,9 @@
-﻿using BEL.Model;
+﻿ 
 using BLL.Services;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -27,7 +29,7 @@ namespace EHut.Controllers
         }
 
         [HttpPost, Route("", Name = "ImagePath")]
-        public IHttpActionResult Create(ImageModel model)
+        public IHttpActionResult Create(Image model)
         {
             if (ModelState.IsValid)
             {
@@ -43,7 +45,7 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] ImageModel model,[FromUri] int id)
+        public IHttpActionResult Edit([FromBody] Image  model,[FromUri] int id)
         {
 
             if (ModelState.IsValid)

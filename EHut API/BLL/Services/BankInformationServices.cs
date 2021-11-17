@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -17,22 +17,22 @@ namespace BLL.Services
         BankInformationRepo bankInformationRepo = new BankInformationRepo();
 
         
-        public List<BankInformationModel> GetAll()
+        public List<BankInformation> GetAll()
         {
             var data = bankInformationRepo.GetAll();
-            return Mapper<BankInformation, BankInformationModel>.ListOfEntityToModel(data);
+            return data;
         }
         
-        public BankInformationModel Get(int id)
+        public BankInformation Get(int id)
         {
             var data = bankInformationRepo.Get(id);
-            return Mapper<BankInformation, BankInformationModel>.EntityToModel(data);
+            return data;
         }
 
       
-        public BankInformationModel Insert(BankInformationModel model)
+        public BankInformation Insert(BankInformation model)
         {
-            var entity = Mapper<BankInformation, BankInformationModel>.ModelToEntity(model);
+            var entity = model;
             bool done = bankInformationRepo.Insert(entity);
 
             if (done)
@@ -44,9 +44,9 @@ namespace BLL.Services
         }
 
 
-        public BankInformationModel Update(BankInformationModel model)
+        public BankInformation Update(BankInformation model)
         {
-            var entity = Mapper<BankInformation, BankInformationModel>.ModelToEntity(model);  
+            var entity = model;  
             bool done = bankInformationRepo.Update(entity);
             if (done)
             {

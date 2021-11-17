@@ -1,5 +1,6 @@
-﻿using BEL.Model;
+﻿ 
 using BLL.Services;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace EHut.Controllers
         }
 
         [HttpPost, Route("", Name = "SalesRecordPath")]
-        public IHttpActionResult Create(SalesRecordModel model)
+        public IHttpActionResult Create(SalesRecord  model)
         {
             if (ModelState.IsValid)
             {
@@ -43,7 +44,7 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] SalesRecordModel model, [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] SalesRecord  model, [FromUri] int id)
         {
 
             if (ModelState.IsValid)

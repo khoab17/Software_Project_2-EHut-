@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -12,27 +12,27 @@ namespace BLL.Services
     public class ShopReviewServices
     {
         ShopReviewRepo repo = new ShopReviewRepo();
-        public List<ShopReviewModel> GetAll()
+        public List<ShopReview> GetAll()
         {
             var data = repo.GetAll();
-            return Mapper<ShopReview, ShopReviewModel>.ListOfEntityToModel(data);
+            return data;
         }
 
-        public ShopReviewModel Get(int id)
+        public ShopReview Get(int id)
         {
             var data = repo.Get(id);
-            return Mapper<ShopReview, ShopReviewModel>.EntityToModel(data);
+            return data;
         }
 
-        public ShopReviewModel GetByPhone(string phone)
+        public ShopReview GetByPhone(string phone)
         {
             var data = repo.GetByPhone(phone);
-            return Mapper<ShopReview, ShopReviewModel>.EntityToModel(data);
+            return data;
         }
 
-        public ShopReviewModel Insert(ShopReviewModel model)
+        public ShopReview Insert(ShopReview model)
         {
-            var entity = Mapper<ShopReview, ShopReviewModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Insert(entity);
 
             if (done)
@@ -44,9 +44,9 @@ namespace BLL.Services
         }
 
 
-        public ShopReviewModel Update(ShopReviewModel model)
+        public ShopReview Update(ShopReview model)
         {
-            var entity = Mapper<ShopReview, ShopReviewModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Update(entity);
             if (done)
             {

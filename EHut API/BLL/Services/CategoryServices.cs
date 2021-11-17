@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -12,24 +12,24 @@ namespace BLL.Services
     public class CategoryServices
     {
         CategoryRepo categoryRepo = new CategoryRepo();
-        public List<CategoryModel> GetAll()
+        public List<Category> GetAll()
         {
             var data = categoryRepo.GetAll();
-            return Mapper<Category, CategoryModel>.ListOfEntityToModel(data);
+            return data;
 
         }
 
-        public CategoryModel Get(int id)
+        public Category Get(int id)
         {
             var data = categoryRepo.Get(id);
-            return Mapper<Category, CategoryModel>.EntityToModel(data);
+            return data;
         }
 
 
 
-        public CategoryModel Insert(CategoryModel model)
+        public Category Insert(Category model)
         {
-            var entity = Mapper<Category, CategoryModel>.ModelToEntity(model);
+            var entity = model;
             bool done = categoryRepo.Insert(entity);
 
             if (done)
@@ -41,9 +41,9 @@ namespace BLL.Services
         }
 
 
-        public CategoryModel Update(CategoryModel model)
+        public Category Update(Category model)
         {
-            var entity = Mapper<Category, CategoryModel>.ModelToEntity(model);
+            var entity = model;
             bool done = categoryRepo.Update(entity);
             if (done)
             {

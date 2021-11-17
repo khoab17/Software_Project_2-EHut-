@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -12,27 +12,27 @@ namespace BLL.Services
     public class DeliverymanReviewServices
     {
         DeliverymanReviewRepo repo = new DeliverymanReviewRepo();
-        public List<DeliverymanReviewModel> GetAll()
+        public List<DeliverymanReview> GetAll()
         {
             var data = repo.GetAll();
-            return Mapper<DeliverymanReview, DeliverymanReviewModel>.ListOfEntityToModel(data);
+            return data;
         }
 
-        public DeliverymanReviewModel Get(int id)
+        public DeliverymanReview Get(int id)
         {
             var data = repo.Get(id);
-            return Mapper<DeliverymanReview, DeliverymanReviewModel>.EntityToModel(data);
+            return data;
         }
 
-        public DeliverymanReviewModel GetByPhone(string phone)
+        public DeliverymanReview GetByPhone(string phone)
         {
             var data = repo.GetByPhone(phone);
-            return Mapper<DeliverymanReview, DeliverymanReviewModel>.EntityToModel(data);
+            return data;
         }
 
-        public DeliverymanReviewModel Insert(DeliverymanReviewModel model)
+        public DeliverymanReview Insert(DeliverymanReview model)
         {
-            var entity = Mapper<DeliverymanReview, DeliverymanReviewModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Insert(entity);
 
             if (done)
@@ -44,9 +44,9 @@ namespace BLL.Services
         }
 
 
-        public DeliverymanReviewModel Update(DeliverymanReviewModel model)
+        public DeliverymanReview Update(DeliverymanReview model)
         {
-            var entity = Mapper<DeliverymanReview, DeliverymanReviewModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Update(entity);
             if (done)
             {

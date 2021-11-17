@@ -1,5 +1,6 @@
-﻿using BEL.Model;
+﻿
 using BLL.Services;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,14 +24,14 @@ namespace EHut.Controllers
         [HttpGet, Route("{id}")]
         public IHttpActionResult Get(int id)
         {
-            DeliverymanModel deliverymanModel = deliverymanServices.Get(id);
+            Deliveryman deliverymanModel = deliverymanServices.Get(id);
             return Ok(deliverymanModel);
         }
 
         ////////////////////////////////////
 
         [HttpPost, Route("", Name = "DeliverymanPath")]
-        public IHttpActionResult Create(DeliverymanModel deliveryman)
+        public IHttpActionResult Create(Deliveryman deliveryman)
         {
             if (ModelState.IsValid)
             {
@@ -45,7 +46,7 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] DeliverymanModel model, [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] Deliveryman model, [FromUri] int id)
         {
 
             if (ModelState.IsValid)
@@ -58,7 +59,7 @@ namespace EHut.Controllers
                 return StatusCode(HttpStatusCode.NoContent);
         }
         [HttpPut, Route("ChangePassword/{id}")]
-        public IHttpActionResult ChangePassword([FromBody] DeliverymanModel model, [FromUri] int id)
+        public IHttpActionResult ChangePassword([FromBody] Deliveryman model, [FromUri] int id)
         {
 
             if (ModelState.IsValid)
@@ -67,7 +68,7 @@ namespace EHut.Controllers
                 deliverymanServices.Update(model);
 
                 CredentialServices credentialServices = new CredentialServices();
-                CredentialModel credentialModel = credentialServices.GetByPhone(model.Phone);
+                Credential credentialModel = credentialServices.GetByPhone(model.Phone);
                 credentialModel.Password = model.Password;
                 credentialServices.Update(credentialModel);
 

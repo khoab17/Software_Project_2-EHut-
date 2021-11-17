@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -12,27 +12,27 @@ namespace BLL.Services
     public class SalesRecordServices
     {
         SalesRecordRepo repo = new SalesRecordRepo();
-        public List<SalesRecordModel> GetAll()
+        public List<SalesRecord> GetAll()
         {
             var data = repo.GetAll();
-            return Mapper<SalesRecord, SalesRecordModel>.ListOfEntityToModel(data);
+            return data;
         }
 
-        public SalesRecordModel Get(int id)
+        public SalesRecord Get(int id)
         {
             var data = repo.Get(id);
-            return Mapper<SalesRecord, SalesRecordModel>.EntityToModel(data);
+            return data;
         }
 
-        public SalesRecordModel GetByPhone(string phone)
+        public SalesRecord GetByPhone(string phone)
         {
             var data = repo.GetByPhone(phone);
-            return Mapper<SalesRecord, SalesRecordModel>.EntityToModel(data);
+            return data;
         }
 
-        public SalesRecordModel Insert(SalesRecordModel model)
+        public SalesRecord Insert(SalesRecord model)
         {
-            var entity = Mapper<SalesRecord, SalesRecordModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Insert(entity);
 
             if (done)
@@ -44,9 +44,9 @@ namespace BLL.Services
         }
 
 
-        public SalesRecordModel Update(SalesRecordModel model)
+        public SalesRecord Update(SalesRecord model)
         {
-            var entity = Mapper<SalesRecord, SalesRecordModel>.ModelToEntity(model);
+            var entity = model;
             bool done = repo.Update(entity);
             if (done)
             {

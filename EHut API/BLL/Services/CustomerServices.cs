@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -13,43 +13,43 @@ namespace BLL.Services
     {
         CustomerRepo customerRepo = new CustomerRepo();
 
-        public List<CustomerModel> GetAll()
+        public List<Customer> GetAll()
         {
             var data = customerRepo.GetAll();
-            return Mapper<Customer, CustomerModel>.ListOfEntityToModel(data);
+            return data;
 
         }
 
-        public CustomerModel Get(int id)
+        public Customer Get(int id)
         {
             var data = customerRepo.Get(id);
-            return Mapper<Customer, CustomerModel>.EntityToModel(data);
+            return data;
         }
 
-        public CustomerModel GetByPhone(string phone)
+        public Customer GetByPhone(string phone)
         {
             var data = customerRepo.GetByPhone(phone);
-            return Mapper<Customer, CustomerModel>.EntityToModel(data);
+            return data;
         }
 
-        public CustomerModel Insert(CustomerModel model)
+        public Customer Insert(Customer model)
         {
-            var entity = Mapper<Customer, CustomerModel>.ModelToEntity(model);
+            var entity = model;
             bool done = customerRepo.Insert(entity);
 
             CredentialServices credentialServices = new CredentialServices();
             var temp = this.GetByPhone(model.Phone);
             //insert in credential table
-            CredentialModel credentialModel = new CredentialModel();
-            credentialModel.Password = temp.Password;
-            credentialModel.Phone = temp.Phone;
-            credentialModel.Role = "Customer";
-            credentialModel.UserId = temp.CustomerId;
-            var cred = credentialServices.Insert(credentialModel);
+            Credential credential = new Credential();
+            credential.Password = temp.Password;
+            credential.Phone = temp.Phone;
+            credential.Role = "Customer";
+            credential.UserId = temp.CustomerId;
+            var cred = credentialServices.Insert(credential);
 
             if (done && cred != null)
             {
-                model.CustomerId = credentialModel.UserId;
+                model.CustomerId = credential.UserId;
                 return model;
             }
             else
@@ -57,9 +57,9 @@ namespace BLL.Services
         }
 
 
-        public CustomerModel Update(CustomerModel model)
+        public Customer Update(Customer model)
         {
-            var entity = Mapper<Customer, CustomerModel>.ModelToEntity(model);
+            var entity = model;
             bool done = customerRepo.Update(entity);
             if (done)
             {

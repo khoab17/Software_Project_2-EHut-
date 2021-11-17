@@ -1,5 +1,6 @@
-﻿using BEL.Model;
+﻿
 using BLL.Services;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace EHut.Controllers
         }
 
         [HttpPost, Route("", Name = "CategoryPath")]
-        public IHttpActionResult Create(CategoryModel model)
+        public IHttpActionResult Create(Category model)
         {
             if (ModelState.IsValid)
             {
@@ -44,7 +45,7 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] CategoryModel model , [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] Category model , [FromUri] int id)
         {
 
             if (ModelState.IsValid)

@@ -142,13 +142,13 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BEL\BEL.csproj">
-      <Project>{6792880A-35DA-4891-B577-8712FEDCED52}</Project>
-      <Name>BEL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{212854b0-b224-47da-9b3a-77dcb9061fd1}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{4c370cb7-f5d7-4fd3-b386-536e20f89d96}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

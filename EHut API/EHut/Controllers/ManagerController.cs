@@ -1,5 +1,6 @@
-﻿using BEL.Model;
+﻿ 
 using BLL.Services;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace EHut.Controllers
         }
 
         [HttpPost, Route("", Name = "ManagerPath")]
-        public IHttpActionResult Create(ManagerModel model)
+        public IHttpActionResult Create(Manager  model)
         {
             if (ModelState.IsValid)
             {
@@ -44,7 +45,7 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] ManagerModel model, [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] Manager model, [FromUri] int id)
         {
 
             if (ModelState.IsValid)
@@ -58,7 +59,7 @@ namespace EHut.Controllers
         }
         
         [HttpPut, Route("ChangePassword/{id}")]
-        public IHttpActionResult ChangePassword([FromBody] ManagerModel model, [FromUri] int id)
+        public IHttpActionResult ChangePassword([FromBody] Manager  model, [FromUri] int id)
         {
 
             if (ModelState.IsValid)
@@ -67,7 +68,7 @@ namespace EHut.Controllers
                 managerServices.Update(model);
 
                 CredentialServices credentialServices = new CredentialServices();
-                CredentialModel credentialModel = credentialServices.GetByPhone(model.Phone);
+                Credential  credentialModel = credentialServices.GetByPhone(model.Phone);
                 credentialModel.Password = model.Password;
                 credentialServices.Update(credentialModel);
 

@@ -1,4 +1,4 @@
-﻿using BEL.Model;
+﻿
 using DAL.Models;
 using DAL.Repository;
 using System;
@@ -13,24 +13,24 @@ namespace BLL.Services
     {
         BrandRepo brandRepo = new BrandRepo();
 
-        public List<BrandModel> GetAll()
+        public List<Brand> GetAll()
         {
             var data = brandRepo.GetAll();
-            return Mapper<Brand, BrandModel>.ListOfEntityToModel(data);
+            return data;
 
         }
 
-        public BrandModel Get(int id)
+        public Brand Get(int id)
         {
             var data = brandRepo.Get(id);
-            return Mapper<Brand, BrandModel>.EntityToModel(data);
+            return data;
         }
 
         
 
-        public BrandModel Insert(BrandModel model)
+        public Brand Insert(Brand model)
         {
-            var entity = Mapper<Brand, BrandModel>.ModelToEntity(model);
+            var entity = model;
             bool done = brandRepo.Insert(entity);
 
             if (done)
@@ -42,9 +42,9 @@ namespace BLL.Services
         }
 
 
-        public BrandModel Update(BrandModel model)
+        public Brand Update(Brand model)
         {
-            var entity = Mapper<Brand, BrandModel>.ModelToEntity(model);
+            var entity = model;
             bool done = brandRepo.Update(entity);
             if (done)
             {

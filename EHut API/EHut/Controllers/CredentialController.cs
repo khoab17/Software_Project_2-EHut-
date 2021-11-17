@@ -1,5 +1,6 @@
-﻿using BEL.Model;
+﻿
 using BLL.Services;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace EHut.Controllers
         }
 
         [HttpPost, Route("", Name = "CredentialPath")]
-        public IHttpActionResult Create(CredentialModel model)
+        public IHttpActionResult Create(Credential model)
         {
             if (ModelState.IsValid)
             {
@@ -44,7 +45,7 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] CredentialModel model, [FromUri] int id)
+        public IHttpActionResult Edit([FromBody] Credential model, [FromUri] int id)
         {
 
             if (ModelState.IsValid)
