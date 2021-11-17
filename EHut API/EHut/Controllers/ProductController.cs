@@ -29,6 +29,15 @@ namespace EHut.Controllers
             return Ok(productServices.Get(id));
         }
 
+        ///
+        // Cutoms Requests
+        [HttpGet,Route("ProductsByCategory/{id}")]
+        public IHttpActionResult GetProductsByCategory(int id)
+        {
+            return null;
+        }
+        ///
+
         [HttpPost, Route("", Name = "ProductPath")]
         public IHttpActionResult Create(Product  model)
         {

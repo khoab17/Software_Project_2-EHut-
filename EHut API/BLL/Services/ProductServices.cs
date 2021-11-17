@@ -32,7 +32,32 @@ namespace BLL.Services
             return data;
         }
 
-        
+        public List<Product> ProductsByCategory(int id)
+        {
+            return productRepo.ProductsByCategory(id);
+        }
+        public List<Product> ProductsByBrand(int id)
+        {
+            return productRepo.ProductsByBrand(id);
+        }
+        public List<Product> PriceFilter(float min, float max)
+        {
+            return productRepo.PriceFilter(min, max);
+        }
+        public List<Product> Search(string name)
+        {
+            return productRepo.Search(name);
+        }
+        /*public List<Product> TopProductSold()//        --- Top product in terms of Number of product sold
+        {
+          var data= productRepo.TopProductSold();
+            return data;
+        }*/
+        public List<Product> GetTopProducts(int top)
+        {
+            return productRepo.GetTopProducts(top);
+        }
+
 
         public Product Insert(Product model)
         {
