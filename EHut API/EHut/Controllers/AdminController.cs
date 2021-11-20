@@ -1,21 +1,24 @@
 ﻿
 using BLL.Services;
 using DAL.Models;
+using EHut.Attribute;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Web.Http;
 
 namespace EHut.Controllers
 {
+    [BasicAthentication]
     [RoutePrefix("api/Admins")]
     public class AdminController : ApiController
     {
         AdminServices adminServices = new AdminServices();
         CredentialServices credentialServices = new CredentialServices();
-
+        
         [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {

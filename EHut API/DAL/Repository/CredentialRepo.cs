@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class CredentialRepo:Repository<Credential>
+    public class CredentialService:Repository<Credential>
     {
         public override Credential GetByPhone(string phone)
         {
             return context.Credentials.Where(x => x.Phone == phone).FirstOrDefault();
+        }
+        public Credential GetByUserId(int id)
+        {
+            return context.Credentials.Where(x => x.UserId == id).FirstOrDefault();
         }
     }
 }

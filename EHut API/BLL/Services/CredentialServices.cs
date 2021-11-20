@@ -11,7 +11,7 @@ namespace BLL.Services
 {
     public class CredentialServices
     {
-        CredentialRepo credentialRepo = new CredentialRepo();
+        CredentialService credentialRepo = new CredentialService();
         public List<Credential> GetAll()
         {
             var data = credentialRepo.GetAll();
@@ -29,6 +29,11 @@ namespace BLL.Services
         {
             var data = credentialRepo.GetByPhone(phone);
             return data;
+        }
+
+        public Credential GetByUserId(int id)
+        {
+            return credentialRepo.GetByUserId(id);
         }
 
 
