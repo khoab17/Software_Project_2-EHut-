@@ -27,8 +27,8 @@ namespace EHut
             config.EnableCors(cors);
 
             
-            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
+            //config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+           // config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
 
         }
     }
