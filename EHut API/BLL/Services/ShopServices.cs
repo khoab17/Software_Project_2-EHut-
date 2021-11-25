@@ -36,6 +36,7 @@ namespace BLL.Services
             model.Rating = 5;
             model.TotalRecievedPayment = 0;
             model.TotalSold = 0;
+            model.Status = false;
 
             var entity = model;
             bool done = repo.Insert(entity);
