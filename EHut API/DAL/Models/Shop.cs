@@ -43,7 +43,7 @@ namespace DAL.Models
         public string Email { get; set; }
 
 
-        [Required(ErrorMessage = "Can't be empty")]
+        
         public int BankInformationId { get; set; }
 
 
@@ -56,8 +56,7 @@ namespace DAL.Models
         [Required(ErrorMessage = "Can't be empty")]
         public string Password { get; set; }
        //
-        [ForeignKey("BankInformationId")]
-        public BankInformation BankInformation { get; set; }
+        
 
         public ICollection<ProductDistribution> ProductDistributions { get; set; }
 
