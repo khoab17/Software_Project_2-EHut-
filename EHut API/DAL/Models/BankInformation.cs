@@ -14,7 +14,7 @@ namespace DAL.Models
 
 
         [Required(ErrorMessage = "Can't be empty")]
-        [StringLength(50, ErrorMessage = "Can't be more than 50 character", MinimumLength = 5)]
+        [StringLength(50, ErrorMessage = "Can't be more than 50 character")]
         public string Name { get; set; }
 
 
