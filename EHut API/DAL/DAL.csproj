@@ -81,6 +81,10 @@
     <Compile Include="Migrations\202111251511479_BankinfoIdRemovedAsFKFromShop.designer.cs">
       <DependentUpon>202111251511479_BankinfoIdRemovedAsFKFromShop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111260848563_RemovedRequiredFromCustomer.cs" />
+    <Compile Include="Migrations\202111260848563_RemovedRequiredFromCustomer.designer.cs">
+      <DependentUpon>202111260848563_RemovedRequiredFromCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BankInformation.cs" />
@@ -153,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111251511479_BankinfoIdRemovedAsFKFromShop.resx">
       <DependentUpon>202111251511479_BankinfoIdRemovedAsFKFromShop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260848563_RemovedRequiredFromCustomer.resx">
+      <DependentUpon>202111260848563_RemovedRequiredFromCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
