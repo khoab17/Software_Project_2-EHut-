@@ -12,7 +12,7 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
-    [BasicAthentication]
+    [BasicAuthentication]
     [RoutePrefix("api/Admins")]
     public class AdminController : ApiController
     {

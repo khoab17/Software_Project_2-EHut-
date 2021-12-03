@@ -1,6 +1,7 @@
 ﻿ 
 using BLL.Services;
 using DAL.Models;
+using EHut.Attribute;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ using System.Web.Http;
 namespace EHut.Controllers
 {
     [RoutePrefix("api/Products")]
+    [BasicAuthentication]
     public class ProductController : ApiController
     {
 
@@ -34,7 +36,17 @@ namespace EHut.Controllers
         [HttpGet,Route("ProductsByCategory/{id}")]
         public IHttpActionResult GetProductsByCategory(int id)
         {
-            return null;
+            return Ok(productServices.ProductsByCategory(id));
+        }
+        [HttpGet, Route("ProductsByBrand/{id}")]
+        public IHttpActionResult GetProductsByBrand(int id)
+        {
+            return Ok(productServices.ProductsByBrand(id));
+        }
+        [HttpGet, Route("PriceFilter/{min}/{max}")]
+        public IHttpActionResult PriceFilter(int min, int max)
+        {
+            return Ok(productServices.PriceFilter(min, max));
         }
         ///
 

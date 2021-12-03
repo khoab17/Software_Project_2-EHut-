@@ -14,33 +14,22 @@ using System.Web.Http.Filters;
 
 namespace EHut.Attribute
 {
-    public class BasicAthenticationAttribute : AuthorizationFilterAttribute
+    public class BasicAuthenticationAttribute : AuthorizationFilterAttribute
     {
         
         public override void OnAuthorization(HttpActionContext actionContext)
         {
-            base.OnAuthorization(actionContext);
+            var auth = actionContext.Request.Headers.Authorization;
+            
             if(actionContext.Request.Headers.Authorization==null)
             {
-                ///
-                /// Hard Coded Authentication for Testing-----------------------------------> beginig
-                /// 
-
-                // FROMAT: string who = id.ToString() + ':' + userType;    
-                /*string admin = "1:Admin";
-                Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(admin), null);*/
-
-                ///
-                /// <-----------------------------------Hard Coded Authentication for Testing ending
-                ///
-
-                /// Remove comment from line 38 or bellow line to use System Authorization
+                
                  actionContext.Response = actionContext.Request.CreateResponse(System.Net.HttpStatusCode.Unauthorized);
             }
             else
             {
                 
-                string encode = actionContext.Request.Headers.Authorization.ToString();
+                string encode = actionContext.Request.Headers.Authorization.Parameter.ToString();
                 string decode = Encoding.UTF8.GetString(Convert.FromBase64String(encode));
                 string[] splitedText = decode.Split(new char[] { ':' });
                 string userId = splitedText[0];
@@ -78,6 +67,8 @@ namespace EHut.Attribute
                 ///
 
             }
+            base.OnAuthorization(actionContext);
+
 
         }
     }
