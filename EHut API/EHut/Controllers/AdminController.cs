@@ -7,8 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Principal;
 using System.Threading;
 using System.Web.Http;
+
+
 
 namespace EHut.Controllers
 {
@@ -16,14 +19,23 @@ namespace EHut.Controllers
     [RoutePrefix("api/Admins")]
     public class AdminController : ApiController
     {
+        private string who;
+
         AdminServices adminServices = new AdminServices();
         CredentialServices credentialServices = new CredentialServices();
         
         [HttpGet, Route("")]
+        //[Authorize]
         public IHttpActionResult GetAll()
         {
-            
-             return Ok(adminServices.GetAll());
+            /*this.who = Thread.CurrentPrincipal.Identity.Name;
+            who += " CUR InRole ";
+            who += Thread.CurrentPrincipal.Identity.AuthenticationType;
+            who += " Clm InRole ";
+
+            return Ok(who); */
+           
+            return Ok(adminServices.GetAll());
         }
 
         [HttpGet, Route("{id}")]
