@@ -9,11 +9,7 @@ namespace DAL.Repository
 {
     public class AdminRepo:Repository<Admin>
     {
-        /*public Admin GetByPhone(string phone)
-        {
-            return context.Admins.Where(x => x.Phone == phone).FirstOrDefault();
-        }*/
-
+       
         public override Admin GetByPhone(string phone)
         {
             return context.Admins.Where(x => x.Phone == phone).FirstOrDefault();

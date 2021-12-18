@@ -27,6 +27,23 @@ namespace EHut.Controllers
         {
             return Ok(credentialServices.Get(id));
         }
+        [HttpGet, Route("Login/{phone}")]
+        public IHttpActionResult Login([FromBody] string password,[FromUri] string phone)
+        {
+            if(password==null || phone==null)
+            {
+                return StatusCode(HttpStatusCode.NotAcceptable);
+            }
+            var temp = credentialServices.GetByPhone(phone);
+            if(temp.Phone==phone && temp.Password==password)
+            {
+                return Ok(temp);
+            }
+            else
+            {
+                return StatusCode(HttpStatusCode.Unauthorized);
+            }
+        }
 
         [HttpPost, Route("", Name = "CredentialPath")]
         public IHttpActionResult Create(Credential model)
