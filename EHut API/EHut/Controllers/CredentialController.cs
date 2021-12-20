@@ -35,14 +35,22 @@ namespace EHut.Controllers
                 return StatusCode(HttpStatusCode.NotAcceptable);
             }
             var temp = credentialServices.GetByPhone(phone);
-            if(temp.Phone==phone && temp.Password==password)
+            if(temp!=null)
             {
-                return Ok(temp);
+                if (temp.Phone == phone && temp.Password == password)
+                {
+                    return Ok(temp);
+                }
+                else
+                {
+                    return StatusCode(HttpStatusCode.Unauthorized);
+                }
             }
             else
             {
                 return StatusCode(HttpStatusCode.Unauthorized);
             }
+            
         }
 
         [HttpPost, Route("", Name = "CredentialPath")]
