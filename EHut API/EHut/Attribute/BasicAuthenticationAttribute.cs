@@ -17,7 +17,7 @@ namespace EHut.Attribute
 {
     public class BasicAuthenticationAttribute : AuthorizationFilterAttribute
     {
-       static string[] roles = { "Admin", "HR", "Customer", "Accountant", "DM", "Shop" };
+        string[] roles = { "Admin", "HR", "Customer", "Accountant", "DM", "Shop" };
         
         public override void OnAuthorization(HttpActionContext actionContext)
         {
@@ -53,9 +53,7 @@ namespace EHut.Attribute
                     {
                         if (credential.Phone == userPhone && credential.Password == password)
                         {
-                            //Authorized
                             string userType = credential.Role;
-                            //string who = userPhone + ':' + userType;   //UserId and Role as a single string for better accessibility 
                             GenericIdentity genericIdentity = new GenericIdentity(userPhone,userType);
                             Thread.CurrentPrincipal = new GenericPrincipal(genericIdentity, roles);
                         }
