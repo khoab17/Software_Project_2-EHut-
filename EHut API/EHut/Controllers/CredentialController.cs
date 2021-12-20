@@ -1,6 +1,7 @@
 ﻿
 using BLL.Services;
 using DAL.Models;
+using DAL.View_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,17 +28,17 @@ namespace EHut.Controllers
         {
             return Ok(credentialServices.Get(id));
         }
-        [HttpGet, Route("Login/{phone}")]
-        public IHttpActionResult Login([FromBody] string password,[FromUri] string phone)
+        [HttpGet, Route("Login")]
+        public IHttpActionResult Login([FromBody] LoginViewModel viewModel)
         {
-            if(password==null || phone==null)
+            if(viewModel.Password  ==null || viewModel.Phone==null)
             {
                 return StatusCode(HttpStatusCode.NotAcceptable);
             }
-            var temp = credentialServices.GetByPhone(phone);
+            var temp = credentialServices.GetByPhone(viewModel.Phone);
             if(temp!=null)
             {
-                if (temp.Phone == phone && temp.Password == password)
+                if (temp.Phone == viewModel.Phone && temp.Password == viewModel.Password)
                 {
                     return Ok(temp);
                 }
