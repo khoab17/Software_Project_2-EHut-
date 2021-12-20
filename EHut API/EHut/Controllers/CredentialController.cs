@@ -28,8 +28,8 @@ namespace EHut.Controllers
         {
             return Ok(credentialServices.Get(id));
         }
-        [HttpGet, Route("Login")]
-        public IHttpActionResult Login([FromBody] LoginViewModel viewModel)
+        [HttpPost, Route("Login")]
+        public IHttpActionResult Login(LoginViewModel viewModel)
         {
             if(viewModel.Password  ==null || viewModel.Phone==null)
             {

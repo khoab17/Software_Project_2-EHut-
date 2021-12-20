@@ -12,7 +12,7 @@ using System.Web.Http;
 namespace EHut.Controllers
 {
     [RoutePrefix("api/Products")]
-    [BasicAuthentication]
+    //[BasicAuthentication]
     public class ProductController : ApiController
     {
 
