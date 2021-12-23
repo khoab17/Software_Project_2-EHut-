@@ -85,6 +85,10 @@
     <Compile Include="Migrations\202111260848563_RemovedRequiredFromCustomer.designer.cs">
       <DependentUpon>202111260848563_RemovedRequiredFromCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112231448164_RemovedConstrainsFromCustomer.cs" />
+    <Compile Include="Migrations\202112231448164_RemovedConstrainsFromCustomer.designer.cs">
+      <DependentUpon>202112231448164_RemovedConstrainsFromCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BankInformation.cs" />
@@ -161,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111260848563_RemovedRequiredFromCustomer.resx">
       <DependentUpon>202111260848563_RemovedRequiredFromCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112231448164_RemovedConstrainsFromCustomer.resx">
+      <DependentUpon>202112231448164_RemovedConstrainsFromCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

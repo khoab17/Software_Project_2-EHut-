@@ -64,3 +64,4 @@ D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.CoreCom
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.dll
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.pdb
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.RemovedConstrainsFromCustomer.resources
