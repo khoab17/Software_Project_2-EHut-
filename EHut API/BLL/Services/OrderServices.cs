@@ -24,10 +24,10 @@ namespace BLL.Services
             return data;
         }
 
-        public Order GetByPhone(string phone)
+
+       public int GetOrderId(int customerId)
         {
-            var data = repo.GetByPhone(phone);
-            return data;
+            return repo.GetOrderId(customerId);
         }
 
         public Order Insert(Order model)

@@ -115,6 +115,7 @@
     <Compile Include="Repository\BankInformationRepo.cs" />
     <Compile Include="Repository\BrandRepo.cs" />
     <Compile Include="Repository\CategoryRepo.cs" />
+    <Compile Include="Repository\CheckoutRepo.cs" />
     <Compile Include="Repository\CredentialRepo.cs" />
     <Compile Include="Repository\CustomerRepo.cs" />
     <Compile Include="Repository\DeliverymanRepo.cs" />
@@ -131,7 +132,9 @@
     <Compile Include="Repository\SalesRecordRepo.cs" />
     <Compile Include="Repository\ShopRepo.cs" />
     <Compile Include="Repository\ShopReviewRepo.cs" />
+    <Compile Include="View Models\CheckoutViewModel.cs" />
     <Compile Include="View Models\LoginViewModel.cs" />
+    <Compile Include="View Models\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

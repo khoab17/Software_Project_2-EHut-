@@ -27,35 +27,35 @@ namespace EHut.Controllers
             return Ok(srServices.Get(id));
         }
 
-        [HttpPost, Route("", Name = "SalesRecordPath")]
-        public IHttpActionResult Create(SalesRecord  model)
-        {
-            if (ModelState.IsValid)
-            {
-                srServices.Insert(model);
-                string url = Url.Link("SalesRecordPath", new { id = model.SalesRecordId });
-                return Created(url, model);
+        //[HttpPost, Route("", Name = "SalesRecordPath")]
+        //public IHttpActionResult Create(SalesRecord  model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        srServices.Insert(model);
+        //        string url = Url.Link("SalesRecordPath", new { id = model.SalesRecordId });
+        //        return Created(url, model);
                 
-            }
-            else
-            {
-                return StatusCode(HttpStatusCode.NoContent);
-            }
-        }
+        //    }
+        //    else
+        //    {
+        //        return StatusCode(HttpStatusCode.NoContent);
+        //    }
+        //}
 
-        [HttpPut, Route("{id}")]
-        public IHttpActionResult Edit([FromBody] SalesRecord  model, [FromUri] int id)
-        {
+        //[HttpPut, Route("{id}")]
+        //public IHttpActionResult Edit([FromBody] SalesRecord  model, [FromUri] int id)
+        //{
 
-            if (ModelState.IsValid)
-            {
-                 model.SalesRecordId = id;
-                srServices.Update(model);
-                return Ok("model");
-            }
-            else
-                return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    if (ModelState.IsValid)
+        //    {
+        //         model.SalesRecordId = id;
+        //        srServices.Update(model);
+        //        return Ok("model");
+        //    }
+        //    else
+        //        return StatusCode(HttpStatusCode.NoContent);
+        //}
 
         [HttpDelete, Route("{id}")]
         public IHttpActionResult Delete(int id)
