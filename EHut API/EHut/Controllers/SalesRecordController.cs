@@ -27,6 +27,18 @@ namespace EHut.Controllers
             return Ok(srServices.Get(id));
         }
 
+        [HttpGet, Route("GetNonDeliveredRecors/{id}")]
+        public IHttpActionResult GetNonDeliveredRecors(int id)
+        {
+            var products= srServices.GetNonDeliveredRecors(id);
+            if(products == null)
+            {
+                return Ok("No Pending Order in your Shop");
+            }
+            else
+                return Ok(products);
+        }
+
         //[HttpPost, Route("", Name = "SalesRecordPath")]
         //public IHttpActionResult Create(SalesRecord  model)
         //{

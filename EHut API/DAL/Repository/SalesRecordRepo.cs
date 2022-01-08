@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
+
     public class SalesRecordRepo : Repository<SalesRecord>
     {
+        private OrderRepo _orderRepo;
+
         public async Task<List<SalesRecord>> GetRecordsToAddOrderId(int customerId)
         {
             List<SalesRecord> records = new List<SalesRecord>();
@@ -37,6 +40,13 @@ namespace DAL.Repository
             {
                 return false;
             }
+        }
+
+        public List<SalesRecord> GetSalesRecordByShop(int shopId)
+        {
+
+            return context.SalesRecords.Where(x=>x.ShopId==shopId && x.Status == false).ToList();
+
         }
     }
 }

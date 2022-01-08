@@ -40,6 +40,8 @@ namespace DAL.Models
         [Required(ErrorMessage = "Can't be empty")]
         public int ShopId { get; set; }
         public int OrderId { get; set; }
+        
+        public bool Status { get; set; }
 
 
 

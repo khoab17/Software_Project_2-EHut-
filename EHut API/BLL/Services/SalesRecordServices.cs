@@ -12,6 +12,7 @@ namespace BLL.Services
     public class SalesRecordServices
     {
         SalesRecordRepo repo = new SalesRecordRepo();
+        ProductServices productServices = new ProductServices();
         public List<SalesRecord> GetAll()
         {
             var data = repo.GetAll();
@@ -65,6 +66,22 @@ namespace BLL.Services
             }
             else
                 return false;
+        }
+
+        public List<Product> GetNonDeliveredRecors(int shopId)
+        {
+            var recors= repo.GetSalesRecordByShop(shopId);
+            List<Product> productList=new List<Product>();
+            if(recors!=null)
+            {
+                foreach (var item in recors)
+                {
+                    productList.Add(productServices.Get(item.ProductId));
+                }
+                return productList;
+            }
+            else
+                return null ;
         }
     }
 }

@@ -66,3 +66,4 @@ D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.dll
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.pdb
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.DiscountFKRemoved.resources
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.StatusAddedToSalesRecord.resources
