@@ -23,9 +23,9 @@ namespace DAL.Models
 
 
         public double Percentage { get; set; }
-        [ForeignKey("ProviderId")]
+        /*[ForeignKey("ProviderId")]
         public Shop Shop { get; set; }
         [ForeignKey("ProviderId")]
-        public Manager Manager { get; set; }
+        public Manager Manager { get; set; }*/
     }
 }

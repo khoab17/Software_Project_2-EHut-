@@ -89,6 +89,10 @@
     <Compile Include="Migrations\202112231448164_RemovedConstrainsFromCustomer.designer.cs">
       <DependentUpon>202112231448164_RemovedConstrainsFromCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201081609596_DiscountFKRemoved.cs" />
+    <Compile Include="Migrations\202201081609596_DiscountFKRemoved.designer.cs">
+      <DependentUpon>202201081609596_DiscountFKRemoved.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BankInformation.cs" />
@@ -171,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112231448164_RemovedConstrainsFromCustomer.resx">
       <DependentUpon>202112231448164_RemovedConstrainsFromCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201081609596_DiscountFKRemoved.resx">
+      <DependentUpon>202201081609596_DiscountFKRemoved.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
