@@ -143,6 +143,7 @@
     <Compile Include="View Models\CheckoutViewModel.cs" />
     <Compile Include="View Models\LoginViewModel.cs" />
     <Compile Include="View Models\ProductViewModel.cs" />
+    <Compile Include="View Models\SalesProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

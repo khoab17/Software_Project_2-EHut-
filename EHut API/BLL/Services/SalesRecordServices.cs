@@ -1,6 +1,7 @@
 ﻿
 using DAL.Models;
 using DAL.Repository;
+using DAL.View_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,15 +69,18 @@ namespace BLL.Services
                 return false;
         }
 
-        public List<Product> GetNonDeliveredRecors(int shopId)
+        public List<SalesProductViewModel> GetNonDeliveredRecors(int shopId)
         {
             var recors= repo.GetSalesRecordByShop(shopId);
-            List<Product> productList=new List<Product>();
+            List<SalesProductViewModel> productList=new List<SalesProductViewModel>();
             if(recors!=null)
             {
                 foreach (var item in recors)
                 {
-                    productList.Add(productServices.Get(item.ProductId));
+                    SalesProductViewModel model = new SalesProductViewModel();
+                    model.Product=productServices.Get(item.ProductId);
+                    model.quantity=item.Quantity;
+                    productList.Add(model);
                 }
                 return productList;
             }
