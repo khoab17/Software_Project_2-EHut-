@@ -40,9 +40,6 @@ namespace EHut.Controllers
         }
         [HttpGet, Route("ProductsByBrand/{id}")]
         public IHttpActionResult GetProductsByBrand(int id)
-        {
-            return Ok(productServices.ProductsByBrand(id));
-        }
         [HttpGet, Route("PriceFilter/{min}/{max}")]
         public IHttpActionResult PriceFilter(int min, int max)
         {
