@@ -13,16 +13,7 @@ namespace DAL.Repository
     {
         private OrderRepo _orderRepo;
 
-        public async Task<List<SalesRecord>> GetRecordsToAddOrderId(int customerId)
-        {
-            List<SalesRecord> records = new List<SalesRecord>();
-            var data = await context.SalesRecords.Where(x => x.CustomerId == customerId && x.OrderId == -1).ToListAsync();
-            foreach (var record in data)
-            {
-                records.Add(record);
-            }
-            return records;
-        }
+
 
         public bool AddOrderId(SalesRecord salesRecord)
         {
@@ -42,10 +33,17 @@ namespace DAL.Repository
             }
         }
 
+       /* public bool  UpdateSalesRecorStatus(int id, string status)
+        {
+             var temp = context.SalesRecords.Where(x=>x.SalesRecordId == id).FirstOrDefault();
+             temp.Status = status;
+
+        }*/
+
         public List<SalesRecord> GetSalesRecordByShop(int shopId)
         {
 
-            return context.SalesRecords.Where(x=>x.ShopId==shopId && x.Status == false).ToList();
+            return context.SalesRecords.Where(x=>x.ShopId==shopId && x.Status == "Pending").ToList();
 
         }
     }

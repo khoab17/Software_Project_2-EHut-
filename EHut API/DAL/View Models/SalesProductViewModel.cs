@@ -9,7 +9,8 @@ namespace DAL.View_Models
 {
     public class SalesProductViewModel
     {
-       public Product Product { get; set; }
+        public int SalesRecordId { get; set; }
+        public Product Product { get; set; }
         public int quantity { get; set; }
     }
 }

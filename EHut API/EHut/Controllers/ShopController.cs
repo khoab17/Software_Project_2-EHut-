@@ -1,6 +1,7 @@
 ﻿ 
 using BLL.Services;
 using DAL.Models;
+using DAL.View_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,6 +85,25 @@ namespace EHut.Controllers
         {
             shopServices.Delete(id);
             return StatusCode(HttpStatusCode.NoContent);
+        }
+
+
+        [HttpPost, Route("ProductOrderAcceptance", Name = "ProductOrderAcceptance")]      // Pending Accepted Rejected Delivered
+        public IHttpActionResult ProductOrderAcceptance(OrderAcceptanceViewModel model )
+        {
+            if (model != null)
+            {
+                SalesRecordServices salesRecordServices = new SalesRecordServices();
+                bool done= salesRecordServices.UpdateSalesRecorStatus(model.OrderId, model.Status);
+                if (done)
+                {
+                    return Ok(model.Status);
+                }
+                else 
+                    return StatusCode(HttpStatusCode.NotModified);
+            }
+            else
+                return StatusCode(HttpStatusCode.BadRequest);
         }
     }
 }

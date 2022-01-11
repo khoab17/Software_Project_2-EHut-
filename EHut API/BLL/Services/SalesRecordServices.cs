@@ -80,12 +80,22 @@ namespace BLL.Services
                     SalesProductViewModel model = new SalesProductViewModel();
                     model.Product=productServices.Get(item.ProductId);
                     model.quantity=item.Quantity;
+                    model.SalesRecordId=item.SalesRecordId;
                     productList.Add(model);
                 }
                 return productList;
             }
             else
                 return null ;
+        }
+
+        public bool UpdateSalesRecorStatus(int id, string status)
+        {
+            var temp=repo.Get(id);
+            temp.Status=status;
+            bool done = repo.Update(temp);
+            return done;
+                
         }
     }
 }

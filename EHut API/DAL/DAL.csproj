@@ -97,6 +97,10 @@
     <Compile Include="Migrations\202201081630404_StatusAddedToSalesRecord.designer.cs">
       <DependentUpon>202201081630404_StatusAddedToSalesRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201111438216_SalesRecordStatusChangedToString.cs" />
+    <Compile Include="Migrations\202201111438216_SalesRecordStatusChangedToString.designer.cs">
+      <DependentUpon>202201111438216_SalesRecordStatusChangedToString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BankInformation.cs" />
@@ -142,6 +146,7 @@
     <Compile Include="Repository\ShopReviewRepo.cs" />
     <Compile Include="View Models\CheckoutViewModel.cs" />
     <Compile Include="View Models\LoginViewModel.cs" />
+    <Compile Include="View Models\OrderAcceptanceViewModel.cs" />
     <Compile Include="View Models\ProductViewModel.cs" />
     <Compile Include="View Models\SalesProductViewModel.cs" />
   </ItemGroup>
@@ -186,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201081630404_StatusAddedToSalesRecord.resx">
       <DependentUpon>202201081630404_StatusAddedToSalesRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201111438216_SalesRecordStatusChangedToString.resx">
+      <DependentUpon>202201111438216_SalesRecordStatusChangedToString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

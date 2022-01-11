@@ -1,6 +1,7 @@
 ﻿ 
 using BLL.Services;
 using DAL.Models;
+using EHut.Attribute;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
+    //[BasicAuthentication]
     [RoutePrefix("api/SalesRecords")]
     public class SalesRecordController : ApiController
     {
@@ -27,8 +29,8 @@ namespace EHut.Controllers
             return Ok(srServices.Get(id));
         }
 
-        [HttpGet, Route("GetNonDeliveredRecors/{id}")]
-        public IHttpActionResult GetNonDeliveredRecors(int id)
+        [HttpGet, Route("GetNonDeliveredRecords/{id}")]
+        public IHttpActionResult GetNonDeliveredRecords(int id)
         {
             var products= srServices.GetNonDeliveredRecors(id);
             if(products == null)

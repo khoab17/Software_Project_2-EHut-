@@ -39,6 +39,7 @@ namespace BLL.Services
                 model.Date = DateTime.Now;
                 model.Price = viewModel.Products[i].Price;
                 model.Subtotal = viewModel.Products[i].GetSubTotal();
+                model.Status = "Pending";
                 salesRecords.Add(model);            // Inserting Sales Recors to List
 
                 AddedSubTotal+=viewModel.Products[i].GetSubTotal();     // Adding subTotals from each Product
