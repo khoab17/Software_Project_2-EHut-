@@ -8,7 +8,7 @@ namespace DAL.View_Models
 {
     public class OrderAcceptanceViewModel
     {
-        public int OrderId { get; set; }
+        public int SalesRecordId { get; set; }
         public string Status { get; set; }
     }
 }

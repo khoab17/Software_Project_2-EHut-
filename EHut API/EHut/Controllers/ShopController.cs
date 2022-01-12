@@ -94,7 +94,7 @@ namespace EHut.Controllers
             if (model != null)
             {
                 SalesRecordServices salesRecordServices = new SalesRecordServices();
-                bool done= salesRecordServices.UpdateSalesRecorStatus(model.OrderId, model.Status);
+                bool done= salesRecordServices.UpdateSalesRecorStatus(model.SalesRecordId, model.Status);
                 if (done)
                 {
                     return Ok(model.Status);
