@@ -41,6 +41,18 @@ namespace EHut.Controllers
                 return Ok(products);
         }
 
+        [HttpGet, Route("GetRecordsByStatus/{id}/{status}")]
+        public IHttpActionResult GetRecordsByStatus(int id,string status)
+        {
+            var products = srServices.GetRecordsByStatus(id,status);
+            if (products == null)
+            {
+                return Ok("No Order in your Shop with "+status+" Status" );
+            }
+            else
+                return Ok(products);
+        }
+
         //[HttpPost, Route("", Name = "SalesRecordPath")]
         //public IHttpActionResult Create(SalesRecord  model)
         //{
@@ -49,7 +61,7 @@ namespace EHut.Controllers
         //        srServices.Insert(model);
         //        string url = Url.Link("SalesRecordPath", new { id = model.SalesRecordId });
         //        return Created(url, model);
-                
+
         //    }
         //    else
         //    {

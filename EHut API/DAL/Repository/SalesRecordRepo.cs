@@ -40,10 +40,16 @@ namespace DAL.Repository
 
         }*/
 
-        public List<SalesRecord> GetSalesRecordByShop(int shopId)
+        public List<SalesRecord> GetPendingSalesRecordByShop(int shopId)
         {
 
             return context.SalesRecords.Where(x=>x.ShopId==shopId && x.Status == "Pending").ToList();
+
+        }
+        public List<SalesRecord> GetSalesRecordByStatus(int shopId, string status)
+        {
+
+            return context.SalesRecords.Where(x => x.ShopId == shopId && x.Status == status).ToList();
 
         }
     }

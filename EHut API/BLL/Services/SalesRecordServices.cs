@@ -71,7 +71,7 @@ namespace BLL.Services
 
         public List<SalesProductViewModel> GetNonDeliveredRecors(int shopId)
         {
-            var recors= repo.GetSalesRecordByShop(shopId);
+            var recors= repo.GetPendingSalesRecordByShop(shopId);
             List<SalesProductViewModel> productList=new List<SalesProductViewModel>();
             if(recors!=null)
             {
@@ -87,6 +87,26 @@ namespace BLL.Services
             }
             else
                 return null ;
+        }
+        public List<SalesProductViewModel> GetRecordsByStatus(int shopId, string status)
+        {
+            var recors = repo.GetSalesRecordByStatus(shopId,status);
+            List<SalesProductViewModel> productList = new List<SalesProductViewModel>();
+            if (recors != null)
+            {
+                foreach (var item in recors)
+                {
+                    SalesProductViewModel model = new SalesProductViewModel();
+                    model.Product = productServices.Get(item.ProductId);
+                    model.quantity = item.Quantity;
+                    model.SalesRecordId = item.SalesRecordId;
+                    productList.Add(model);
+                }
+                return productList;
+            }
+            else
+                return null;
+
         }
 
         public bool UpdateSalesRecorStatus(int id, string status)
