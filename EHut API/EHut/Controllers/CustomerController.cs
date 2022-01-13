@@ -13,6 +13,7 @@ namespace EHut.Controllers
     [RoutePrefix("api/Customers")]
     public class CustomerController : ApiController
     {
+        SalesRecordServices srServices=new SalesRecordServices();
         CustomerServices customerServices = new CustomerServices();
         
         [HttpGet, Route("")]
@@ -42,6 +43,18 @@ namespace EHut.Controllers
             {
                 return StatusCode(HttpStatusCode.NoContent);
             }
+        }
+
+        [HttpGet, Route("GetRecordsByStatus/{id}/{status}")]
+        public IHttpActionResult GetRecordsByStatus(int id, string status)
+        {
+            var products = srServices.GetRecordsByStatus(id, status);
+            if (products == null)
+            {
+                return Ok("No Order in your Shop with " + status + " Status");
+            }
+            else
+                return Ok(products);
         }
 
         [HttpPut, Route("{id}")]

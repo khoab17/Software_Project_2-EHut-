@@ -50,6 +50,7 @@ D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\EntityFramework.dl
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\EntityFramework.SqlServer.dll
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\EntityFramework.xml
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.InitDb.resources
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.FKRemovedCredential.resources
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.PasswordForShop.resources
@@ -59,12 +60,11 @@ D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.Pho
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.BankinfoIdRemovedAsFKFromShop.resources
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.RemovedRequiredFromCustomer.resources
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.RemovedConstrainsFromCustomer.resources
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.DiscountFKRemoved.resources
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.StatusAddedToSalesRecord.resources
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.SalesRecordStatusChangedToString.resources
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.dll
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.pdb
-D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
-D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.DiscountFKRemoved.resources
-D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.StatusAddedToSalesRecord.resources
-D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.SalesRecordStatusChangedToString.resources

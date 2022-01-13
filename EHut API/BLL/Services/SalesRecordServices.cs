@@ -109,6 +109,28 @@ namespace BLL.Services
 
         }
 
+        public List<SalesProductViewModel> GetOrderHistoryByStatus(int customerId, string status)
+        {
+
+            var recors = repo.GetOrderHistoryByStatus(customerId, status);
+            List<SalesProductViewModel> productList = new List<SalesProductViewModel>();
+            if (recors != null)
+            {
+                foreach (var item in recors)
+                {
+                    SalesProductViewModel model = new SalesProductViewModel();
+                    model.Product = productServices.Get(item.ProductId);
+                    model.quantity = item.Quantity;
+                    model.SalesRecordId = item.SalesRecordId;
+                    productList.Add(model);
+                }
+                return productList;
+            }
+            else
+                return null;
+
+        }
+
         public bool UpdateSalesRecorStatus(int id, string status)
         {
             var temp=repo.Get(id);

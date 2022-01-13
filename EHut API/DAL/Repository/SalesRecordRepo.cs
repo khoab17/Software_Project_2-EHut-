@@ -52,5 +52,9 @@ namespace DAL.Repository
             return context.SalesRecords.Where(x => x.ShopId == shopId && x.Status == status).ToList();
 
         }
+        public List<SalesRecord> GetOrderHistoryByStatus(int customerId, string status)
+        {
+            return context.SalesRecords.Where(x => x.CustomerId == customerId && x.Status == status).ToList();
+        }
     }
 }
