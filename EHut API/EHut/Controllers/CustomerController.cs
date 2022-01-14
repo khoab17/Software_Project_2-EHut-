@@ -48,7 +48,7 @@ namespace EHut.Controllers
         [HttpGet, Route("GetRecordsByStatus/{id}/{status}")]
         public IHttpActionResult GetRecordsByStatus(int id, string status)
         {
-            var products = srServices.GetRecordsByStatus(id, status);
+            var products = srServices.GetOrderHistoryByStatus(id, status);
             if (products == null)
             {
                 return Ok("No Order in your Shop with " + status + " Status");
