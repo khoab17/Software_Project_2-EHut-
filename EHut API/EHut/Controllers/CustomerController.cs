@@ -51,7 +51,7 @@ namespace EHut.Controllers
             var products = srServices.GetOrderHistoryByStatus(id, status);
             if (products == null)
             {
-                return Ok("No Order in your Shop with " + status + " Status");
+                return Ok("No Order with " + status + " Status");
             }
             else
                 return Ok(products);
