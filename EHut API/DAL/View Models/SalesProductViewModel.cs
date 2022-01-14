@@ -12,5 +12,6 @@ namespace DAL.View_Models
         public int SalesRecordId { get; set; }
         public Product Product { get; set; }
         public int quantity { get; set; }
+        public string Date { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using BLL.Services;
 using DAL.Models;
 using DAL.View_Models;
+using EHut.Attribute;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
+    [BasicAuthentication]
     [RoutePrefix("api/Shops")]
     public class ShopController : ApiController
     {
