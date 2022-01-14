@@ -123,6 +123,8 @@ namespace BLL.Services
                     model.Product = productServices.Get(item.ProductId);
                     model.quantity = item.Quantity;
                     model.SalesRecordId = item.SalesRecordId;
+                    model.Date = item.Date.Date.ToString();
+                    model.Status = item.Status;
                     productList.Add(model);
                 }
                 return productList;
