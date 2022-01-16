@@ -9,5 +9,13 @@ namespace DAL.Repository
 {
     public class ShopReviewRepo : Repository<ShopReview>
     {
+        public List<ShopReview> ReviewsByShopId (int shopId)
+        {
+            return context.ShopReviews.Where(x=>x.ShopId == shopId).ToList();
+        }
+        public List<ShopReview> ReviewsByProductId(int pId)
+        {
+            return context.ShopReviews.Where(x => x.ProductId == pId).ToList();
+        }
     }
 }

@@ -27,8 +27,8 @@ namespace DAL.Models
 
         public int Ratting { get; set; }
 
-
-        [Required(ErrorMessage = "Can't be empty")]
+        public string Date { get; set; }
+        
         public string Image { get; set; }
 
 

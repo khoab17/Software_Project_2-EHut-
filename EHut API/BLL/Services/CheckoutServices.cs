@@ -17,7 +17,9 @@ namespace BLL.Services
         OrderServices orderServices = new OrderServices();
         Order doneOrder = null;
         SalesRecord doneSales = null;
-        public Order Insert(CheckoutViewModel viewModel)
+
+
+        public Order Insert(List<CheckoutViewModel> viewModel)
         {
             ProductServices productServices = new ProductServices();
             List<SalesRecord> salesRecords = new List<SalesRecord>();
@@ -27,52 +29,59 @@ namespace BLL.Services
             /// Availablity of all Products should be checked before procceding to the next part
             ///
 
-
-
-            for (int i = 0; i < viewModel.Products.Count; i++)
+            foreach (var item in viewModel)
             {
-                SalesRecord model = new SalesRecord();
-                model.CustomerId = viewModel.CustomerId;
-                model.ShopId = viewModel.ShopId;
-                model.ProductId = viewModel.Products[i].ProductId;
-                model.Quantity = viewModel.Products[i].Qantity;
-                model.Date = DateTime.Now;
-                model.Price = viewModel.Products[i].Price;
-                model.Subtotal = viewModel.Products[i].GetSubTotal();
-                model.Status = "Pending";
-                salesRecords.Add(model);            // Inserting Sales Recors to List
+                for (int i = 0; i < item.Products.Count; i++)
+                {
+                    SalesRecord model = new SalesRecord();
+                    model.CustomerId = item.CustomerId;
+                    model.ShopId = item.ShopId;
+                    model.ProductId = item.Products[i].ProductId;
+                    model.Quantity = item.Products[i].Qantity;
+                    model.Date = DateTime.Now;
+                    model.Price = item.Products[i].Price;
+                    model.Subtotal = item.Products[i].GetSubTotal();
+                    model.Status = "Pending";
+                    salesRecords.Add(model);            // Inserting Sales Recors to List
 
-                AddedSubTotal+=viewModel.Products[i].GetSubTotal();     // Adding subTotals from each Product
+                    AddedSubTotal += item.Products[i].GetSubTotal();     // Adding subTotals from each Product
+
+                }
             }
 
-            
             /// Creating New Order to Insert into Table[Orders]
-            double discount = discountServices.Get(viewModel.DiscountId).Percentage;
+            double discount = discountServices.Get(1).Percentage;
 
-            Order order = new Order();
-            order.CustomerId = viewModel.CustomerId;
-            order.Date = DateTime.Now;
-            order.AddedSubtotal = AddedSubTotal;
-            order.DiscountId = viewModel.DiscountId;
-            order.GrandTotal = AddedSubTotal - discount;
-            order.DeliverymanId = -1;       // "-1 to denote invalid"
-            order.DeliveryStatus = false;
+            foreach (var item in viewModel)
+            {
+                Order order = new Order();
+                order.CustomerId = item.CustomerId;
+                order.Date = DateTime.Now;
+                order.AddedSubtotal = AddedSubTotal;
+                order.DiscountId = item.DiscountId;
+                order.GrandTotal = AddedSubTotal - discount;
+                order.DeliverymanId = -1;       // "-1 to denote invalid"
+                order.DeliveryStatus = false;
 
-            doneOrder = orderServices.Insert(order);   //Inserting to [Orders]
+                doneOrder = orderServices.Insert(order);   //Inserting to [Orders]
+            }
 
 
 
             ///  Inserting Sales Records to Table[Sales Record] without OrderId or OrderId as -1;
-            if (doneOrder!=null)
+            if (doneOrder != null)
             {
-                int orderId = orderServices.GetOrderId(viewModel.CustomerId);
-                foreach (var item in salesRecords)
+                foreach (var item in viewModel)
                 {
-                    item.OrderId = orderId;
-                    doneSales = checkoutRepo.Insert(item);
+                    int orderId = orderServices.GetOrderId(item.CustomerId);
+                    foreach (var sale in salesRecords)
+                    {
+                        sale.OrderId = orderId;
+                        doneSales = checkoutRepo.Insert(sale);
+                    }
                 }
             }
-            
+
 
             if (doneSales!=null)
             {

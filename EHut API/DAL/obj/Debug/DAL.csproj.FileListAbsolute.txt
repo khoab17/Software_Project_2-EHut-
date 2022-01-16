@@ -69,3 +69,4 @@ D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.CopyCom
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.dll
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.pdb
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.ReviewModelUpdate.resources
+D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.ReviewModelDateUpdate.resources

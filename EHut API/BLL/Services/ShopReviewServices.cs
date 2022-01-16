@@ -23,6 +23,14 @@ namespace BLL.Services
             var data = repo.Get(id);
             return data;
         }
+        public List<ShopReview>  ReviewsByShopId(int shopId)
+        {
+            return repo.ReviewsByShopId(shopId);
+        }
+        public List<ShopReview> ReviewsByProductId(int pId)
+        {
+            return repo.ReviewsByProductId(pId);
+        }
 
         public ShopReview GetByPhone(string phone)
         {

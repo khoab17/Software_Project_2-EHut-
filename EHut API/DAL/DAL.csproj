@@ -105,6 +105,10 @@
     <Compile Include="Migrations\202201161420294_ReviewModelUpdate.designer.cs">
       <DependentUpon>202201161420294_ReviewModelUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201161509086_ReviewModelDateUpdate.cs" />
+    <Compile Include="Migrations\202201161509086_ReviewModelDateUpdate.designer.cs">
+      <DependentUpon>202201161509086_ReviewModelDateUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BankInformation.cs" />
@@ -201,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201161420294_ReviewModelUpdate.resx">
       <DependentUpon>202201161420294_ReviewModelUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201161509086_ReviewModelDateUpdate.resx">
+      <DependentUpon>202201161509086_ReviewModelDateUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

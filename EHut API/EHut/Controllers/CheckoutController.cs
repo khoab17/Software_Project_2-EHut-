@@ -18,6 +18,7 @@ namespace EHut.Controllers
     {
         private CheckoutServices services=new CheckoutServices();
         private string role;
+
         [HttpPost, Route("",Name = "CheckoutPath")]
         public IHttpActionResult ConformCheckout(CheckoutViewModel model)
         {
@@ -26,8 +27,8 @@ namespace EHut.Controllers
             {
                 if (model.CustomerId >= 1 && model.ShopId >= 1 && model.Products != null)
                 {
-                    Order order = services.Insert(model);
-                    string url = Url.Link("CheckoutPath", new { id = order.OrderId });
+                    //Order order = services.Insert(model);
+                   // string url = Url.Link("CheckoutPath", new { id = order.OrderId });
                     return Ok();
                 }
                 else
