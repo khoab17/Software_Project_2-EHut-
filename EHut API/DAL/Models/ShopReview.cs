@@ -15,6 +15,7 @@ namespace DAL.Models
         [Required(ErrorMessage = "Can't be empty")]
         public int ShopId { get; set; }
 
+        public int ProductId { get; set; }
 
 
         [Required(ErrorMessage = "Can't be empty")]
@@ -23,6 +24,8 @@ namespace DAL.Models
 
         [Required(ErrorMessage = "Can't be empty")]
         public string Comment { get; set; }
+
+        public int Ratting { get; set; }
 
 
         [Required(ErrorMessage = "Can't be empty")]

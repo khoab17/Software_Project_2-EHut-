@@ -101,6 +101,10 @@
     <Compile Include="Migrations\202201111438216_SalesRecordStatusChangedToString.designer.cs">
       <DependentUpon>202201111438216_SalesRecordStatusChangedToString.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201161420294_ReviewModelUpdate.cs" />
+    <Compile Include="Migrations\202201161420294_ReviewModelUpdate.designer.cs">
+      <DependentUpon>202201161420294_ReviewModelUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BankInformation.cs" />
@@ -194,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201111438216_SalesRecordStatusChangedToString.resx">
       <DependentUpon>202201111438216_SalesRecordStatusChangedToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201161420294_ReviewModelUpdate.resx">
+      <DependentUpon>202201161420294_ReviewModelUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
