@@ -29,7 +29,7 @@ namespace DAL.Models
 
         public string Date { get; set; }
         
-        public string Image { get; set; }
+        public string ImageSource { get; set; }
 
 
 
