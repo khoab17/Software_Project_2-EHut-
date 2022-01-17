@@ -168,6 +168,7 @@
     <Compile Include="View Models\ProductViewModel.cs" />
     <Compile Include="View Models\SalesProductViewModel.cs" />
     <Compile Include="View Models\SumGroupByModel.cs" />
+    <Compile Include="View Models\TempDeliveredReviewViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

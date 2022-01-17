@@ -45,7 +45,21 @@ namespace BLL.Services
 
         public List<DeliveredReviewViewModel> GetDeliveredProductsReview(int shopId)
         {
-            return repo.GetDeliveredProductsReview(shopId);
+            ProductServices productServices=new ProductServices();
+            List<DeliveredReviewViewModel> drvModels = new List<DeliveredReviewViewModel>();
+            DeliveredReviewViewModel model;
+            var data= repo.GetDeliveredProductsReview(shopId);
+            foreach (var item in data)
+            {
+                model = new DeliveredReviewViewModel();
+                model.ProductId = item.ProductId;
+                model.Name=productServices.Get(item.ProductId).Name;
+                model.Price = item.Price;
+                model.Comment = item.Comment;
+                model.Ratting=item.Ratting;
+                drvModels.Add(model);
+            }
+            return drvModels;
         }
 
         public ShopReview Insert(ShopReview model)
