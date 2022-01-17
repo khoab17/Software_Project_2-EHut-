@@ -44,8 +44,9 @@ namespace DAL.Repository
                 else
                     return false;
             }
-            catch
+            catch( Exception e)
             {
+                var rx = e;
                 return false;
             }
             

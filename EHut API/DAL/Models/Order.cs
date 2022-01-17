@@ -44,7 +44,6 @@ namespace DAL.Models
         public Customer Customer { get; set; }
         [ForeignKey("DiscountId")]
         public Discount Discount { get; set; }
-        [ForeignKey("DeliverymanId")]
-        public Deliveryman Deliveryman { get; set; }
+
     }
 }

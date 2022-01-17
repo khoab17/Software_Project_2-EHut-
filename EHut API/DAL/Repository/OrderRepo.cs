@@ -25,5 +25,18 @@ namespace DAL.Repository
             }
             return orders;
         }
+
+        public new bool Insert(Order entity)
+        {
+            context.Orders.Add(entity);
+
+            if (context.SaveChanges() > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+
+        }
     }
 }

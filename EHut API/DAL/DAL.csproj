@@ -113,6 +113,10 @@
     <Compile Include="Migrations\202201161520368_ReviewModelImageUpdate.designer.cs">
       <DependentUpon>202201161520368_ReviewModelImageUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201170708321_DlvrymanIDFKRemovedFromOrders.cs" />
+    <Compile Include="Migrations\202201170708321_DlvrymanIDFKRemovedFromOrders.designer.cs">
+      <DependentUpon>202201170708321_DlvrymanIDFKRemovedFromOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BankInformation.cs" />
@@ -215,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201161520368_ReviewModelImageUpdate.resx">
       <DependentUpon>202201161520368_ReviewModelImageUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201170708321_DlvrymanIDFKRemovedFromOrders.resx">
+      <DependentUpon>202201170708321_DlvrymanIDFKRemovedFromOrders.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -37,7 +37,7 @@ namespace BLL.Services
                     model.CustomerId = item.CustomerId;
                     model.ShopId = item.ShopId;
                     model.ProductId = item.Products[i].ProductId;
-                    model.Quantity = item.Products[i].Qantity;
+                    model.Quantity = item.Products[i].Quantity;
                     model.Date = DateTime.Now;
                     model.Price = item.Products[i].Price;
                     model.Subtotal = item.Products[i].GetSubTotal();
@@ -51,7 +51,7 @@ namespace BLL.Services
 
             /// Creating New Order to Insert into Table[Orders]
             double discount = discountServices.Get(1).Percentage;
-
+            List<Order> orderDblistDup = new List<Order>();
             foreach (var item in viewModel)
             {
                 Order order = new Order();
@@ -63,22 +63,38 @@ namespace BLL.Services
                 order.DeliverymanId = -1;       // "-1 to denote invalid"
                 order.DeliveryStatus = false;
 
-                doneOrder = orderServices.Insert(order);   //Inserting to [Orders]
+                orderDblistDup.Add(order);
+                //doneOrder = orderServices.Insert(order);   //Inserting to [Orders]
             }
-
-
+            //check duplicate then insert Db
+            var dataOrder = orderDblistDup.Distinct().ToList();
+            /*foreach (var item in dataOrder)
+            {
+                doneOrder = orderServices.Insert(item);   //Inserting to [Orders]
+            }*/
+            doneOrder = orderServices.Insert(dataOrder[0]);
 
             ///  Inserting Sales Records to Table[Sales Record] without OrderId or OrderId as -1;
             if (doneOrder != null)
             {
+                List<SalesRecord> srDbListDup = new List<SalesRecord>();
                 foreach (var item in viewModel)
                 {
                     int orderId = orderServices.GetOrderId(item.CustomerId);
                     foreach (var sale in salesRecords)
                     {
                         sale.OrderId = orderId;
-                        doneSales = checkoutRepo.Insert(sale);
+                        srDbListDup.Add(sale);
+                        ///doneSales = checkoutRepo.Insert(sale);   // Insert to DB
                     }
+                    
+                }
+                //check dupliate data;
+                var data = srDbListDup.Distinct().ToList();
+                // then insert to db;
+                foreach (var item in data)
+                {
+                    doneSales = checkoutRepo.Insert(item);   // Insert to DB
                 }
             }
 

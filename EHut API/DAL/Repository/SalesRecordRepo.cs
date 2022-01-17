@@ -13,7 +13,18 @@ namespace DAL.Repository
     {
         private OrderRepo _orderRepo;
 
+        public new bool Insert(SalesRecord entity)
+        {
+            context.SalesRecords.Add(entity);
 
+            if (context.SaveChanges() > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+
+        }
 
         public bool AddOrderId(SalesRecord salesRecord)
         {
