@@ -26,13 +26,17 @@ namespace DAL.Repository
 
         public List<TempDeliveredReviewViewModel> GetDeliveredProductsReview(int shopId)
         {
-            string sql = "SELECT SalesRecords.ProductId,SalesRecords.Price,Comment,Ratting"
-                        + "FROM SalesRecords"
-                        + "FULL OUTER JOIN ShopReviews"
-                        + "ON SalesRecords.ProductId = ShopReviews.ProductId"
-                        + "WHERE SalesRecords.Status = 'Delivered' AND SalesRecords.ShopId='"+shopId+"'";
-            var data=context.Database.SqlQuery<TempDeliveredReviewViewModel>(sql).ToList();
-            return data;
+           
+            if(int.TryParse(shopId.ToString(), out var value))
+            {
+                string sql = "SELECT SalesRecords.ProductId,SalesRecords.Price,Comment,Ratting FROM SalesRecords FULL OUTER JOIN ShopReviews ON SalesRecords.ProductId = ShopReviews.ProductId WHERE SalesRecords.Status='Delivered' AND SalesRecords.ShopId= " + value + " ";
+
+                var data = context.Database.SqlQuery<TempDeliveredReviewViewModel>(sql).ToList();
+                return data;
+            }
+            return null;
+            
+            
         }
     }
 }

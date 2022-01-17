@@ -11,6 +11,6 @@ namespace DAL.View_Models
         public int ProductId { get; set; }
         public double Price { get; set; }
         public string Comment { get; set; }
-        public int Ratting { get; set; }
+        public int? Ratting { get; set; }
     }
 }
