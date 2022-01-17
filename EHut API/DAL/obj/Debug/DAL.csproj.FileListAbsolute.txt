@@ -71,3 +71,31 @@ D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.pdb
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.ReviewModelUpdate.resources
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.ReviewModelDateUpdate.resources
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.ReviewModelImageUpdate.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\DAL.dll.config
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\DAL.dll
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\DAL.pdb
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\EntityFramework.dll
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\EntityFramework.xml
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.InitDb.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.FKRemovedCredential.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.PasswordForShop.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.PhoneUnique.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.EmailUnique.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.PhoneUniqueCredential.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.BankinfoIdRemovedAsFKFromShop.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.RemovedRequiredFromCustomer.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.RemovedConstrainsFromCustomer.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.DiscountFKRemoved.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.StatusAddedToSalesRecord.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.SalesRecordStatusChangedToString.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.ReviewModelUpdate.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.ReviewModelDateUpdate.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.ReviewModelImageUpdate.resources
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.dll
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.pdb

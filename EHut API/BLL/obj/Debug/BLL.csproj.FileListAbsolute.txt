@@ -90,3 +90,20 @@ D:\Codes\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CoreCompileI
 D:\Codes\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CopyComplete
 D:\Codes\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.dll
 D:\Codes\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.pdb
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\BLL.dll
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\BLL.pdb
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\AutoMapper.dll
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\DAL.dll
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\System.ValueTuple.dll
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\EntityFramework.dll
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\DAL.pdb
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\DAL.dll.config
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\AutoMapper.pdb
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\AutoMapper.xml
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\System.ValueTuple.xml
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\EntityFramework.xml
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.dll
+D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.pdb
