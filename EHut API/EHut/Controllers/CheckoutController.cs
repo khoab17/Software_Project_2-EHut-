@@ -20,15 +20,16 @@ namespace EHut.Controllers
         private string role;
 
         [HttpPost, Route("",Name = "CheckoutPath")]
-        public IHttpActionResult ConformCheckout(CheckoutViewModel model)
+        public IHttpActionResult ConformCheckout(List<CheckoutViewModel> model)
         {
             role = Thread.CurrentPrincipal.Identity.AuthenticationType;
-            if(role == "Customer")
+            role = "Customer";                                              /////change
+            if (role == "Customer")
             {
-                if (model.CustomerId >= 1 && model.ShopId >= 1 && model.Products != null)
+                if (model.Count > 0)
                 {
-                    //Order order = services.Insert(model);
-                   // string url = Url.Link("CheckoutPath", new { id = order.OrderId });
+                    Order order = services.Insert(model);
+                    string url = Url.Link("CheckoutPath", new { id = -1 });
                     return Ok();
                 }
                 else
@@ -36,9 +37,9 @@ namespace EHut.Controllers
             }
             else
                 return StatusCode(HttpStatusCode.Unauthorized);
-            
+
         }
-        
+
 
     }
 }
