@@ -14,5 +14,6 @@ namespace DAL.View_Models
         public int quantity { get; set; }
         public string Date { get; set; }
         public string Status { get; set; }
+        public List<ShopReview> ShopReviewList { get; set; }
     }
 }

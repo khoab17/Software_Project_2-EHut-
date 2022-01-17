@@ -45,6 +45,7 @@ namespace EHut.Controllers
         public IHttpActionResult GetRecordsByStatus(int id,string status)
         {
             var products = srServices.GetRecordsByStatus(id,status);
+
             if (products == null)
             {
                 return Ok("No Order in your Shop with "+status+" Status" );

@@ -107,5 +107,44 @@ namespace EHut.Controllers
             else
                 return StatusCode(HttpStatusCode.BadRequest);
         }
+
+
+        [HttpGet, Route("yearlySalesReports")]
+        public IHttpActionResult YearlySalesReport()
+        {
+
+            List<SumGroupByModel> yearlySalesInfo = shopServices.GetYearlySalesData();
+            return Ok(yearlySalesInfo);
+        }
+
+        [HttpGet, Route("monthlySalesForYearReports/{year}")]
+        public IHttpActionResult MonthlySalesForYearReport(int year)
+        {
+        
+            List<SumGroupByModel> monthlyInfoForYear = shopServices.GetMonthlySalesDataForAYear(year);
+            monthlyInfoForYear = shopServices.GetMonthlySalesDataForAYear(year);
+
+            List<BarChartModel> chart = new List<BarChartModel>();
+
+            string[] months = { "Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" };
+
+            int i, j;
+            int count = monthlyInfoForYear.Count();
+
+            //Adding All the Months and Giving the Sum Amount Zero to the chart
+            for (i = 0; i < 12; i++)
+            {
+                BarChartModel barChartModel = new BarChartModel(months[i], 0);
+                chart.Add(barChartModel);
+            }
+
+            //Now Assigning Value to the months where the Sum Amount exists for that particular month
+            for (i = 0; i < count; i++)
+            {
+                chart[monthlyInfoForYear[i].Id - 1].Y = monthlyInfoForYear[i].Column1;
+            }
+            return Ok(chart);
+        }
+
     }
 }

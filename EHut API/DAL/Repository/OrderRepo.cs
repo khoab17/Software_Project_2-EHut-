@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using DAL.View_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,19 @@ namespace DAL.Repository
             else
                 return false;
 
+        }
+
+        public List<SumGroupByModel> GetYearlySalesData()
+        {
+            List<SumGroupByModel> yearlySalesReport = context.Database.SqlQuery<SumGroupByModel>("select sum(GrandTotal) as Column1, YEAR(Date) as Id from Orders group by YEAR(Date)").ToList();
+            return yearlySalesReport;
+        }
+
+        public List<SumGroupByModel> GetMonthlySalesDataForAYear(int year)
+        {
+            List<SumGroupByModel> monthlyInfoByForYear = context.Database.SqlQuery<SumGroupByModel>("select sum(GrandTotal) as Column1, Month(Date) as Id from Orders where YEAR(date) = " + year + " group by MONTH(Date)").ToList();
+
+            return monthlyInfoByForYear;
         }
     }
 }

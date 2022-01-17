@@ -14,6 +14,7 @@ namespace BLL.Services
     {
         SalesRecordRepo repo = new SalesRecordRepo();
         ProductServices productServices = new ProductServices();
+        ShopReviewServices shopReviewServices = new ShopReviewServices();
         public List<SalesRecord> GetAll()
         {
             var data = repo.GetAll();
@@ -91,6 +92,7 @@ namespace BLL.Services
         public List<SalesProductViewModel> GetRecordsByStatus(int shopId, string status)
         {
             var recors = repo.GetSalesRecordByStatus(shopId,status);
+            
             List<SalesProductViewModel> productList = new List<SalesProductViewModel>();
             if (recors != null)
             {
@@ -101,6 +103,7 @@ namespace BLL.Services
                     model.quantity = item.Quantity;
                     model.SalesRecordId = item.SalesRecordId;
                     model.Date = item.Date.Date.ToString();
+                    model.ShopReviewList = shopReviewServices.ReviewsByProductIdAndShopId(shopId, item.ProductId);
                     productList.Add(model);
                 }
                 return productList;

@@ -1,6 +1,7 @@
 ﻿
 using DAL.Models;
 using DAL.Repository;
+using DAL.View_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,15 @@ namespace BLL.Services
             }
             else
                 return false;
+        }
+
+        public List<SumGroupByModel> GetYearlySalesData()
+        {
+            return repo.GetYearlySalesData();
+        }
+        public List<SumGroupByModel> GetMonthlySalesDataForAYear(int year)
+        {
+            return repo.GetMonthlySalesDataForAYear(year);
         }
     }
 }

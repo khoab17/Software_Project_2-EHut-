@@ -1,6 +1,7 @@
 ﻿
 using DAL.Models;
 using DAL.Repository;
+using DAL.View_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace BLL.Services
     public class ShopServices
     {
         ShopRepo repo = new ShopRepo();
+        OrderServices orderServices = new OrderServices();
         public List<Shop> GetAll()
         {
             var data = repo.GetAll();
@@ -83,6 +85,15 @@ namespace BLL.Services
             }
             else
                 return false;
+        }
+
+        public List<SumGroupByModel> GetYearlySalesData()
+        {
+            return orderServices.GetYearlySalesData();
+        }
+        public List<SumGroupByModel> GetMonthlySalesDataForAYear(int year)
+        {
+            return orderServices.GetMonthlySalesDataForAYear(year);
         }
     }
 }
