@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using DAL.View_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,5 +24,15 @@ namespace DAL.Repository
             return context.ShopReviews.Where(x => x.ShopId == shopId &&  x.ProductId == pId).ToList();
         }
 
+        public List<DeliveredReviewViewModel> GetDeliveredProductsReview(int shopId)
+        {
+            string sql = "SELECT SalesRecords.ProductId,SalesRecords.Price,Comment,Ratting"
+                        + "FROM SalesRecords"
+                        + "FULL OUTER JOIN ShopReviews"
+                        + "ON SalesRecords.ProductId = ShopReviews.ProductId"
+                        + "WHERE SalesRecords.Status = 'Delivered' AND SalesRecords.ShopId='"+shopId+"'";
+            var data=context.Database.SqlQuery<DeliveredReviewViewModel>(sql).ToList();
+            return data;
+        }
     }
 }

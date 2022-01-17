@@ -1,6 +1,7 @@
 ﻿
 using DAL.Models;
 using DAL.Repository;
+using DAL.View_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,11 @@ namespace BLL.Services
         {
             var data = repo.GetByPhone(phone);
             return data;
+        }
+
+        public List<DeliveredReviewViewModel> GetDeliveredProductsReview(int shopId)
+        {
+            return repo.GetDeliveredProductsReview(shopId);
         }
 
         public ShopReview Insert(ShopReview model)

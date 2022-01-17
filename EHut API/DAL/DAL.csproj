@@ -162,6 +162,7 @@
     <Compile Include="Repository\ShopReviewRepo.cs" />
     <Compile Include="View Models\BarChartModel.cs" />
     <Compile Include="View Models\CheckoutViewModel.cs" />
+    <Compile Include="View Models\DeliveredReviewViewModel.cs" />
     <Compile Include="View Models\LoginViewModel.cs" />
     <Compile Include="View Models\OrderAcceptanceViewModel.cs" />
     <Compile Include="View Models\ProductViewModel.cs" />
