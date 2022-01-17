@@ -27,6 +27,13 @@ namespace EHut.Controllers
             return Ok(shopReviewServices.ReviewsByShopId(id));
         }
 
+        //ReviewsByProductIdAndShopId
+        [HttpGet, Route("ReviewsByProductIdAndShopId/{shopId}/{id}")]
+        public IHttpActionResult ReviewsByProductIdAndShopId(int shopId ,int id)
+        {
+            return Ok(shopReviewServices.ReviewsByProductIdAndShopId(shopId,id));
+        }
+
         [HttpGet, Route("{id}")]
         public IHttpActionResult Get(int id)
         {

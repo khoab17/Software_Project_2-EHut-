@@ -32,6 +32,10 @@ namespace BLL.Services
             return repo.ReviewsByProductId(pId);
         }
 
+        public List<ShopReview> ReviewsByProductIdAndShopId(int shopId , int pId)
+        {
+            return repo.ReviewsByProductIdAndShopId(shopId,pId);
+        }
         public ShopReview GetByPhone(string phone)
         {
             var data = repo.GetByPhone(phone);

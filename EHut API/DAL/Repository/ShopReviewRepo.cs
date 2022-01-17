@@ -17,5 +17,11 @@ namespace DAL.Repository
         {
             return context.ShopReviews.Where(x => x.ProductId == pId).ToList();
         }
+
+        public List<ShopReview> ReviewsByProductIdAndShopId(int shopId, int pId)
+        {
+            return context.ShopReviews.Where(x => x.ShopId == shopId &&  x.ProductId == pId).ToList();
+        }
+
     }
 }
