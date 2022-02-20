@@ -48,10 +48,14 @@ namespace EHut.Controllers
         {
             if (ModelState.IsValid)
             {
-                customerServices.Insert(model);
-                string url = Url.Link("CustomerPath", new { id = model.CustomerId });
-                return Created(url, model);
-                
+                var done=customerServices.Insert(model);
+                if(done!=null)
+                {
+                    string url = Url.Link("CustomerPath", new { id = model.CustomerId });
+                    return Created(url, model);
+                }
+                else
+                    return StatusCode(HttpStatusCode.NoContent);
             }
             else
             {
@@ -78,8 +82,14 @@ namespace EHut.Controllers
             if (ModelState.IsValid)
             {
                  model.CustomerId = id;
-                customerServices.Update(model);
-                return Ok(model);
+                var done=customerServices.Update(model);
+                if (done != null)
+                {
+                    return Ok(model);
+                }
+                else
+                    return StatusCode(HttpStatusCode.NoContent);
+                
             }
             else
                 return StatusCode(HttpStatusCode.NoContent);

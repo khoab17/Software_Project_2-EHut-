@@ -61,9 +61,14 @@ namespace EHut.Controllers
                 if (ModelState.IsValid)
                 {
                     //insert in Admin table
-                    adminServices.Insert(admin);
-                    string url = Url.Link("AdminPath", new { id = admin.AdminId });
-                    return Created(url, admin);
+                   var done= adminServices.Insert(admin);
+                    if(done != null)
+                    {
+                        string url = Url.Link("AdminPath", new { id = admin.AdminId });
+                        return Created(url, admin);
+                    }
+                    else 
+                        return StatusCode(HttpStatusCode.NoContent);
                 }
                 else
                 {
@@ -109,13 +114,18 @@ namespace EHut.Controllers
                 if (ModelState.IsValid)
                 {
                     model.AdminId = id;
-                    adminServices.Update(model);
+                    var done=adminServices.Update(model);
 
-                    Credential credential = credentialServices.GetByPhone(model.Phone);
-                    credential.Password = model.Password;
-                    credentialServices.Update(credential);
+                    if (done != null)
+                    {
+                        Credential credential = credentialServices.GetByPhone(model.Phone);
+                        credential.Password = model.Password;
+                        credentialServices.Update(credential);
 
-                    return Ok(model);
+                        return Ok(model);
+                    }
+                    else
+                        return StatusCode(HttpStatusCode.NoContent);
                 }
                 else
                     return StatusCode(HttpStatusCode.NoContent);

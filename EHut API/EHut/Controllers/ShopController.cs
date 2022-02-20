@@ -30,16 +30,35 @@ namespace EHut.Controllers
             return Ok(shopServices.Get(id));
         }
 
+        [HttpGet, Route("{phone}")]
+        public IHttpActionResult GetExisting(string phone)
+        {
+            var data = shopServices.GetAll();
+            foreach (var item in data)
+            {
+                if (item.Phone == phone)
+                {
+                    return StatusCode(HttpStatusCode.Conflict);
+                }
+            }
+            return Ok();
+        }
+
         [HttpPost, Route("", Name = "ShopPath")]
         public IHttpActionResult Create(Shop  model)
         {
             if (ModelState.IsValid)
             {
 
-                shopServices.Insert(model);
-                string url = Url.Link("ShopPath", new { id = model.ShopId });
+                var done=shopServices.Insert(model);
+                if (done != null)
+                {
+                    string url = Url.Link("ShopPath", new { id = model.ShopId });
 
-                return Created(url, model);
+                    return Created(url, model);
+                }
+                else
+                    return StatusCode(HttpStatusCode.NoContent);
                 
             }
             else
@@ -55,8 +74,13 @@ namespace EHut.Controllers
             if (ModelState.IsValid)
             {
                  model.ShopId = id;
-                shopServices.Update(model);
-                return Ok(model);
+                var done=shopServices.Update(model);
+                if (done != null)
+                {
+                    return Ok(model);
+                }
+                else
+                    return StatusCode(HttpStatusCode.NoContent);
             }
             else
                 return StatusCode(HttpStatusCode.NoContent);
