@@ -29,6 +29,20 @@ namespace EHut.Controllers
             return Ok(customerServices.Get(id));
         }
 
+        [HttpGet, Route("{phone}")]
+        public IHttpActionResult GetExisting(string phone)
+        {
+            var data = customerServices.GetAll();
+            foreach (var item in data)
+            {
+                if(item.Phone == phone)
+                {
+                    return StatusCode(HttpStatusCode.Conflict);
+                }
+            }
+            return Ok();
+        }
+
         [HttpPost, Route("", Name = "CustomerPath")]
         public IHttpActionResult Create(Customer model)
         {
