@@ -17,6 +17,7 @@ namespace EHut.Controllers
     public class ShopController : ApiController
     {
         ShopServices shopServices = new ShopServices();
+        CredentialServices credentialServices = new CredentialServices();
         [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {
@@ -30,18 +31,18 @@ namespace EHut.Controllers
             return Ok(shopServices.Get(id));
         }
 
-        [HttpGet, Route("{phone}")]
+        [HttpGet, Route("GetExisting/{phone}")]
         public IHttpActionResult GetExisting(string phone)
         {
-            var data = shopServices.GetAll();
+            var data = credentialServices.GetAll();
             foreach (var item in data)
             {
                 if (item.Phone == phone)
                 {
-                    return StatusCode(HttpStatusCode.Conflict);
+                    return Ok("old");
                 }
             }
-            return Ok();
+            return Ok("new");
         }
 
         [HttpPost, Route("", Name = "ShopPath")]

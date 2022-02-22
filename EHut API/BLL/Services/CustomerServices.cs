@@ -12,7 +12,7 @@ namespace BLL.Services
     public class CustomerServices
     {
         CustomerRepo customerRepo = new CustomerRepo();
-
+        CredentialServices credentialServices = new CredentialServices();
         public List<Customer> GetAll()
         {
             var data = customerRepo.GetAll();

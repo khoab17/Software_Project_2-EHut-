@@ -15,7 +15,8 @@ namespace EHut.Controllers
     {
         SalesRecordServices srServices=new SalesRecordServices();
         CustomerServices customerServices = new CustomerServices();
-        
+        CredentialServices credentialServices = new CredentialServices();
+
         [HttpGet, Route("")]
         public IHttpActionResult GetAll()
         {
@@ -32,15 +33,15 @@ namespace EHut.Controllers
         [HttpGet, Route("GetExisting/{phone}")]
         public IHttpActionResult GetExisting(string phone)
         {
-            var data = customerServices.GetAll();
+            var data = credentialServices.GetAll();
             foreach (var item in data)
             {
                 if(item.Phone == phone)
                 {
-                    return StatusCode(HttpStatusCode.Conflict);
+                    return Ok("old");
                 }
             }
-            return Ok();
+            return Ok("new");
         }
 
         [HttpPost, Route("", Name = "CustomerPath")]

@@ -124,3 +124,20 @@ E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API
 E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CopyComplete
 E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.dll
 E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.pdb
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\BLL.dll
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\BLL.pdb
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\AutoMapper.dll
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\DAL.dll
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\System.ValueTuple.dll
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\EntityFramework.dll
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\DAL.pdb
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\DAL.dll.config
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\AutoMapper.pdb
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\AutoMapper.xml
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\System.ValueTuple.xml
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\EntityFramework.xml
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.dll
+E:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.pdb
