@@ -33,15 +33,20 @@ namespace EHut.Controllers
         [HttpGet, Route("GetExisting/{phone}")]
         public IHttpActionResult GetExisting(string phone)
         {
-            var data = credentialServices.GetAll();
-            foreach (var item in data)
+            if (phone != null || phone.Length != 11)
             {
-                if(item.Phone == phone)
+                var data = credentialServices.GetAll();
+                foreach (var item in data)
                 {
-                    return Ok("old");
+                    if (item.Phone == phone)
+                    {
+                        return Ok("old");
+                    }
                 }
+                return Ok("new");
             }
-            return Ok("new");
+            else
+                return StatusCode(HttpStatusCode.NoContent);
         }
 
         [HttpPost, Route("", Name = "CustomerPath")]
