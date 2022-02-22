@@ -29,7 +29,7 @@ namespace EHut.Controllers
             return Ok(customerServices.Get(id));
         }
 
-        [HttpGet, Route("{phone}")]
+        [HttpGet, Route("GetExisting/{phone}")]
         public IHttpActionResult GetExisting(string phone)
         {
             var data = customerServices.GetAll();

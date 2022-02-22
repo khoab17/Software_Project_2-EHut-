@@ -107,3 +107,20 @@ D:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CoreCom
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CopyComplete
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.dll
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.pdb
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\BLL.dll
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\BLL.pdb
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\AutoMapper.dll
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\DAL.dll
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\System.ValueTuple.dll
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\EntityFramework.dll
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\DAL.pdb
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\DAL.dll.config
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\AutoMapper.pdb
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\AutoMapper.xml
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\System.ValueTuple.xml
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\bin\Debug\EntityFramework.xml
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.dll
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\BLL\obj\Debug\BLL.pdb

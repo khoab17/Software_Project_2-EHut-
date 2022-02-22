@@ -100,3 +100,31 @@ D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.CopyCom
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.dll
 D:\Class\Fall\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.pdb
 D:\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.DlvrymanIDFKRemovedFromOrders.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\DAL.dll.config
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\DAL.dll
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\DAL.pdb
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\EntityFramework.dll
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\EntityFramework.xml
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.InitDb.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.FKRemovedCredential.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.PasswordForShop.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.PhoneUnique.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.EmailUnique.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.PhoneUniqueCredential.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.BankinfoIdRemovedAsFKFromShop.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.RemovedRequiredFromCustomer.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.RemovedConstrainsFromCustomer.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.DiscountFKRemoved.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.StatusAddedToSalesRecord.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.SalesRecordStatusChangedToString.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.ReviewModelUpdate.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.ReviewModelDateUpdate.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.ReviewModelImageUpdate.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.Migrations.DlvrymanIDFKRemovedFromOrders.resources
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.dll
+E:\TestProjectHudai\Class\SMSTR 11\SP2\Project\Software_Project_2-EHut-\EHut API\DAL\obj\Debug\DAL.pdb
