@@ -1,6 +1,7 @@
 ﻿
 using BLL.Services;
 using DAL.Models;
+using EHut.Attribute;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace EHut.Controllers
         CredentialServices credentialServices = new CredentialServices();
 
         [HttpGet, Route("")]
+        [BasicAuthentication]
         public IHttpActionResult GetAll()
         {
 
@@ -25,12 +27,11 @@ namespace EHut.Controllers
         }
 
         [HttpGet, Route("{id}")]
-        public IHttpActionResult Get(int id)
-        {
-            return Ok(customerServices.Get(id));
-        }
+        [BasicAuthentication]
+        public IHttpActionResult Get(int id) => Ok(customerServices.Get(id));
 
         [HttpGet, Route("GetExisting/{phone}")]
+        [BasicAuthentication]
         public IHttpActionResult GetExisting(string phone)
         {
             if (phone != null || phone.Length != 11)
@@ -70,6 +71,7 @@ namespace EHut.Controllers
         }
 
         [HttpGet, Route("GetRecordsByStatus/{id}/{status}")]
+        [BasicAuthentication]
         public IHttpActionResult GetRecordsByStatus(int id, string status)
         {
             var products = srServices.GetOrderHistoryByStatus(id, status);
@@ -82,6 +84,7 @@ namespace EHut.Controllers
         }
 
         [HttpPut, Route("{id}")]
+        [BasicAuthentication]
         public IHttpActionResult Edit([FromBody] Customer model, [FromUri] int id)
         {
 
@@ -103,6 +106,7 @@ namespace EHut.Controllers
         
         
         [HttpPut, Route("ChangePassword/{id}")]
+        [BasicAuthentication]
         public IHttpActionResult ChangePassword([FromBody] Customer model, [FromUri] int id)
         {
 
