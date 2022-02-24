@@ -12,19 +12,21 @@ using System.Web.Http;
 
 namespace EHut.Controllers
 {
-    [BasicAuthentication]
     [RoutePrefix("api/Shops")]
     public class ShopController : ApiController
     {
         ShopServices shopServices = new ShopServices();
         CredentialServices credentialServices = new CredentialServices();
+
+        
         [HttpGet, Route("")]
+        [BasicAuthentication]
         public IHttpActionResult GetAll()
         {
 
             return Ok(shopServices.GetAll());
         }
-
+        [BasicAuthentication]
         [HttpGet, Route("{id}")]
         public IHttpActionResult Get(int id)
         {
@@ -49,7 +51,7 @@ namespace EHut.Controllers
             else
                 return StatusCode(HttpStatusCode.NoContent);
         }
-
+        
         [HttpPost, Route("", Name = "ShopPath")]
         public IHttpActionResult Create(Shop  model)
         {
@@ -72,7 +74,7 @@ namespace EHut.Controllers
                 return StatusCode(HttpStatusCode.NoContent);
             }
         }
-
+        [BasicAuthentication]
         [HttpPut, Route("{id}")]
         public IHttpActionResult Edit([FromBody] Shop  model, [FromUri] int id)
         {
@@ -91,7 +93,7 @@ namespace EHut.Controllers
             else
                 return StatusCode(HttpStatusCode.NoContent);
         }
-        
+        [BasicAuthentication]
         [HttpPut, Route("ChangePassword/{id}")]
         public IHttpActionResult ChangePassword([FromBody] Shop  model, [FromUri] int id)
         {
@@ -111,7 +113,7 @@ namespace EHut.Controllers
             else
                 return StatusCode(HttpStatusCode.NoContent);
         }
-
+        [BasicAuthentication]
         [HttpDelete, Route("{id}")]
         public IHttpActionResult Delete(int id)
         {
@@ -119,7 +121,7 @@ namespace EHut.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-
+        [BasicAuthentication]
         [HttpPost, Route("ProductOrderAcceptance", Name = "ProductOrderAcceptance")]      // Pending Accepted Rejected Delivered
         public IHttpActionResult ProductOrderAcceptance(OrderAcceptanceViewModel model )
         {
@@ -138,7 +140,7 @@ namespace EHut.Controllers
                 return StatusCode(HttpStatusCode.BadRequest);
         }
 
-
+        [BasicAuthentication]
         [HttpGet, Route("yearlySalesReports")]
         public IHttpActionResult YearlySalesReport()
         {
@@ -146,7 +148,7 @@ namespace EHut.Controllers
             List<SumGroupByModel> yearlySalesInfo = shopServices.GetYearlySalesData();
             return Ok(yearlySalesInfo);
         }
-
+        [BasicAuthentication]
         [HttpGet, Route("monthlySalesForYearReports/{year}")]
         public IHttpActionResult MonthlySalesForYearReport(int year)
         {
