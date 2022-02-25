@@ -153,29 +153,36 @@ namespace EHut.Controllers
         public IHttpActionResult MonthlySalesForYearReport(int year,int id)
         {
 
-            List<SumGroupByModel> monthlyInfoForYear = new List<SumGroupByModel>();
-            monthlyInfoForYear = shopServices.GetMonthlySalesDataForAYear(year,id);
-
-            List<BarChartModel> chart = new List<BarChartModel>();
-
-            string[] months = { "Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" };
-
-            int i, j;
-            int count = monthlyInfoForYear.Count();
-
-            //Adding All the Months and Giving the Sum Amount Zero to the chart
-            for (i = 0; i < 12; i++)
+            if(year.GetType()==typeof(int)  || id.GetType()==typeof(int))
             {
-                BarChartModel barChartModel = new BarChartModel(months[i], 0);
-                chart.Add(barChartModel);
-            }
+                List<SumGroupByModel> monthlyInfoForYear = new List<SumGroupByModel>();
+                monthlyInfoForYear = shopServices.GetMonthlySalesDataForAYear(year, id);
 
-            //Now Assigning Value to the months where the Sum Amount exists for that particular month
-            for (i = 0; i < count; i++)
-            {
-                chart[monthlyInfoForYear[i].Id - 1].Y = monthlyInfoForYear[i].Column1;
+                List<BarChartModel> chart = new List<BarChartModel>();
+
+                string[] months = { "Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" };
+
+                int i, j;
+                int count = monthlyInfoForYear.Count();
+
+                //Adding All the Months and Giving the Sum Amount Zero to the chart
+                for (i = 0; i < 12; i++)
+                {
+                    BarChartModel barChartModel = new BarChartModel(months[i], 0);
+                    chart.Add(barChartModel);
+                }
+
+                //Now Assigning Value to the months where the Sum Amount exists for that particular month
+                for (i = 0; i < count; i++)
+                {
+                    chart[monthlyInfoForYear[i].Id - 1].Y = monthlyInfoForYear[i].Column1;
+                }
+                return Ok(chart);
             }
-            return Ok(chart);
+            else
+            {
+                return StatusCode(HttpStatusCode.NoContent);
+            }
         }
 
     }
