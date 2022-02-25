@@ -149,12 +149,12 @@ namespace EHut.Controllers
             return Ok(yearlySalesInfo);
         }
         [BasicAuthentication]
-        [HttpGet, Route("monthlySalesForYearReports/{year}")]
-        public IHttpActionResult MonthlySalesForYearReport(int year)
+        [HttpGet, Route("monthlySalesForYearReports/{year}/{id}")]
+        public IHttpActionResult MonthlySalesForYearReport(int year,int id)
         {
-        
-            List<SumGroupByModel> monthlyInfoForYear = shopServices.GetMonthlySalesDataForAYear(year);
-            monthlyInfoForYear = shopServices.GetMonthlySalesDataForAYear(year);
+
+            List<SumGroupByModel> monthlyInfoForYear = new List<SumGroupByModel>();
+            monthlyInfoForYear = shopServices.GetMonthlySalesDataForAYear(year,id);
 
             List<BarChartModel> chart = new List<BarChartModel>();
 

@@ -72,9 +72,9 @@ namespace BLL.Services
         {
             return repo.GetYearlySalesData();
         }
-        public List<SumGroupByModel> GetMonthlySalesDataForAYear(int year)
+        public List<SumGroupByModel> GetMonthlySalesDataForAYear(int year,int id)
         {
-            return repo.GetMonthlySalesDataForAYear(year);
+            return repo.GetMonthlySalesDataForAYear(year,id);
         }
     }
 }

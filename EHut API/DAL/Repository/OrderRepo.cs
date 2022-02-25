@@ -46,9 +46,9 @@ namespace DAL.Repository
             return yearlySalesReport;
         }
 
-        public List<SumGroupByModel> GetMonthlySalesDataForAYear(int year)
+        public List<SumGroupByModel> GetMonthlySalesDataForAYear(int year,int id)
         {
-            List<SumGroupByModel> monthlyInfoByForYear = context.Database.SqlQuery<SumGroupByModel>("select sum(Orders.GrandTotal) as Column1, Month(SalesRecords.Date) as Id from Orders FULL OUTER JOIN SalesRecords ON SalesRecords.OrderId=Orders.OrderId where YEAR(SalesRecords.Date) = '"+year+"' AND Status = 'Delivered'  group by MONTH(SalesRecords.Date)").ToList();
+            List<SumGroupByModel> monthlyInfoByForYear = context.Database.SqlQuery<SumGroupByModel>("select sum(Orders.GrandTotal) as Column1, Month(SalesRecords.Date) as Id from Orders FULL OUTER JOIN SalesRecords ON SalesRecords.OrderId = Orders.OrderId where SalesRecords.ShopId = '"+id+"' AND  YEAR(SalesRecords.Date) = '" + year + "'  AND Status = 'Delivered'  group by MONTH(SalesRecords.Date)").ToList();
 
             return monthlyInfoByForYear;
         }

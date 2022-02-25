@@ -91,9 +91,9 @@ namespace BLL.Services
         {
             return orderServices.GetYearlySalesData();
         }
-        public List<SumGroupByModel> GetMonthlySalesDataForAYear(int year)
+        public List<SumGroupByModel> GetMonthlySalesDataForAYear(int year,int id)
         {
-            return orderServices.GetMonthlySalesDataForAYear(year);
+            return orderServices.GetMonthlySalesDataForAYear(year,id);
         }
 
         
