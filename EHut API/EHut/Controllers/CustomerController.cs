@@ -31,7 +31,6 @@ namespace EHut.Controllers
         public IHttpActionResult Get(int id) => Ok(customerServices.Get(id));
 
         [HttpGet, Route("GetExisting/{phone}")]
-        [BasicAuthentication]
         public IHttpActionResult GetExisting(string phone)
         {
             if (phone != null || phone.Length != 11)
